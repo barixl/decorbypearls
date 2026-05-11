@@ -1,0 +1,25 @@
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-logo-wrapper">
+        <a href="/" class="nav-logo">
+            <img src="{{ url_for('static', filename='images/logo_decorbypearls.png') }}" alt="Decor By Pearls" class="nav-logo-img">
+            <span class="logo-text">Decor <span>By</span> Pearls</span>
+        </a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+        <li><a href="{{ url_for('testimonials') }}">Testimonials</a></li>
+        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li class="mobile-cta-li"><button class="nav-cta">Plan Your Event</button></li>
+    </ul>
+    <div class="nav-btns">
+        <button class="nav-cta desktop-cta">Plan Your Event</button>
+        <div class="menu-btn" id="menu-btn">
+            <i class="ri-menu-3-line open-icon"></i>
+            <i class="ri-close-fill close-icon"></i>
+        </div>
+    </div>
+</nav>

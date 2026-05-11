@@ -1,0 +1,67 @@
+{% extends 'admin/base.html' %}
+
+{% block admin_content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+    <h2>Manage Categories</h2>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px;">
+    <!-- Add Category Form -->
+    <div style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: fit-content;">
+        <h3 style="margin-bottom: 20px; font-size: 1.1rem;">Add New Category</h3>
+        <form action="{{ url_for('new_category') }}" method="POST">
+            <div class="form-group">
+                <label>Category Name</label>
+                <input type="text" name="name" class="form-control" placeholder="e.g. Real Weddings" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Add Category</button>
+        </form>
+    </div>
+
+    <!-- Category List -->
+    <div style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <table class="admin-table" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="text-align: left; padding: 15px;">Name</th>
+                    <th style="text-align: center; padding: 15px;">Posts Count</th>
+                    <th style="text-align: right; padding: 15px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cat in categories %}
+                <tr>
+                    <td style="padding: 15px; border-bottom: 1px solid #eee;"><strong>{{ cat.name }}</strong></td>
+                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: center;">
+                        <span style="background: var(--cream); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                            {{ cat.blogs | length }}
+                        </span>
+                    </td>
+                    <td style="padding: 15px; border-bottom: 1px solid #eee; text-align: right;">
+                        {% if cat.name != 'Uncategorized' %}
+                        <a href="{{ url_for('delete_category', id=cat.id) }}" 
+                           class="btn btn-delete" 
+                           style="color: #dc3545; border: 1px solid #dc3545; padding: 5px 15px; border-radius: 5px; text-decoration: none; transition: 0.3s;"
+                           onmouseover="this.style.background='#dc3545'; this.style.color='#fff';"
+                           onmouseout="this.style.background='transparent'; this.style.color='#dc3545';"
+                           onclick="return confirm('WARNING: Deleting this category will move all associated posts to \'Uncategorized\'. Are you sure you want to proceed?')">
+                            <i class="ri-delete-bin-line"></i> Delete
+                        </a>
+                        {% else %}
+                        <span style="color: #ccc; font-size: 0.8rem; font-style: italic;">Default Category</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% if not categories %}
+                <tr>
+                    <td colspan="3" style="text-align: center; padding: 40px; color: #888;">
+                        No categories found. Add one to get started.
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

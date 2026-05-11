@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Blog – Decor By Pearls{% endblock %}
+
+{% block content %}
+<!-- PAGE HEADER -->
+<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80') center/cover; margin-top: 80px;">
+    <div class="container">
+        <span class="section-label" style="color: var(--gold);">Stories &amp; Inspiration</span>
+        <h1 class="section-title" style="color: #fff;">Our <em>Blog</em></h1>
+    </div>
+</section>
+
+<!-- FILTER BAR -->
+<section class="blog-filter-section">
+    <div class="container">
+        <!-- Mobile Toggle -->
+        <button class="filter-toggle" id="filterToggle">
+            <span><i class="ri-filter-3-line"></i> Filter</span>
+            <i class="ri-arrow-down-s-line toggle-arrow"></i>
+        </button>
+
+        <form class="filter-bar" id="filterBar" action="{{ url_for('blog') }}" method="GET">
+            <div class="filter-group">
+                <label for="categorySelect"><i class="ri-folder-line"></i> Category</label>
+                <select name="category" id="categorySelect">
+                    <option value="">All Categories</option>
+                    {% for cat in categories %}
+                    <option value="{{ cat.id }}" {{ 'selected' if selected_category|string == cat.id|string }}>{{ cat.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-group filter-search">
+                <label for="searchInput"><i class="ri-search-line"></i> Search</label>
+                <input type="text" name="q" id="searchInput" placeholder="Search blogs..." value="{{ search_query or '' }}">
+            </div>
+            <div class="filter-actions">
+                <button type="submit" class="filter-btn apply-btn"><i class="ri-filter-line"></i> Apply Filter</button>
+                <a href="{{ url_for('blog') }}" class="filter-btn clear-btn"><i class="ri-close-line"></i> Clear</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- BLOG LIST SECTION -->
+<section class="blog-list">
+    <div class="container">
+        {% if search_query or selected_category %}
+        <div class="filter-results-info">
+            <p>
+                Showing {{ blogs|length }} result{{ 's' if blogs|length != 1 }}
+                {% if search_query %} for "<strong>{{ search_query }}</strong>"{% endif %}
+                {% if selected_category %}
+                    {% for cat in categories %}
+                        {% if cat.id|string == selected_category|string %} in <strong>{{ cat.name }}</strong>{% endif %}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        </div>
+        {% endif %}
+
+        <div class="blog-grid">
+            {% for blog in blogs %}
+            <article class="blog-card reveal">
+                <div class="blog-img">
+                    <img src="{{ blog.image_url if blog.image_url else 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80' }}" alt="{{ blog.title }}" loading="lazy">
+                    <span class="blog-date">{{ blog.created_at.strftime('%B %d, %Y') }}</span>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-cat">{{ blog.cat.name if blog.cat else 'Uncategorized' }}</span>
+                    <h3>{{ blog.title }}</h3>
+                    <p>{{ blog.excerpt }}</p>
+                    <a href="{{ url_for('blog_single', slug=blog.slug) }}" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+            {% endfor %}
+            
+            {% if not blogs %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 100px 0;">
+                <i class="ri-search-line" style="font-size: 3rem; color: #ccc; margin-bottom: 20px; display: block;"></i>
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #888;">No blogs found.</h3>
+                <p style="color: #aaa; margin-top: 10px;">Try adjusting your filters or <a href="{{ url_for('blog') }}" style="color: var(--gold);">view all posts</a>.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+    <div class="cta-banner-inner reveal">
+        <h2>Begin Your <em>Love Story</em></h2>
+        <p>Let us craft an event that mirrors the depth of your love. Get in touch for a complimentary consultation.</p>
+        <div class="cta-form">
+            <input type="email" placeholder="Enter your email address">
+            <button>Get In Touch</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* FILTER BAR */
+    .blog-filter-section {
+        padding: 30px var(--section-padding-x) 0;
+        margin-bottom: -30px;
+    }
+    .filter-toggle {
+        display: none;
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--border);
+        padding: 14px 20px;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--dark);
+        border-radius: 8px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.3s;
+    }
+    .filter-toggle:hover {
+        border-color: var(--gold);
+    }
+    .filter-toggle .toggle-arrow {
+        transition: transform 0.3s;
+        font-size: 1.2rem;
+    }
+    .filter-bar {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(10, 17, 40, 0.05);
+        border: 1px solid var(--border);
+    }
+    .filter-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .filter-search {
+        flex: 1.5;
+    }
+    .filter-group label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--gold);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .filter-group label i {
+        font-size: 0.9rem;
+    }
+    .filter-group select,
+    .filter-group input {
+        padding: 12px 15px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.9rem;
+        color: var(--dark);
+        background: #fafafa;
+        outline: none;
+        transition: border-color 0.3s;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .filter-group select:focus,
+    .filter-group input:focus {
+        border-color: var(--gold);
+    }
+    .filter-actions {
+        display: flex;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .filter-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    .apply-btn {
+        background: var(--gold);
+        color: #fff;
+    }
+    .apply-btn:hover {
+        background: #b5953f;
+        transform: translateY(-1px);
+    }
+    .clear-btn {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+    }
+    .clear-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+    }
+
+    /* Filter Results Info */
+    .filter-results-info {
+        margin-bottom: 10px;
+        padding: 12px 20px;
+        background: var(--cream);
+        border-radius: 8px;
+        border-left: 3px solid var(--gold);
+    }
+    .filter-results-info p {
+        font-size: 0.9rem;
+        color: var(--text);
+        margin: 0;
+    }
+
+    /* BLOG GRID */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .blog-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(10, 17, 40, 0.05);
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+    .blog-card:hover {
+        transform: translateY(-10px);
+    }
+    .blog-img {
+        position: relative;
+        height: 250px;
+    }
+    .blog-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .blog-date {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: var(--gold);
+        color: #fff;
+        padding: 5px 15px;
+        font-size: 0.75rem;
+        border-radius: 4px;
+        letter-spacing: 1px;
+    }
+    .blog-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .blog-cat {
+        font-size: 0.7rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .blog-content h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+        line-height: 1.3;
+        font-weight: 600;
+    }
+    .blog-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: var(--text);
+        margin-bottom: 20px;
+        font-weight: 300;
+        flex-grow: 1;
+    }
+    .blog-link {
+        background: var(--gold);
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.3s;
+        margin-top: auto;
+        border-radius: 4px;
+        align-self: flex-start;
+    }
+    .blog-link:hover {
+        background: #b5953f;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+    
+    @media (max-width: 1024px) {
+        .blog-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .blog-content h3 {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .filter-toggle {
+            display: flex;
+        }
+        .filter-bar {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+            padding: 20px;
+            animation: slideDown 0.3s ease;
+        }
+        .filter-bar.open {
+            display: flex;
+        }
+        .filter-actions {
+            width: 100%;
+        }
+        .filter-btn {
+            flex: 1;
+            justify-content: center;
+        }
+        .blog-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .blog-img {
+            height: 200px;
+        }
+        .blog-content {
+            padding: 20px;
+        }
+        .blog-content h3 {
+            font-size: 1.3rem;
+        }
+        .blog-content p {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+        .blog-img {
+            height: 250px;
+        }
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('filterToggle').addEventListener('click', function() {
+        var bar = document.getElementById('filterBar');
+        var arrow = this.querySelector('.toggle-arrow');
+        bar.classList.toggle('open');
+        arrow.style.transform = bar.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/base.html' %}
+
+{% block admin_content %}
+<div class="header">
+    <h1>Manage <em>Blogs</em></h1>
+    <a href="{{ url_for('new_blog') }}" class="btn btn-primary"><i class="ri-add-line"></i> New Post</a>
+</div>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blog in blogs %}
+        <tr>
+            <td><strong>{{ blog.title }}</strong></td>
+            <td>{{ blog.cat.name if blog.cat else 'Uncategorized' }}</td>
+            <td>{{ blog.created_at.strftime('%Y-%m-%d') }}</td>
+            <td>
+                <div style="display: flex; gap: 10px;">
+                    <a href="{{ url_for('edit_blog', id=blog.id) }}" class="btn btn-primary" style="padding: 5px 10px; font-size: 0.8rem;"><i class="ri-edit-line"></i></a>
+                    <a href="{{ url_for('delete_blog', id=blog.id) }}" class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem;" onclick="return confirm('Delete this blog?')"><i class="ri-delete-bin-line"></i></a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        {% if not blogs %}
+        <tr>
+            <td colspan="4" style="text-align: center; padding: 40px; color: #888;">No blogs found. Start writing your first post!</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'admin/base.html' %}
+
+{% block admin_content %}
+<div class="header">
+    <h1>Manage <em>Testimonials</em></h1>
+</div>
+
+<h2 style="font-family: 'Cormorant Garamond', serif; margin: 30px 0 20px; color: var(--gold);">Pending Review</h2>
+<table class="data-table" style="margin-bottom: 50px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in pending %}
+        <tr>
+            <td><strong>{{ t.name }}</strong></td>
+            <td>{{ t.role }}</td>
+            <td><small>{{ t.content[:100] }}...</small></td>
+            <td>
+                <div style="display: flex; gap: 10px;">
+                    <a href="{{ url_for('approve_testimonial', id=t.id) }}" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="ri-check-line"></i> Approve</a>
+                    <a href="{{ url_for('delete_testimonial', id=t.id) }}" class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem;" onclick="return confirm('Delete this testimonial?')"><i class="ri-delete-bin-line"></i></a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        {% if not pending %}
+        <tr>
+            <td colspan="4" style="text-align: center; padding: 40px; color: #888;">No pending testimonials.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<h2 style="font-family: 'Cormorant Garamond', serif; margin: 30px 0 20px;">Approved Testimonials</h2>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in approved %}
+        <tr>
+            <td><strong>{{ t.name }}</strong></td>
+            <td>{{ t.role }}</td>
+            <td><small>{{ t.content[:100] }}...</small></td>
+            <td>
+                <a href="{{ url_for('delete_testimonial', id=t.id) }}" class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem;" onclick="return confirm('Remove this testimonial from public view?')"><i class="ri-delete-bin-line"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% if not approved %}
+        <tr>
+            <td colspan="4" style="text-align: center; padding: 40px; color: #888;">No approved testimonials yet.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'admin/base.html' %}
+
+{% block admin_content %}
+<div class="header">
+    <h1>{{ title }}</h1>
+    <a href="{{ url_for('admin_blogs') }}" class="btn" style="background: #ccc; color: #333;"><i class="ri-arrow-left-line"></i> Back</a>
+</div>
+
+<div style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+    <form id="blog-form" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Blog Title</label>
+            <input type="text" name="title" class="form-control" placeholder="Enter post title" value="{{ post.title if post else '' }}" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="form-group">
+                <label>Category</label>
+                <select name="category_id" class="form-control" required>
+                    <option value="">Select Category</option>
+                    {% for cat in categories %}
+                    <option value="{{ cat.id }}" {{ 'selected' if post and post.category_id == cat.id }}>{{ cat.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Featured Image</label>
+                <input type="file" name="featured_image" class="form-control" accept="image/*">
+                {% if post and post.image_url %}
+                <div style="margin-top: 10px;">
+                    <p style="font-size: 0.8rem; color: #888;">Current Image:</p>
+                    <img src="{{ post.image_url }}" alt="Current" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px;">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Excerpt (Short Summary)</label>
+            <textarea name="excerpt" class="form-control" rows="2" placeholder="Briefly describe what this post is about...">{{ post.excerpt if post else '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Tags (Comma separated)</label>
+            <input type="text" name="tags" class="form-control" placeholder="e.g. Wedding, Planning, Rajasthan" value="{{ post.tags if post else '' }}">
+        </div>
+
+        <div class="form-group">
+            <label>Content</label>
+            <input type="hidden" name="content" id="content">
+            <div id="editor-container">
+                {{ post.content | safe if post else '' }}
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Save Blog Post</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var quill = new Quill('#editor-container', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'header': [1, 2, 3, false] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                ['link', 'image'],
+                ['clean']
+            ]
+        }
+    });
+
+    // Handle form submission
+    var form = document.getElementById('blog-form');
+    form.onsubmit = function() {
+        // Populate hidden input with HTML from Quill
+        var content = document.querySelector('input[name=content]');
+        content.value = quill.root.innerHTML;
+        return true;
+    };
+</script>
+{% endblock %}
