@@ -1942,7 +1942,11 @@ nav.scrolled {
 }
 .testimonials {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--pink-light);
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+}
+
+.testimonials .section-title {
+  color: #fff;
 }
 
 .testimonials-header {
@@ -2409,10 +2413,9 @@ nav.scrolled {
   opacity: 1;
 }
 
-.insta-hover svg {
-  width: 32px;
-  height: 32px;
-  color: #fff;
+.insta-hover i {
+  font-size: 38px;
+  color: #ffffff !important;
 }
 .cta-banner {
   text-align: center;
@@ -3257,8 +3260,8 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 22px 60px;
-  border-top: 1px solid rgba(201, 168, 76, 0.15);
-  background: rgba(0, 0, 0, 0.15);
+  /* border-top: 1px solid rgba(201, 168, 76, 0.15); */
+  /* background: rgba(0, 0, 0, 0.15); */
   gap: 20px;
   flex-wrap: wrap;
 }
