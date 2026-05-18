@@ -21,91 +21,196 @@
     
     <div class="container">
         <div class="gallery-full-grid">
-            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80" alt="Gallery 1" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80" alt="Gallery 2" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1478147427282-58a87a433b55?w=600&q=80" alt="Gallery 3" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1525772764200-be829a350797?w=600&q=80" alt="Gallery 4" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80" alt="Gallery 5"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" alt="Gallery 7"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Gallery 8"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Gallery 9"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800&q=80" alt="Gallery 10"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" alt="Gallery 11"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=600&q=80" alt="Gallery 12"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
-            <div class="gallery-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Gallery 13"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <!-- 12 Initial Beautiful & Diverse Gallery Items -->
+            <div class="gallery-item reveal"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01.webp') }}" alt="Grand Mandap Entrance" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-1"><img src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Beach Wedding.jpg') }}" alt="Romantic Beach Wedding Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-2"><img src="{{ url_for('static', filename='images/gallery/iconic_wedding/Jaipur.webp') }}" alt="Royal Palace Wedding Setup in Jaipur" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal"><img src="{{ url_for('static', filename='images/gallery/services_img/Bridal.webp') }}" alt="Exquisite Bridal Entry Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-1"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0110.webp') }}" alt="Floral Stage Ceiling Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-2"><img src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Fort Weddings.avif') }}" alt="Stunning Heritage Fort Wedding" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal"><img src="{{ url_for('static', filename='images/gallery/about/img_01.webp') }}" alt="Floral Mandap Close-up Detail" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-1"><img src="{{ url_for('static', filename='images/gallery/iconic_wedding/udaipur.jpg') }}" alt="Lakeside Wedding Ceremony Udaipur" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-2"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01123.webp') }}" alt="Elegant Table Central Floral Styling" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal"><img src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Mountain Wedding.webp') }}" alt="Breathtaking Hills Wedding Setup" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-1"><img src="{{ url_for('static', filename='images/gallery/services_img/Favors_&_Gifting.webp') }}" alt="Luxury Guest Favors Corner" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item reveal reveal-delay-2"><img src="{{ url_for('static', filename='images/gallery/slider/slider_02.webp') }}" alt="Fairy-lit Grand Stage Reception" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            
+            <!-- 30 Hidden Gallery Items (Loaded row-by-row on button click) -->
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0125.webp') }}" alt="Floral Stage Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01253.webp') }}" alt="Fairytale Wedding Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01254.webp') }}" alt="Exquisite Floral Archway" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0132.webp') }}" alt="Enchanting Wedding Backdrop" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01321.webp') }}" alt="Elegant Floral Centerpieces" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01356.webp') }}" alt="Premium Seating Arrangements" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img014523.webp') }}" alt="Intimate Haldi Setup" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img015.webp') }}" alt="Spectacular Stage Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0153.webp') }}" alt="Glimmering Mandap Canopy" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01538.webp') }}" alt="Majestic Entrance Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0154.webp') }}" alt="Dazzling Lights Setup" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0155.webp') }}" alt="Grand Floral Installation" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0162.webp') }}" alt="Breathtaking Floral Chandelier" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0165.webp') }}" alt="Vibrant Haldi Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img018.webp') }}" alt="Stunning Mandap Canopy" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0182.webp') }}" alt="Dreamy Stage Entrance" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img019.webp') }}" alt="Lush Green Floral Mandap" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Cruise Wedding.webp') }}" alt="Luxury Deck Cruise Wedding" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Intimate Wedding.webp') }}" alt="Warm Intimate Gathering Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Vineyard Weddings.avif') }}" alt="Rustic Vineyard Ceremony" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/iconic_wedding/Agra.avif') }}" alt="Iconic Taj Mahal View Wedding" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/iconic_wedding/Himachal.jpg') }}" alt="Serene Hills Wedding, Himachal" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/iconic_wedding/New Delhi.webp') }}" alt="Grand Luxury Farm Wedding New Delhi" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/iconic_wedding/goa.avif') }}" alt="Vibrant Beach Party in Goa" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/services_img/Guest_RSVP_Hospitality.webp') }}" alt="Guest Welcome Desk styling" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/services_img/Logistics_Management.webp') }}" alt="Grand Vintage Entrance Car Decor" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/services_img/Stationery_Invitation.webp') }}" alt="Royal Invitations Stationery Design" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/services_img/Vendor_Sourcing.png') }}" alt="Premium Wedding Elements Setup" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-1" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/services_img/food_beverage.webp') }}" alt="Luxury Catering Food Styling" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="gallery-item-hidden reveal reveal-delay-2" style="display: none;"><img src="{{ url_for('static', filename='images/gallery/about/img_02.webp') }}" alt="Opulent Floral Table Settings" loading="lazy"><div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div></div>
+        </div>
+        
+        <!-- View More Work Button -->
+        <div class="load-more-container reveal" style="text-align: center; margin-top: 50px;">
+            <button id="loadMoreBtn" class="btn-primary">View More Work</button>
         </div>
     </div>
 </section>
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-    <div class="video-section-header reveal">
-        <span class="section-label">Stories We've Told</span>
-        <h2 class="section-title" style="color:#fff">Wedding <em style="color:var(--gold)">Films</em></h2>
-        <div class="divider"></div>
+  <div class="video-section-header reveal">
+    <span class="section-label">Stories We've Told</span>
+    <h2 class="section-title" style="color: #fff">
+      Wedding <em style="color: var(--gold)">Films</em>
+    </h2>
+    <div class="divider"></div>
+  </div>
+  <div class="video-grid">
+    <div class="video-card featured reveal">
+      <img
+        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=80"
+        alt="Film 1"
+      />
+      <div class="video-play">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="video-label">
+        <span>Destination Wedding Film</span>
+        <h4>Priya &amp; Arjun — Udaipur</h4>
+      </div>
+    </div> 
+    <div class="video-card reveal reveal-delay-1">
+      <img
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films01.webp') }}"
+        alt="Film 2"
+      />
+      <div class="video-play">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="video-label">
+        <span>Beach Wedding</span>
+        <h4>mariaranaaa</h4>
+      </div>
     </div>
-    <div class="container">
-        <div class="video-grid">
-            <div class="video-card featured reveal">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=80" alt="Film 1">
-                <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></div>
-                <div class="video-label"><span>Destination Wedding Film</span><h4>Priya &amp; Arjun — Udaipur</h4></div>
-            </div>
-            <div class="video-card reveal reveal-delay-1">
-                <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80" alt="Film 2">
-                <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></div>
-                <div class="video-label"><span>Beach Wedding</span><h4>Meera &amp; Rahul — Goa</h4></div>
-            </div>
-            <div class="video-card reveal reveal-delay-2">
-                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Film 3">
-                <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></div>
-                <div class="video-label"><span>Fort Wedding</span><h4>Divya &amp; Karan — Jaipur</h4></div>
-            </div>
-        </div>
+    <div class="video-card reveal reveal-delay-2">
+      <img
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films02.webp') }}"
+        alt="Film 3"
+      />
+      <div class="video-play">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="video-label">
+        <span>Fort Wedding</span>
+        <h4>taimoorsheikh </h4>
+      </div>
     </div>
+    <div class="video-card reveal reveal-delay-1">
+      <img
+        src="https://customer-assets.emergentagent.com/job_b2af9d3b-599a-4116-9fa1-3334570e66aa/artifacts/fslbolbl_WhatsApp%20Image%202026-03-25%20at%2017.40.49.jpeg"
+        alt="Film 4"
+      />
+      <div class="video-play">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="video-label">
+        <span>Mountain Wedding</span>
+        <h4>Ananya &amp; Vikram — Shimla</h4>
+      </div>
+    </div>
+    <div class="video-card reveal reveal-delay-2">
+      <img
+        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
+        alt="Film 5"
+      />
+      <div class="video-play">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="video-label">
+        <span>Garden Wedding</span>
+        <h4>Nisha &amp; Siddharth — Chandigarh</h4>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- REAL WEDDINGS -->
 <section class="real-weddings">
-    <div class="real-weddings-header reveal">
-        <span class="section-label">Real Moments</span>
-        <h2 class="section-title">Real <em>Weddings</em></h2>
-        <div class="divider"></div>
+  <div class="real-weddings-header reveal">
+    <span class="section-label">Real Moments</span>
+    <h2 class="section-title">Real <em>Weddings</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="rw-grid">
+    <div class="rw-card reveal">
+      <div class="rw-img-wrap">
+        <img
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films01.webp') }}"
+          alt="Wedding 1"
+        />
+        <span class="rw-tag">Palace Wedding</span>
+      </div>
+      <div class="rw-meta">
+        <h3 class="rw-couple">mariaranaaa</h3>
+        <p class="rw-detail">📍 Udaipur, Rajasthan · March 2024</p>
+      </div>
     </div>
-    <div class="container">
-        <div class="rw-grid">
-            <div class="rw-card reveal">
-                <div class="rw-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=700&q=80" alt="Wedding 1">
-                    <span class="rw-tag">Palace Wedding</span>
-                </div>
-                <div class="rw-meta">
-                    <h3 class="rw-couple">Priya &amp; Arjun</h3>
-                    <p class="rw-detail">📍 Udaipur, Rajasthan · March 2024</p>
-                </div>
-            </div>
-            <div class="rw-card reveal reveal-delay-1">
-                <div class="rw-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=700&q=80" alt="Wedding 2">
-                    <span class="rw-tag">Beach Wedding</span>
-                </div>
-                <div class="rw-meta">
-                    <h3 class="rw-couple">Meera &amp; Rahul</h3>
-                    <p class="rw-detail">📍 Goa · January 2024</p>
-                </div>
-            </div>
-            <div class="rw-card reveal reveal-delay-2">
-                <div class="rw-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80" alt="Wedding 3">
-                    <span class="rw-tag">Garden Wedding</span>
-                </div>
-                <div class="rw-meta">
-                    <h3 class="rw-couple">Ananya &amp; Vikram</h3>
-                    <p class="rw-detail">📍 Chandigarh, Punjab · Nov 2023</p>
-                </div>
-            </div>
-        </div>
+    <div class="rw-card reveal reveal-delay-1">
+      <div class="rw-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=700&q=80"
+          alt="Wedding 2"
+        />
+        <span class="rw-tag">Beach Wedding</span>
+      </div>
+      <div class="rw-meta">
+        <h3 class="rw-couple">Meera &amp; Rahul</h3>
+        <p class="rw-detail">📍 Goa · January 2024</p>
+      </div>
     </div>
+    <div class="rw-card reveal reveal-delay-2">
+      <div class="rw-img-wrap">
+        <img
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films02.webp') }}"
+          alt="Wedding 3"
+        />
+        <span class="rw-tag">Garden Wedding</span>
+      </div>
+      <div class="rw-meta">
+        <h3 class="rw-couple">taimoorsheikh</h3>
+        <p class="rw-detail">📍 Chandigarh, Punjab · Nov 2023</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA BANNER -->
@@ -129,24 +234,30 @@
     }
     
     .gallery-full-grid {
-        column-count: 4;
-        column-gap: 24px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
         margin-top: 50px;
     }
     
     .gallery-item {
         position: relative;
-        margin-bottom: 24px;
         border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
-        display: inline-block;
         width: 100%;
+        aspect-ratio: 4/3;
+        display: block;
     }
 
-    .gallery-item img {
+    .gallery-item-hidden {
+        display: none !important;
+    }
+
+    .gallery-item img, .gallery-item-hidden img {
         width: 100%;
-        display: block;
+        height: 100%;
+        object-fit: cover;
         transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
     }
 
@@ -182,43 +293,30 @@
     }
     
     @media (max-width: 992px) {
-        .gallery-section {
-        }
         .gallery-full-grid {
-            column-count: 2;
-            column-gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
         .gallery-item {
-            margin-bottom: 20px;
+            border-radius: 12px;
         }
     }
     
     @media (max-width: 768px) {
         .gallery-full-grid {
-            column-gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
         .gallery-item {
-            margin-bottom: 15px;
-            border-radius: 12px;
+            border-radius: 10px;
         }
     }
 
     @media (max-width: 576px) {
-        .gallery-section {
-        }
         .gallery-full-grid {
-            column-count: 2;
-            column-gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
             margin-top: 30px;
-        }
-        .gallery-item {
-            margin-bottom: 10px;
-            border-radius: 10px;
-            height: 160px; /* Reduced height for mobile */
-        }
-        .gallery-item img {
-            height: 100%;
-            object-fit: cover;
         }
         
         .gallery-header .section-title {
@@ -246,10 +344,61 @@
         }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
         .gallery-full-grid {
-            column-count: 2;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
     }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (!loadMoreBtn) return;
+
+    loadMoreBtn.addEventListener('click', function() {
+        // Get remaining hidden gallery items
+        const hiddenItems = Array.from(document.querySelectorAll('.gallery-item-hidden'));
+        
+        // Take up to 10 items to show this time
+        const itemsToShow = hiddenItems.slice(0, 10);
+        
+        itemsToShow.forEach((item, index) => {
+            // Remove display inline style so class can handle it
+            item.removeAttribute('style');
+            // Remove hidden class and add standard gallery item classes
+            item.classList.remove('gallery-item-hidden');
+            item.classList.add('gallery-item');
+            
+            // Set initial state for animated fade-in
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+            
+            // Stagger the reveal of each item
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+                item.classList.add('visible');
+            }, index * 50);
+        });
+
+        // If no more hidden items remain after this batch, hide the button
+        if (hiddenItems.length <= 10) {
+            loadMoreBtn.style.opacity = '0';
+            loadMoreBtn.style.transform = 'scale(0.9)';
+            loadMoreBtn.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            setTimeout(() => {
+                const container = loadMoreBtn.parentElement;
+                if (container) {
+                    container.style.display = 'none';
+                }
+            }, 400);
+        }
+    });
+});
+</script>
 {% endblock %}

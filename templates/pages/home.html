@@ -5,9 +5,7 @@
     <div class="hero-slide active">
       <div
         class="hero-bg"
-        style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80&quot;);
-        "
+        style="background-image: url('{{ url_for('static', filename='images/gallery/slider/slider_01.webp') }}');"
       ></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -27,9 +25,7 @@
     <div class="hero-slide">
       <div
         class="hero-bg"
-        style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1800&q=80&quot;);
-        "
+        style="background-image: url('{{ url_for('static', filename='images/gallery/slider/slider_02.webp') }}');"
       ></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -51,9 +47,7 @@
     <div class="hero-slide">
       <div
         class="hero-bg"
-        style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1800&q=80&quot;);
-        "
+        style="background-image: url('{{ url_for('static', filename='images/gallery/slider/slider_03.webp') }}');"
       ></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -75,7 +69,6 @@
     <button class="slider-btn prev-btn">❮</button>
     <button class="slider-btn next-btn">❯</button>
   </div>
-
 </section>
 
 <!-- ABOUT -->
@@ -84,13 +77,13 @@
     <div class="about-images reveal">
       <img
         class="about-img-main lightbox-enabled"
-        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80"
+        src="{{ url_for('static', filename='images/gallery/about/img_01.webp') }}"
         alt="Wedding decoration"
         loading="lazy"
       />
       <img
         class="about-img-accent lightbox-enabled"
-        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80"
+        src="{{ url_for('static', filename='images/gallery/about/img_02.webp') }}"
         alt="Wedding flowers"
         loading="lazy"
       />
@@ -178,7 +171,7 @@
       </div>
       <div class="service-card swiper-slide reveal reveal-delay-1">
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+         src="{{ url_for('static', filename='images/gallery/slider/slider_01.webp') }}"
           alt="Destination"
           loading="lazy"
         />
@@ -191,7 +184,7 @@
       </div>
       <div class="service-card swiper-slide reveal reveal-delay-2">
         <img
-          src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/services_img/Vendor_Sourcing.png') }}"
           alt="Food"
           loading="lazy"
         />
@@ -201,10 +194,10 @@
           <h3>Vendor Sourcing &amp; Management</h3>
           <p>Trusted network of premium vendors for every need.</p>
         </div>
-      </div>
+      </div> 
       <div class="service-card swiper-slide reveal reveal-delay-3">
         <img
-          src="https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}"
           alt="Design"
           loading="lazy"
         />
@@ -217,7 +210,7 @@
       </div>
       <div class="service-card swiper-slide reveal">
         <img
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/services_img/food_beverage.webp') }}"
           alt="Food Beverage"
         />
         <div class="service-overlay"></div>
@@ -241,7 +234,7 @@
       </div>
       <div class="service-card swiper-slide reveal reveal-delay-2">
         <img
-          src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/services_img/Guest_RSVP_Hospitality.webp') }}"
           alt="Guest"
         />
         <div class="service-overlay"></div>
@@ -250,10 +243,10 @@
           <h3>Guest RSVP &amp; Hospitality</h3>
           <p>Ensuring every guest feels warmly welcomed.</p>
         </div>
-      </div>
+      </div> 
       <div class="service-card swiper-slide reveal reveal-delay-3">
         <img
-          src="https://media.istockphoto.com/id/2188370785/photo/wedding-favors-decorated-with-ribbons-and-flowers-waiting-for-guests.jpg?s=612x612&w=0&k=20&c=qDB6Q1lgGZjF4mHhx8E7Qe4671Vdye06IFtUVpwUAo0="
+          src="{{ url_for('static', filename='images/gallery/services_img/Favors_&_Gifting.webp') }}"
           alt="Favors"
           loading="lazy"
         />
@@ -263,10 +256,10 @@
           <h3>Wedding Favors &amp; Gifting</h3>
           <p>Personalised tokens of love for your guests.</p>
         </div>
-      </div>
+      </div> 
       <div class="service-card swiper-slide reveal">
-        <img
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80"
+        <img 
+          src="{{ url_for('static', filename='images/gallery/services_img/Bridal.webp') }}"
           alt="Bridal"
         />
         <div class="service-overlay"></div>
@@ -275,10 +268,10 @@
           <h3>Bridal &amp; Wardrobe Styling</h3>
           <p>Look stunning for every moment of your celebration.</p>
         </div>
-      </div>
+      </div> 
       <div class="service-card swiper-slide reveal reveal-delay-1">
         <img
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/services_img/Logistics_Management.webp') }}"
           alt="Logistics"
         />
         <div class="service-overlay"></div>
@@ -290,7 +283,7 @@
       </div>
       <div class="service-card swiper-slide reveal reveal-delay-2">
         <img
-          src="https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/services_img/Stationery_Invitation.webp') }}"
           alt="Stationery"
         />
         <div class="service-overlay"></div>
@@ -299,7 +292,7 @@
           <h3>Stationery &amp; Invitations</h3>
           <p>Bespoke designs that set the tone for your event.</p>
         </div>
-      </div>
+      </div> 
       <div class="service-card swiper-slide reveal reveal-delay-3">
         <img
           src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80"
@@ -341,7 +334,7 @@
     <div class="cat-card-new reveal">
       <div class="cat-img-bg">
         <img
-          src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/Wedding_categories/Beach Wedding.jpg') }}"
           alt="Beach Wedding"
           loading="lazy"
         />
@@ -355,7 +348,7 @@
             amidst beachy waves
           </p>
         </div>
-        <a href="#contact" class="cat-circle-btn"
+        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Beach%20Wedding" class="cat-circle-btn"
           ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
         ></a>
       </div>
@@ -363,7 +356,7 @@
     <div class="cat-card-new reveal reveal-delay-1">
       <div class="cat-img-bg">
         <img
-          src="https://images.unsplash.com/photo-1561489396-888724a1543d?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/Wedding_categories/Cruise Wedding.webp') }}"
           alt="Cruise Wedding"
         />
       </div>
@@ -376,7 +369,7 @@
             amenities
           </p>
         </div>
-        <a href="#contact" class="cat-circle-btn"
+        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Cruise%20Wedding" class="cat-circle-btn"
           ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
         ></a>
       </div>
@@ -384,7 +377,7 @@
     <div class="cat-card-new reveal reveal-delay-2">
       <div class="cat-img-bg">
         <img
-          src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/Wedding_categories/Vineyard Weddings.avif') }}"
           alt="Vineyard Wedding"
         />
       </div>
@@ -397,7 +390,7 @@
             romantic settings
           </p>
         </div>
-        <a href="#contact" class="cat-circle-btn"
+        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Vineyard%20Weddings" class="cat-circle-btn"
           ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
         ></a>
       </div>
@@ -405,7 +398,7 @@
     <div class="cat-card-new reveal">
       <div class="cat-img-bg">
         <img
-          src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/Wedding_categories/Fort Weddings.avif') }}"
           alt="Fort Wedding"
         />
       </div>
@@ -418,7 +411,7 @@
             unforgettable
           </p>
         </div>
-        <a href="#contact" class="cat-circle-btn"
+        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Fort%20Weddings" class="cat-circle-btn"
           ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
         ></a>
       </div>
@@ -426,7 +419,7 @@
     <div class="cat-card-new reveal reveal-delay-1">
       <div class="cat-img-bg">
         <img
-          src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/Wedding_categories/Mountain Wedding.webp') }}"
           alt="Mountain Wedding"
         />
       </div>
@@ -439,7 +432,7 @@
             adventurous special day
           </p>
         </div>
-        <a href="#contact" class="cat-circle-btn"
+        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Mountain%20Weddings" class="cat-circle-btn"
           ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
         ></a>
       </div>
@@ -447,7 +440,7 @@
     <div class="cat-card-new reveal reveal-delay-2">
       <div class="cat-img-bg">
         <img
-          src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/Wedding_categories/Intimate Wedding copy.webp') }}"
           alt="Intimate Wedding"
         />
       </div>
@@ -460,7 +453,7 @@
             with family
           </p>
         </div>
-        <a href="#contact" class="cat-circle-btn"
+        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Intimate%20Weddings" class="cat-circle-btn"
           ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
         ></a>
       </div>
@@ -479,7 +472,7 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide gallery-item reveal">
         <img
-          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01.webp') }}"
           alt="Elegant Wedding Stage Decoration"
           loading="lazy"
         />
@@ -487,78 +480,89 @@
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-1">
         <img
-          src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0110.webp') }}"
           alt="Luxury Table Setting"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-2">
         <img
-          src="https://images.unsplash.com/photo-1478147427282-58a87a433b55?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01123.webp') }}"
           alt="Beautiful Floral Mandap"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-3">
         <img
-          src="https://images.unsplash.com/photo-1525772764200-be829a350797?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0125.webp') }}"
           alt="Outdoor Wedding Ceremony"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal">
         <img
-          src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01253.webp') }}"
           alt="Exquisite Reception Decor"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-1">
         <img
-          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01254.webp') }}"
           alt="Stunning Bridal Portrait"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-2">
         <img
-          src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0132.webp') }}"
           alt="Romantic Beach Wedding"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-3">
         <img
-          src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=900&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01321.webp') }}"
           alt="Breathtaking Venue View"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal">
         <img
-          src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01356.webp') }}"
           alt="Intimate Wedding Detail"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-1">
         <img
-          src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img014523.webp') }}"
           alt="Traditional Indian Ceremony"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-2">
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img015.webp') }}"
           alt="Grand Palace Wedding"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
       <div class="swiper-slide gallery-item reveal reveal-delay-3">
         <img
-          src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0153.webp') }}"
           alt="Magical Night Celebration"
+          loading="lazy"
         />
         <div class="gallery-item-overlay"><i class="ri-zoom-in-line"></i></div>
       </div>
@@ -623,10 +627,10 @@
         <span>Destination Wedding Film</span>
         <h4>Priya &amp; Arjun — Udaipur</h4>
       </div>
-    </div>
+    </div> 
     <div class="video-card reveal reveal-delay-1">
       <img
-        src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80"
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films01.webp') }}"
         alt="Film 2"
       />
       <div class="video-play">
@@ -636,12 +640,12 @@
       </div>
       <div class="video-label">
         <span>Beach Wedding</span>
-        <h4>Meera &amp; Rahul — Goa</h4>
+        <h4>mariaranaaa</h4>
       </div>
     </div>
     <div class="video-card reveal reveal-delay-2">
       <img
-        src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80"
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films02.webp') }}"
         alt="Film 3"
       />
       <div class="video-play">
@@ -651,7 +655,7 @@
       </div>
       <div class="video-label">
         <span>Fort Wedding</span>
-        <h4>Divya &amp; Karan — Jaipur</h4>
+        <h4>taimoorsheikh </h4>
       </div>
     </div>
     <div class="video-card reveal reveal-delay-1">
@@ -751,8 +755,9 @@
     <div class="swiper-wrapper">
       <div class="venue-card swiper-slide">
         <img
-          src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/iconic_wedding/udaipur.jpg') }}"
           alt="Udaipur"
+          loading="lazy"
         />
         <div class="venue-overlay"></div>
         <div class="venue-info">
@@ -763,8 +768,9 @@
       </div>
       <div class="venue-card swiper-slide">
         <img
-          src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/iconic_wedding/goa.avif') }}"
           alt="Goa"
+          loading="lazy"
         />
         <div class="venue-overlay"></div>
         <div class="venue-info">
@@ -775,8 +781,9 @@
       </div>
       <div class="venue-card swiper-slide">
         <img
-          src="https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/iconic_wedding/Jaipur.webp') }}"
           alt="Jaipur"
+          loading="lazy"
         />
         <div class="venue-overlay"></div>
         <div class="venue-info">
@@ -787,8 +794,9 @@
       </div>
       <div class="venue-card swiper-slide">
         <img
-          src="https://customer-assets.emergentagent.com/job_b2af9d3b-599a-4116-9fa1-3334570e66aa/artifacts/fslbolbl_WhatsApp%20Image%202026-03-25%20at%2017.40.49.jpeg"
+          src="{{ url_for('static', filename='images/gallery/iconic_wedding/Himachal.jpg') }}"
           alt="Shimla"
+          loading="lazy"
         />
         <div class="venue-overlay"></div>
         <div class="venue-info">
@@ -799,8 +807,9 @@
       </div>
       <div class="venue-card swiper-slide">
         <img
-          src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/iconic_wedding/New Delhi.webp') }}"
           alt="Delhi"
+          loading="lazy"
         />
         <div class="venue-overlay"></div>
         <div class="venue-info">
@@ -811,8 +820,9 @@
       </div>
       <div class="venue-card swiper-slide">
         <img
-          src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?w=600&q=80"
+          src="{{ url_for('static', filename='images/gallery/iconic_wedding/Agra.avif') }}"
           alt="Agra"
+          loading="lazy"
         />
         <div class="venue-overlay"></div>
         <div class="venue-info">
@@ -836,13 +846,13 @@
     <div class="rw-card reveal">
       <div class="rw-img-wrap">
         <img
-          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=700&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films01.webp') }}"
           alt="Wedding 1"
         />
         <span class="rw-tag">Palace Wedding</span>
       </div>
       <div class="rw-meta">
-        <h3 class="rw-couple">Priya &amp; Arjun</h3>
+        <h3 class="rw-couple">mariaranaaa</h3>
         <p class="rw-detail">📍 Udaipur, Rajasthan · March 2024</p>
       </div>
     </div>
@@ -862,13 +872,13 @@
     <div class="rw-card reveal reveal-delay-2">
       <div class="rw-img-wrap">
         <img
-          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding Films02.webp') }}"
           alt="Wedding 3"
         />
         <span class="rw-tag">Garden Wedding</span>
       </div>
       <div class="rw-meta">
-        <h3 class="rw-couple">Ananya &amp; Vikram</h3>
+        <h3 class="rw-couple">taimoorsheikh</h3>
         <p class="rw-detail">📍 Chandigarh, Punjab · Nov 2023</p>
       </div>
     </div>
@@ -890,14 +900,14 @@
             <div class="testi-stars">★★★★★</div>
             <span class="testi-quote">"</span>
             <p class="testi-text">
-              Decor By Pearls turned our dream wedding into reality. Every detail was
-              perfect, from the floral arrangements to the lighting. We couldn't have
-              asked for a more magical day.
+              Decor By Pearls turned our dream wedding into reality. Every
+              detail was perfect, from the floral arrangements to the lighting.
+              We couldn't have asked for a more magical day.
             </p>
             <div class="testi-author">
               <img
                 class="testi-avatar"
-                src="https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=200&q=80"
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80"
                 alt="Priya"
               />
               <div>
@@ -912,9 +922,9 @@
             <div class="testi-stars">★★★★★</div>
             <span class="testi-quote">"</span>
             <p class="testi-text">
-              The team was incredibly professional and attentive. They understood our
-              vision perfectly and executed it flawlessly. Our beach wedding in Goa
-              was absolutely breathtaking.
+              The team was incredibly professional and attentive. They
+              understood our vision perfectly and executed it flawlessly. Our
+              beach wedding in Goa was absolutely breathtaking.
             </p>
             <div class="testi-author">
               <img
@@ -934,9 +944,9 @@
             <div class="testi-stars">★★★★★</div>
             <span class="testi-quote">"</span>
             <p class="testi-text">
-              From the very first consultation to the last dance, Decor By Pearls
-              handled everything with such grace and precision. Highly recommend to
-              every couple!
+              From the very first consultation to the last dance, Decor By
+              Pearls handled everything with such grace and precision. Highly
+              recommend to every couple!
             </p>
             <div class="testi-author">
               <img
@@ -960,7 +970,7 @@
       <div class="swiper-button-next testi-nav-btn">
         <i class="ri-arrow-right-s-line"></i>
       </div>
-      
+
       <div class="swiper-pagination testi-pagination"></div>
     </div>
   </div>
@@ -974,62 +984,75 @@
 
   <div class="team-header reveal">
     <span class="section-label">The People Behind The Magic</span>
-    <h2 class="section-title" style="color:#fff;">Meet Our <em>Team</em></h2>
+    <h2 class="section-title" style="color: #fff">Meet Our <em>Team</em></h2>
     <div class="divider"></div>
-    <p class="team-subtitle">Passionate creatives who live &amp; breathe extraordinary celebrations</p>
+    <p class="team-subtitle">
+      Passionate creatives who live &amp; breathe extraordinary celebrations
+    </p>
   </div>
 
   <div class="team-grid-new">
-
     <div class="team-card-new reveal">
+      <div class="team-card-new__number">01</div>
       <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Pearls Malhotra" />
+        <img
+          src="{{ url_for('static', filename='images/gallery/team/MOHIT SINGH RAJPUT.jpg.jpeg') }}"
+          alt="Mohit Kumar"
+          loading="lazy"
+        />
         <div class="team-card-new__overlay"></div>
       </div>
       <div class="team-card-new__info">
         <div class="team-card-new__tag">Visionary</div>
-        <h3 class="team-card-new__name">Pearls Malhotra</h3>
+        <h3 class="team-card-new__name">Mohit Kumar</h3>
         <p class="team-card-new__role">Founder &amp; Creative Director</p>
+        <p class="team-card-new__bio">
+          Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.
+        </p>
       </div>
     </div>
 
     <div class="team-card-new reveal reveal-delay-1">
+      <div class="team-card-new__number">02</div>
       <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Riya Khanna" />
-        <div class="team-card-new__overlay"></div>
-      </div>
-      <div class="team-card-new__info">
-        <div class="team-card-new__tag">Designer</div>
-        <h3 class="team-card-new__name">Riya Khanna</h3>
-        <p class="team-card-new__role">Lead Event Designer</p>
-      </div>
-    </div>
-
-    <div class="team-card-new reveal reveal-delay-2">
-      <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Aryan Sethi" />
+        <img
+          src="{{ url_for('static', filename='images/gallery/team/SACHIN MISHRA.jpg.jpeg') }}"
+          alt="Sachin Mishra"
+          loading="lazy"
+        />
         <div class="team-card-new__overlay"></div>
       </div>
       <div class="team-card-new__info">
         <div class="team-card-new__tag">Operations</div>
-        <h3 class="team-card-new__name">Aryan Sethi</h3>
-        <p class="team-card-new__role">Logistics &amp; Ops Head</p>
+        <h3 class="team-card-new__name">Sachin Mishra</h3>
+        <p class="team-card-new__role">Co-Founder &amp; Operations Head</p>
+        <p class="team-card-new__bio">
+          Managing seamless event execution, client coordination, and flawless planning for every celebration.
+        </p>
       </div>
     </div>
 
-    <div class="team-card-new reveal reveal-delay-3">
+    <div class="team-card-new reveal reveal-delay-2">
+      <div class="team-card-new__number">03</div>
       <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80" alt="Simran Bedi" />
+        <img
+          src="{{ url_for('static', filename='images/gallery/team/JASNEET KAUR.jpg.jpeg') }}"
+          alt="Jasneet Kaur"
+          loading="lazy"
+        />
         <div class="team-card-new__overlay"></div>
       </div>
       <div class="team-card-new__info">
         <div class="team-card-new__tag">Styling</div>
-        <h3 class="team-card-new__name">Simran Bedi</h3>
-        <p class="team-card-new__role">Bridal Styling Lead</p>
+        <h3 class="team-card-new__name">Jasneet Kaur</h3>
+        <p class="team-card-new__role">Co-Founder &amp; Styling Director</p>
+        <p class="team-card-new__bio">
+          Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.
+        </p>
       </div>
     </div>
-
-  </div><!-- /team-grid-new -->
+  </div>
+  <!-- /team-grid-new -->
 </section>
 
 <!-- INSTAGRAM -->
@@ -1042,93 +1065,62 @@
   <div class="insta-strip">
     <div class="insta-item">
       <img
-        src="https://images.unsplash.com/photo-1478147427282-58a87a433b55?w=400&q=80"
-        alt=""
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img01538.webp') }}"
+        alt="Decor By Pearls Event Decor"
+        loading="lazy"
       />
       <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
+        <i class="ri-instagram-line"></i>
       </div>
     </div>
     <div class="insta-item">
       <img
-        src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400&q=80"
-        alt=""
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0154.webp') }}"
+        alt="Decor By Pearls Event Decor"
+        loading="lazy"
       />
       <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
+        <i class="ri-instagram-line"></i>
       </div>
     </div>
     <div class="insta-item">
       <img
-        src="https://images.unsplash.com/photo-1525772764200-be829a350797?w=400&q=80"
-        alt=""
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0155.webp') }}"
+        alt="Decor By Pearls Event Decor"
+        loading="lazy"
       />
       <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
+        <i class="ri-instagram-line"></i>
       </div>
     </div>
     <div class="insta-item">
       <img
-        src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&q=80"
-        alt=""
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0162.webp') }}"
+        alt="Decor By Pearls Event Decor"
+        loading="lazy"
       />
       <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
+        <i class="ri-instagram-line"></i>
       </div>
     </div>
     <div class="insta-item">
       <img
-        src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80"
-        alt=""
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img0165.webp') }}"
+        alt="Decor By Pearls Event Decor"
+        loading="lazy"
       />
       <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
+        <i class="ri-instagram-line"></i>
       </div>
     </div>
     <div class="insta-item">
       <img
-        src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=400&q=80"
-        alt=""
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/gallery_img018.webp') }}"
+        alt="Decor By Pearls Event Decor"
+        loading="lazy"
       />
       <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="insta-item">
-      <img
-        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80"
-        alt=""
-      />
-      <div class="insta-hover">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-          />
-        </svg>
+        <i class="ri-instagram-line"></i>
       </div>
     </div>
   </div>

@@ -1,65 +1,93 @@
-{% extends 'base.html' %}
-
-{% block title %}About Us – Decor By Pearls{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}About Us – Decor By Pearls{% endblock
+%} {% block content %}
 <!-- PAGE HEADER -->
-<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80') center/cover;">
-    <div class="container">
-        <span class="section-label" style="color: var(--gold);">Our Story</span>
-        <h1 class="section-title" style="color: #fff;">About <em>Us</em></h1>
-    </div>
+<section
+  class="page-header"
+  style="
+    background:
+      linear-gradient(
+        135deg,
+        rgba(10, 17, 40, 0.9) 0%,
+        rgba(10, 17, 40, 0.7) 100%
+      ),
+      url(&quot;https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80&quot;)
+        center/cover;
+  "
+>
+  <div class="container">
+    <span class="section-label" style="color: var(--gold)">Our Story</span>
+    <h1 class="section-title" style="color: #fff">About <em>Us</em></h1>
+  </div>
 </section>
 
 <!-- ABOUT SECTION -->
 <section id="abouts">
-    <div class="about" id="about">
-        <div class="about-images reveal">
-            <img class="about-img-main" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Wedding decoration" loading="lazy">
-            <img class="about-img-accent" src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80" alt="Wedding flowers" loading="lazy">
-            <div class="about-badge-float">
-                <span class="num">12+</span>
-                <span class="lbl">Years of<br>Excellence</span>
-            </div>
-        </div>
-        <div class="about-text reveal reveal-delay-2">
-            <span class="section-label">About Us</span>
-            <h2 class="section-title">We Turn Dreams Into <em>Memories</em></h2>
-            <div class="divider left"></div>
-            <p>At Decor By Pearls, we believe that your wedding day is one of the most special days in your life. Our passionate team of wedding artisans and event designers craft each celebration as a unique masterpiece.</p>
-            <p>From intimate garden ceremonies to grand destination weddings, we handle every detail with meticulous care — sourcing the finest vendors, curating breathtaking décor, and orchestrating flawless events across India's most iconic locations.</p>
-            <div class="about-tags">
-                <span class="about-tag">Destination Weddings</span>
-                <span class="about-tag">Luxury Events</span>
-                <span class="about-tag">Full-Service Planning</span>
-                <span class="about-tag">Corporate Events</span>
-            </div>
-        </div>
+  <div class="about" id="about">
+    <div class="about-images reveal">
+      <img
+        class="about-img-main"
+        src="{{ url_for('static', filename='images/gallery/about/img_02.webp') }}"
+        alt="Wedding decoration"
+        loading="lazy"
+      />
+      <img
+        class="about-img-accent"
+        src="{{ url_for('static', filename='images/gallery/about/img_01.webp') }}"
+        alt="Wedding flowers"
+        loading="lazy"
+      />
+      <div class="about-badge-float">
+        <span class="num">12+</span>
+        <span class="lbl">Years of<br />Excellence</span>
+      </div>
     </div>
+    <div class="about-text reveal reveal-delay-2">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title">We Turn Dreams Into <em>Memories</em></h2>
+      <div class="divider left"></div>
+      <p>
+        At Decor By Pearls, we believe that your wedding day is one of the most
+        special days in your life. Our passionate team of wedding artisans and
+        event designers craft each celebration as a unique masterpiece.
+      </p>
+      <p>
+        From intimate garden ceremonies to grand destination weddings, we handle
+        every detail with meticulous care — sourcing the finest vendors,
+        curating breathtaking décor, and orchestrating flawless events across
+        India's most iconic locations.
+      </p>
+      <div class="about-tags">
+        <span class="about-tag">Destination Weddings</span>
+        <span class="about-tag">Luxury Events</span>
+        <span class="about-tag">Full-Service Planning</span>
+        <span class="about-tag">Corporate Events</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- STATS BAR -->
 <div class="stats-bar page-section">
-    <div class="stat-item reveal">
-        <span class="stat-badge">01</span>
-        <span class="stat-num">500+</span>
-        <span class="stat-lbl">Weddings Crafted</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-1">
-        <span class="stat-badge">02</span>
-        <span class="stat-num">12+</span>
-        <span class="stat-lbl">Years of Experience</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-2">
-        <span class="stat-badge">03</span>
-        <span class="stat-num">20+</span>
-        <span class="stat-lbl">Destination Cities</span>
-    </div>
-    <div class="stat-item reveal reveal-delay-3">
-        <span class="stat-badge">04</span>
-        <span class="stat-num">98%</span>
-        <span class="stat-lbl">Happy Couples</span>
-    </div>
+  <div class="stat-item reveal">
+    <span class="stat-badge">01</span>
+    <span class="stat-num">500+</span>
+    <span class="stat-lbl">Weddings Crafted</span>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <span class="stat-badge">02</span>
+    <span class="stat-num">12+</span>
+    <span class="stat-lbl">Years of Experience</span>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <span class="stat-badge">03</span>
+    <span class="stat-num">20+</span>
+    <span class="stat-lbl">Destination Cities</span>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <span class="stat-badge">04</span>
+    <span class="stat-num">98%</span>
+    <span class="stat-lbl">Happy Couples</span>
+  </div>
 </div>
 
 <!-- TEAM -->
@@ -70,76 +98,89 @@
 
   <div class="team-header reveal">
     <span class="section-label">The People Behind The Magic</span>
-    <h2 class="section-title" style="color:#fff;">Meet Our <em>Team</em></h2>
+    <h2 class="section-title" style="color: #fff">Meet Our <em>Team</em></h2>
     <div class="divider"></div>
-    <p class="team-subtitle">Passionate creatives who live &amp; breathe extraordinary celebrations</p>
+    <p class="team-subtitle">
+      Passionate creatives who live &amp; breathe extraordinary celebrations
+    </p>
   </div>
 
   <div class="team-grid-new">
-
     <div class="team-card-new reveal">
+      <div class="team-card-new__number">01</div>
       <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Pearls Malhotra" loading="lazy" />
+        <img
+          src="{{ url_for('static', filename='images/gallery/team/MOHIT SINGH RAJPUT.jpg.jpeg') }}"
+          alt="Mohit Kumar"
+          loading="lazy"
+        />
         <div class="team-card-new__overlay"></div>
       </div>
       <div class="team-card-new__info">
         <div class="team-card-new__tag">Visionary</div>
-        <h3 class="team-card-new__name">Pearls Malhotra</h3>
+        <h3 class="team-card-new__name">Mohit Kumar</h3>
         <p class="team-card-new__role">Founder &amp; Creative Director</p>
+        <p class="team-card-new__bio">
+          Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.
+        </p>
       </div>
     </div>
 
     <div class="team-card-new reveal reveal-delay-1">
+      <div class="team-card-new__number">02</div>
       <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Riya Khanna" />
-        <div class="team-card-new__overlay"></div>
-      </div>
-      <div class="team-card-new__info">
-        <div class="team-card-new__tag">Designer</div>
-        <h3 class="team-card-new__name">Riya Khanna</h3>
-        <p class="team-card-new__role">Lead Event Designer</p>
-      </div>
-    </div>
-
-    <div class="team-card-new reveal reveal-delay-2">
-      <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Aryan Sethi" />
+        <img
+          src="{{ url_for('static', filename='images/gallery/team/SACHIN MISHRA.jpg.jpeg') }}"
+          alt="Sachin Mishra"
+          loading="lazy"
+        />
         <div class="team-card-new__overlay"></div>
       </div>
       <div class="team-card-new__info">
         <div class="team-card-new__tag">Operations</div>
-        <h3 class="team-card-new__name">Aryan Sethi</h3>
-        <p class="team-card-new__role">Logistics &amp; Ops Head</p>
+        <h3 class="team-card-new__name">Sachin Mishra</h3>
+        <p class="team-card-new__role">Co-Founder &amp; Operations Head</p>
+        <p class="team-card-new__bio">
+          Managing seamless event execution, client coordination, and flawless planning for every celebration.
+        </p>
       </div>
     </div>
 
-    <div class="team-card-new reveal reveal-delay-3">
+    <div class="team-card-new reveal reveal-delay-2">
+      <div class="team-card-new__number">03</div>
       <div class="team-card-new__img-wrap">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80" alt="Simran Bedi" loading="lazy" />
+        <img
+          src="{{ url_for('static', filename='images/gallery/team/JASNEET KAUR.jpg.jpeg') }}"
+          alt="Jasneet Kaur"
+          loading="lazy"
+        />
         <div class="team-card-new__overlay"></div>
       </div>
       <div class="team-card-new__info">
         <div class="team-card-new__tag">Styling</div>
-        <h3 class="team-card-new__name">Simran Bedi</h3>
-        <p class="team-card-new__role">Bridal Styling Lead</p>
+        <h3 class="team-card-new__name">Jasneet Kaur</h3>
+        <p class="team-card-new__role">Co-Founder &amp; Styling Director</p>
+        <p class="team-card-new__bio">
+          Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.
+        </p>
       </div>
     </div>
-
-  </div><!-- /team-grid-new -->
+  </div>
+  <!-- /team-grid-new -->
 </section>
 
 <!-- CTA BANNER -->
 <section class="cta-banner page-section">
-    <div class="cta-banner-inner reveal">
-        <h2>Begin Your <em>Love Story</em></h2>
-        <p>Let us craft an event that mirrors the depth of your love. Get in touch for a complimentary consultation.</p>
-        <div class="cta-form">
-            <input type="email" placeholder="Enter your email address">
-            <button>Get In Touch</button>
-        </div>
+  <div class="cta-banner-inner reveal">
+    <h2>Begin Your <em>Love Story</em></h2>
+    <p>
+      Let us craft an event that mirrors the depth of your love. Get in touch
+      for a complimentary consultation.
+    </p>
+    <div class="cta-form">
+      <input type="email" placeholder="Enter your email address" />
+      <button>Get In Touch</button>
     </div>
+  </div>
 </section>
-{% endblock %}
-
-{% block extra_css %}
-{% endblock %}
+{% endblock %} {% block extra_css %} {% endblock %}

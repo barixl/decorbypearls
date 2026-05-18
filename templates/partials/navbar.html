@@ -13,10 +13,10 @@
         <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
         <li><a href="{{ url_for('testimonials') }}">Testimonials</a></li>
         <li><a href="{{ url_for('blog') }}">Blog</a></li>
-        <li class="mobile-cta-li"><button class="nav-cta">Plan Your Event</button></li>
+        <li class="mobile-cta-li"><a href="{{ url_for('contact') }}" class="nav-cta" style="display: inline-block; text-align: center;">Plan Your Event</a></li>
     </ul>
     <div class="nav-btns">
-        <button class="nav-cta desktop-cta">Plan Your Event</button>
+        <a href="{{ url_for('contact') }}" class="nav-cta desktop-cta" style="text-align: center;">Plan Your Event</a>
         <div class="menu-btn" id="menu-btn">
             <i class="ri-menu-3-line open-icon"></i>
             <i class="ri-close-fill close-icon"></i>

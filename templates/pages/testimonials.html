@@ -117,7 +117,7 @@
 </section>
 {% endblock %}
 
-{% block scripts %}
+{% block extra_js %}
 <script>
 document.getElementById('testimonial-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -151,8 +151,6 @@ document.getElementById('testimonial-form').addEventListener('submit', function(
     });
 });
 </script>
-{% endblock %}
-
 {% endblock %}
 
 {% block extra_css %}

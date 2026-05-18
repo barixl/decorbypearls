@@ -20,11 +20,14 @@ app = Flask(__name__)
 Compress(app)
 
 # Configuration
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-# Using Supabase (Postgres)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'decorbypearls-dev-secret-key'
+# Using Supabase (Postgres) with a local SQLite fallback
+db_url = os.environ.get('DATABASE_URL')
+if db_url and db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Cloudinary Configuration
@@ -124,23 +127,30 @@ def seed_db():
 from sqlalchemy import text
 with app.app_context():
     db.create_all()
-    # Migration: Add category_id and tags if they don't exist (Supabase/Postgres)
-    def run_migration(sql):
-        try:
-            db.session.execute(text(sql))
-            db.session.commit()
-        except Exception as e:
-            db.session.rollback()
-            # We don't print everything to keep logs clean, but we know it might fail if already exists
-            if "already exists" not in str(e).lower():
-                print(f"Migration notice for '{sql[:30]}...': {e}")
+    # Check if we are using SQLite or PostgreSQL
+    db_uri = app.config.get('SQLALCHEMY_DATABASE_URI', '')
+    is_sqlite = db_uri.startswith('sqlite:')
 
-    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS category_id INTEGER REFERENCES category(id)")
-    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS tags VARCHAR(200)")
-    run_migration("ALTER TABLE blog DROP COLUMN IF EXISTS category")
-    run_migration('ALTER TABLE IF EXISTS "user" RENAME TO site_user')
-    run_migration('ALTER TABLE site_user ALTER COLUMN password TYPE VARCHAR(255)')
-    run_migration('ALTER TABLE site_user ALTER COLUMN username TYPE VARCHAR(100)')
+    # Migration: Add category_id and tags if they don't exist (Supabase/Postgres)
+    # We skip these on SQLite because db.create_all() creates the correct schema from scratch,
+    # and SQLite doesn't support this PostgreSQL syntax.
+    if not is_sqlite:
+        def run_migration(sql):
+            try:
+                db.session.execute(text(sql))
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                # We don't print everything to keep logs clean, but we know it might fail if already exists
+                if "already exists" not in str(e).lower():
+                    print(f"Migration notice for '{sql[:30]}...': {e}")
+
+        run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS category_id INTEGER REFERENCES category(id)")
+        run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS tags VARCHAR(200)")
+        run_migration("ALTER TABLE blog DROP COLUMN IF EXISTS category")
+        run_migration('ALTER TABLE IF EXISTS "user" RENAME TO site_user')
+        run_migration('ALTER TABLE site_user ALTER COLUMN password TYPE VARCHAR(255)')
+        run_migration('ALTER TABLE site_user ALTER COLUMN username TYPE VARCHAR(100)')
         
     seed_db()
     # Create or update default admin
@@ -203,6 +213,10 @@ def gallery():
 def testimonials():
     approved_testimonials = Testimonial.query.filter_by(status='approved').order_by(Testimonial.created_at.desc()).all()
     return render_template('pages/testimonials.html', testimonials=approved_testimonials)
+
+@app.route('/contact')
+def contact():
+    return render_template('pages/contact.html')
 
 @app.route('/submit-testimonial', methods=['POST'])
 def submit_testimonial():
