@@ -205,6 +205,22 @@ def about():
 def services():
     return render_template('pages/services.html')
 
+@app.route('/services/chandigarh')
+def chandigarh():
+    return render_template('pages/chandigarh.html')
+
+@app.route('/services/punjab')
+def punjab():
+    return render_template('pages/punjab.html')
+
+@app.route('/services/haryana')
+def haryana():
+    return render_template('pages/haryana.html')
+
+@app.route('/services/himachal')
+def himachal():
+    return render_template('pages/himachal.html')
+
 @app.route('/gallery')
 def gallery():
     return render_template('pages/gallery.html')

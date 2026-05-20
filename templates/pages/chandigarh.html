@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block title %}Chandigarh Services – Decor By Pearls{% endblock %}
+
+{% block content %}
+<section class="page-header chandigarh-header">
+  <div class="container">
+    <span class="section-label" style="color: var(--gold)">Locations</span>
+    <h1 class="section-title" style="color: #fff">
+      <em>Chandigarh</em>
+    </h1>
+  </div>
+</section>
+
+<section class="services page-section" id="venues">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="section-label">Top Venues</span>
+      <h2 class="section-title">5 Star <em>Venues</em></h2>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="venues-grid">
+      {% set venues = [
+        "Hotel Mountview", "The Lalit Chandigarh", "JW Marriott Hotel Chandigarh", 
+        "Radisson RED Chandigarh Mohali", "The Mohali Club", "Taj Chandigarh", 
+        "Hyatt Centric Sector 17 Chandigarh", "Novotel Chandigarh Tribune Chowk", 
+        "Park Plaza Chandigarh Zirakpur", "Holiday Inn Chandigarh Zirakpur"
+      ] %}
+      {% for venue in venues %}
+      <div class="venue-card reveal">
+        <h3>{{ venue }}</h3>
+        <p>★★★★★</p>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <div class="venue-cta reveal">
+      <div class="venue-cta-bg venue-cta-bg-1"></div>
+      <div class="venue-cta-bg venue-cta-bg-2"></div>
+
+      <p class="venue-cta-text">
+        Find premium hotels and luxury venues in Chandigarh for weddings, corporate events, and memorable celebrations.
+      </p>
+
+      <a
+        href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Chandigarh"
+        class="btn-primary venue-cta-btn"
+      >
+        Book Chandigarh Venue
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .chandigarh-header {
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), 
+                url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&q=80") center/cover;
+  }
+
+  .venues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .venue-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+  }
+
+  .venue-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .venue-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.6rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .venue-card p {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .venue-cta {
+    margin-top: 80px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .venue-cta-bg {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(201, 168, 76, 0.1);
+    border-radius: 50%;
+  }
+  
+  .venue-cta-bg-1 {
+    top: -50px;
+    right: -50px;
+  }
+  
+  .venue-cta-bg-2 {
+    bottom: -50px;
+    left: -50px;
+  }
+  
+  .venue-cta-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Jost", sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 35px;
+    position: relative;
+    z-index: 2;
+    font-weight: 300;
+  }
+  
+  .venue-cta-btn {
+    position: relative;
+    z-index: 2;
+    padding: 10px 30px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+  }
+</style>
+{% endblock %}
