@@ -21,13 +21,41 @@
     
     <div class="venues-grid">
       {% set venues = [
-        "Hyatt Regency Ludhiana", "Radisson Blu Hotel MBD Ludhiana", "Taj Swarna", 
-        "The Cabbana Resort & Spa", "Ranjit’s SVAASA"
+        {
+          "name": "Hyatt Regency Ludhiana",
+          "image": url_for('static', filename='images/gallery/services_sub1/Hyatt_Regency.jpg')
+        },
+        {
+          "name": "Radisson Blu Hotel MBD Ludhiana",
+          "image": url_for('static', filename='images/gallery/services_sub1/Radisson_Blu.jpg')
+        },
+        {
+          "name": "Taj Swarna",
+          "image": url_for('static', filename='images/gallery/services_sub1/Taj_Swarna.jpg')
+        },
+        {
+          "name": "The Cabbana Resort & Spa",
+          "image": url_for('static', filename='images/gallery/services_sub1/The_Cabbana.jpg')
+        },
+        {
+          "name": "Ranjit’s SVAASA",
+          "image": url_for('static', filename='images/gallery/services_sub1/Ranjits.jpg')
+        }
       ] %}
       {% for venue in venues %}
       <div class="venue-card reveal">
-        <h3>{{ venue }}</h3>
-        <p>Luxury</p>
+        <!-- Section 1: Image -->
+        <div class="venue-card-image">
+          <img src="{{ venue.image }}" alt="{{ venue.name }}" class="venue-img" loading="lazy">
+        </div>
+        <!-- Section 2: Text -->
+        <div class="venue-card-text">
+          <h3 class="venue-name">{{ venue.name }}</h3>
+        </div>
+        <!-- Section 3: Button -->
+        <div class="venue-card-action">
+          <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20{{ venue.name | urlencode }}%20in%20Punjab" class="venue-book-btn" target="_blank">Book Venue</a>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -55,7 +83,7 @@
 <style>
   .punjab-header {
     background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), 
-                url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&q=80") center/cover;
+                url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;
   }
 
   .venues-grid {
@@ -67,43 +95,118 @@
 
   .venue-card {
     background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(10, 17, 40, 0.04);
     border: 1px solid var(--border);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
   }
 
   .venue-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08);
   }
 
-  .venue-card h3 {
+  .venue-card-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+  }
+
+  .venue-card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 17, 40, 0) 65%, rgba(10, 17, 40, 0.15) 100%);
+    pointer-events: none;
+  }
+
+  .venue-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    image-rendering: -webkit-optimize-contrast; /* Sharpness in Chrome/Safari */
+    image-rendering: crisp-edges;               /* Sharpness in Firefox/Edge */
+  }
+
+  .venue-card:hover .venue-img {
+    transform: scale(1.08);
+  }
+
+  .venue-card-text {
+    padding: 25px 25px 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .venue-name {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.6rem;
-    color: var(--dark);
-    margin-bottom: 10px;
+    font-size: 1.45rem;
+    color: var(--green);
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 600;
+    transition: color 0.3s;
+    width: 100%;
   }
 
-  .venue-card p {
+  .venue-card:hover .venue-name {
     color: var(--gold);
+  }
+
+  .venue-card-action {
+    padding: 15px 25px 25px 25px;
+    border-top: 1px solid var(--border);
+    background: #fafafa;
+    width: 100%;
+  }
+
+  .venue-book-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--gold);
+    color: #fff;
+    padding: 12px 0;
+    border-radius: 6px;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+  }
+
+  .venue-book-btn:hover {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2);
   }
 
   .venue-cta {
     margin-top: 80px;
     text-align: center;
-    background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--green-light) 0%,
+      var(--green) 100%
+    );
     padding: 60px 40px;
     border-radius: 12px;
     box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2);
     position: relative;
     overflow: hidden;
   }
-  
+
   .venue-cta-bg {
     position: absolute;
     width: 150px;
@@ -111,17 +214,17 @@
     background: rgba(201, 168, 76, 0.1);
     border-radius: 50%;
   }
-  
+
   .venue-cta-bg-1 {
     top: -50px;
     right: -50px;
   }
-  
+
   .venue-cta-bg-2 {
     bottom: -50px;
     left: -50px;
   }
-  
+
   .venue-cta-text {
     color: rgba(255, 255, 255, 0.9);
     font-family: "Jost", sans-serif;
@@ -133,7 +236,7 @@
     z-index: 2;
     font-weight: 300;
   }
-  
+
   .venue-cta-btn {
     position: relative;
     z-index: 2;

@@ -27,8 +27,31 @@ if db_url and db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+# Caching settings: 1 year cache for static files
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+# Dynamic cache-busting: override url_for for static files to append file mtime
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.static_folder, filename)
+            if os.path.exists(file_path):
+                values['v'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)
+
+# Explicitly set Cache-Control headers to cache static assets forever (1 year)
+@app.after_request
+def add_header(response):
+    if request.path.startswith('/static/'):
+        response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+    return response
+
 
 # Cloudinary Configuration
 cloudinary.config( 

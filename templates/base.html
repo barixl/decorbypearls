@@ -33,7 +33,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/main.css') }}?v={{ range(1, 100000) | random }}"
+      href="{{ url_for('static', filename='css/main.css') }}"
     />
     {% block extra_css %}{% endblock %}
   </head>
