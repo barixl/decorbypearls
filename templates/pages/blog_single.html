@@ -4,43 +4,14 @@
 
 {% block content %}
 <!-- PAGE HEADER -->
-<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('{{ post.image_url if post.image_url else "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80" }}') center/cover; margin-top: 80px;">
+<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('{{ post.image_url if post.image_url else "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80" }}') center/cover;">
     <div class="container">
         <span class="section-label" style="color: var(--gold);">{{ post.cat.name if post.cat else 'Wedding Insights' }}</span>
         <h1 class="section-title" style="color: #fff;">{{ post.title }}</h1>
     </div>
 </section>
 
-<!-- FILTER BAR -->
-<section class="blog-filter-section">
-    <div class="container">
-        <!-- Mobile Toggle -->
-        <button class="filter-toggle" id="filterToggle">
-            <span><i class="ri-filter-3-line"></i> Filter</span>
-            <i class="ri-arrow-down-s-line toggle-arrow"></i>
-        </button>
 
-        <form class="filter-bar" id="filterBar" action="{{ url_for('blog') }}" method="GET">
-            <div class="filter-group">
-                <label for="categorySelect"><i class="ri-folder-line"></i> Category</label>
-                <select name="category" id="categorySelect">
-                    <option value="">All Categories</option>
-                    {% for cat in categories %}
-                    <option value="{{ cat.id }}">{{ cat.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="filter-group filter-search">
-                <label for="searchInput"><i class="ri-search-line"></i> Search</label>
-                <input type="text" name="q" id="searchInput" placeholder="Search blogs...">
-            </div>
-            <div class="filter-actions">
-                <button type="submit" class="filter-btn apply-btn"><i class="ri-filter-line"></i> Apply Filter</button>
-                <a href="{{ url_for('blog') }}" class="filter-btn clear-btn"><i class="ri-close-line"></i> Clear</a>
-            </div>
-        </form>
-    </div>
-</section>
 
 <!-- BLOG SINGLE CONTENT -->
 <section class="blog-single">
@@ -124,6 +95,7 @@
     /* BLOG SINGLE LAYOUT */
     .blog-single {
         padding: 80px var(--section-padding-x);
+        overflow: visible; /* needed so position:sticky works on sidebar */
     }
     .blog-single-layout {
         display: grid;
@@ -345,19 +317,27 @@
     
     /* SIDEBAR */
     .blog-sidebar {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(10, 17, 40, 0.03);
+        padding: 40px;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 35px;
         position: sticky;
-        top: 100px;
+        top: 120px;
         align-self: start;
         margin: 0;
     }
     .sidebar-widget {
-        background: #fff;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 15px 40px rgba(10, 17, 40, 0.03);
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .sidebar-widget:not(:last-child) {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 35px;
     }
     .sidebar-widget h3 {
         font-family: 'Cormorant Garamond', serif;
@@ -450,10 +430,11 @@
         padding: 0;
         overflow: hidden;
         position: relative;
+        border-radius: 8px;
     }
     .banner-widget img {
         width: 100%;
-        height: 350px;
+        height: 200px;
         object-fit: cover;
         display: block;
     }
@@ -471,8 +452,8 @@
     }
     .banner-content h4 {
         font-family: 'Cormorant Garamond', serif;
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
     }
     
     /* RESPONSIVE */
@@ -500,160 +481,8 @@
         }
     }
 
-    /* FILTER BAR */
-    .blog-filter-section {
-        padding: 30px var(--section-padding-x) 0;
-        margin-bottom: -30px;
-    }
-    .filter-toggle {
-        display: none;
-        width: 100%;
-        background: #fff;
-        border: 1px solid var(--border);
-        padding: 14px 20px;
-        font-family: 'Jost', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 500;
-        color: var(--dark);
-        border-radius: 8px;
-        cursor: pointer;
-        align-items: center;
-        justify-content: space-between;
-        transition: 0.3s;
-    }
-    .filter-toggle:hover {
-        border-color: var(--gold);
-    }
-    .filter-toggle .toggle-arrow {
-        transition: transform 0.3s;
-        font-size: 1.2rem;
-    }
-    .filter-bar {
-        display: flex;
-        align-items: flex-end;
-        gap: 20px;
-        background: #fff;
-        padding: 25px 30px;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(10, 17, 40, 0.05);
-        border: 1px solid var(--border);
-    }
-    .filter-group {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-    .filter-search {
-        flex: 1.5;
-    }
-    .filter-group label {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: var(--gold);
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-    .filter-group label i {
-        font-size: 0.9rem;
-    }
-    .filter-group select,
-    .filter-group input {
-        padding: 12px 15px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-family: 'Jost', sans-serif;
-        font-size: 0.9rem;
-        color: var(--dark);
-        background: #fafafa;
-        outline: none;
-        transition: border-color 0.3s;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .filter-group select:focus,
-    .filter-group input:focus {
-        border-color: var(--gold);
-    }
-    .filter-actions {
-        display: flex;
-        gap: 10px;
-        flex-shrink: 0;
-    }
-    .filter-btn {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 6px;
-        font-family: 'Jost', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all 0.3s;
-        text-decoration: none;
-        white-space: nowrap;
-    }
-    .apply-btn {
-        background: var(--gold);
-        color: #fff;
-    }
-    .apply-btn:hover {
-        background: #b5953f;
-        transform: translateY(-1px);
-    }
-    .clear-btn {
-        background: transparent;
-        color: var(--text);
-        border: 1px solid var(--border);
-    }
-    .clear-btn:hover {
-        border-color: var(--gold);
-        color: var(--gold);
-    }
 
-    @media (max-width: 768px) {
-        .filter-toggle {
-            display: flex;
-        }
-        .filter-bar {
-            display: none;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 10px;
-            padding: 20px;
-            animation: slideDown 0.3s ease;
-        }
-        .filter-bar.open {
-            display: flex;
-        }
-        .filter-actions {
-            width: 100%;
-        }
-        .filter-btn {
-            flex: 1;
-            justify-content: center;
-        }
-    }
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
 </style>
 {% endblock %}
 
-{% block extra_js %}
-<script>
-    document.getElementById('filterToggle').addEventListener('click', function() {
-        var bar = document.getElementById('filterBar');
-        var arrow = this.querySelector('.toggle-arrow');
-        bar.classList.toggle('open');
-        arrow.style.transform = bar.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
-    });
-</script>
-{% endblock %}
+

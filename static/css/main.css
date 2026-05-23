@@ -1764,7 +1764,7 @@ nav.scrolled {
   overflow: hidden;
 }
 
-.venues-swiper .swiper-wrapper {
+.venues-swiper.is-linear .swiper-wrapper {
   transition-timing-function: linear !important;
 }
 
@@ -3690,5 +3690,29 @@ footer {
   .nav-links li.dropdown.active > a i {
     transform: rotate(180deg);
   }
+}
+
+/* Global SEO Tags Styling */
+.seo-tag {
+  display: inline-block;
+  background: #fff;
+  color: var(--green);
+  border: 1px solid rgba(10, 17, 40, 0.15);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: default;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.seo-tag:hover {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(10, 17, 40, 0.1);
 }
 

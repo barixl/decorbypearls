@@ -833,6 +833,11 @@
       </div>
     </div>
   </div>
+  <div class="venues-cta reveal" style="text-align: center; margin-top: 10px; margin-bottom: 50px;">
+    <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20an%20iconic%20wedding%20venue." class="btn-primary" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px;">
+      <i class="ri-whatsapp-line" style="font-size: 1.2rem;"></i> Contact Now
+    </a>
+  </div>
 </section>
 
 <!-- REAL WEDDINGS -->
@@ -1227,19 +1232,51 @@
     initServicesSwiper();
     window.addEventListener("resize", initServicesSwiper);
 
-    // Venues Swiper (Auto-scroll)
-    const venuesSwiper = new Swiper(".venues-swiper", {
-      slidesPerView: "auto",
-      spaceBetween: 20,
-      loop: true,
-      speed: 5000,
-      allowTouchMove: false, // Disable touch move for smooth continuous scroll
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
-      freeMode: true,
-    });
+    // Venues Swiper (Auto-scroll on desktop, standard swipable cards on phone)
+    let venuesSwiper;
+    function initVenuesSwiper() {
+      const isMobile = window.innerWidth <= 768;
+      const swiperEl = document.querySelector(".venues-swiper");
+      if (!swiperEl) return;
+
+      if (venuesSwiper) {
+        venuesSwiper.destroy(true, true);
+        venuesSwiper = undefined;
+      }
+
+      if (isMobile) {
+        swiperEl.classList.remove("is-linear");
+        venuesSwiper = new Swiper(".venues-swiper", {
+          slidesPerView: "auto",
+          spaceBetween: 15,
+          centeredSlides: true,
+          loop: true,
+          grabCursor: true,
+          allowTouchMove: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          speed: 600,
+        });
+      } else {
+        swiperEl.classList.add("is-linear");
+        venuesSwiper = new Swiper(".venues-swiper", {
+          slidesPerView: "auto",
+          spaceBetween: 20,
+          loop: true,
+          speed: 5000,
+          allowTouchMove: true,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+          },
+          freeMode: true,
+        });
+      }
+    }
+    initVenuesSwiper();
+    window.addEventListener("resize", initVenuesSwiper);
 
     // Testimonials Swiper
     const testimonialsSwiper = new Swiper(".testimonials-swiper", {

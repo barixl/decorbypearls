@@ -8,9 +8,9 @@
     </div>
     <ul class="nav-links" id="nav-links">
         <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
         <li class="dropdown">
-            <a href="{{ url_for('services') }}">Services <i class="ri-arrow-down-s-line"></i></a>
+            <a href="#">Venues <i class="ri-arrow-down-s-line"></i></a>
             <ul class="dropdown-menu">
                 <li><a href="{{ url_for('chandigarh') }}">Chandigarh</a></li>
                 <li><a href="{{ url_for('punjab') }}">Punjab</a></li>
@@ -19,8 +19,9 @@
             </ul>
         </li>
         <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+        <li><a href="{{ url_for('blog') }}">Blogs</a></li>
         <li><a href="{{ url_for('testimonials') }}">Testimonials</a></li>
-        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
         <li class="mobile-cta-li"><a href="{{ url_for('contact') }}" class="nav-cta" style="display: inline-block; text-align: center;">Plan Your Event</a></li>
     </ul>
     <div class="nav-btns">

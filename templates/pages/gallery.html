@@ -16,17 +16,13 @@ endblock %} {% block content %}
 >
   <div class="container">
     <span class="section-label" style="color: var(--gold)">Our Work</span>
-    <h1 class="section-title" style="color: #fff">Our <em>Gallery</em></h1>
+    <h1 class="section-title" style="color: #fff">A Glimpse of <em>Magic</em></h1>
   </div>
 </section>
 
 <!-- GALLERY SECTION -->
 <section class="gallery-section" id="gallery">
-  <div class="gallery-header reveal">
-    <span class="section-label">Our Work</span>
-    <h2 class="section-title">A Glimpse of <em>Magic</em></h2>
-    <div class="divider"></div>
-  </div>
+  <!-- Header removed to prevent repetition -->
 
   <div class="container">
     <div class="gallery-full-grid">
@@ -441,6 +437,25 @@ endblock %} {% block content %}
   </div>
 </section>
 
+<!-- SEO TAGS -->
+<section class="seo-tags" style="padding: 60px 20px; text-align: center; background: var(--cream);">
+  <div class="container reveal">
+    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 25px; color: var(--green);">Our Expertise & Themes</h3>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto;">
+      <span class="seo-tag">Luxury Wedding Decor</span>
+      <span class="seo-tag">Destination Weddings India</span>
+      <span class="seo-tag">Beach Wedding Planner</span>
+      <span class="seo-tag">Royal Palace Weddings</span>
+      <span class="seo-tag">Floral Mandap Setup</span>
+      <span class="seo-tag">Intimate Gatherings</span>
+      <span class="seo-tag">Grand Reception Stage</span>
+      <span class="seo-tag">Vineyard Weddings</span>
+      <span class="seo-tag">Cruise Ship Weddings</span>
+      <span class="seo-tag">Premium Event Styling</span>
+    </div>
+  </div>
+</section>
+
 <!-- CTA BANNER -->
 <section class="cta-banner">
   <div class="cta-banner-inner reveal">
@@ -557,6 +572,28 @@ endblock %} {% block content %}
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
+  }
+
+  .seo-tag {
+    display: inline-block;
+    background: #fff;
+    color: var(--green);
+    border: 1px solid rgba(10, 17, 40, 0.15);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: default;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  }
+  .seo-tag:hover {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(10, 17, 40, 0.1);
   }
 </style>
 {% endblock %} {% block extra_js %}
