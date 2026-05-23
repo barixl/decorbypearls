@@ -441,7 +441,7 @@ endblock %} {% block content %}
 <section class="seo-tags" style="padding: 60px 20px; text-align: center; background: var(--cream);">
   <div class="container reveal">
     <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 25px; color: var(--green);">Our Expertise & Themes</h3>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto;">
+    <div class="seo-tags-list">
       <span class="seo-tag">Luxury Wedding Decor</span>
       <span class="seo-tag">Destination Weddings India</span>
       <span class="seo-tag">Beach Wedding Planner</span>
@@ -574,6 +574,15 @@ endblock %} {% block content %}
     }
   }
 
+  /* SEO Tags Styling */
+  .seo-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
   .seo-tag {
     display: inline-block;
     background: #fff;
@@ -594,6 +603,15 @@ endblock %} {% block content %}
     border-color: var(--green);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(10, 17, 40, 0.1);
+  }
+  @media (max-width: 768px) {
+    .seo-tags-list {
+      gap: 8px;
+    }
+    .seo-tag {
+      padding: 6px 14px;
+      font-size: 0.72rem;
+    }
   }
 </style>
 {% endblock %} {% block extra_js %}

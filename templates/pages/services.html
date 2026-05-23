@@ -314,7 +314,7 @@
 <section class="seo-tags" style="padding: 60px 20px; text-align: center; background: var(--cream);">
   <div class="container reveal">
     <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 25px; color: var(--green);">Our Services &amp; Specialities</h3>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto;">
+    <div class="seo-tags-list">
       <span class="seo-tag">Luxury Wedding Planning</span>
       <span class="seo-tag">5-Star Venue Selection</span>
       <span class="seo-tag">Wedding Vendor Sourcing</span>
@@ -416,7 +416,45 @@
         }
     }
     
-    /* Ensure cards look correct */
+    /* SEO Tags Styling */
+    .seo-tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .seo-tag {
+        display: inline-block;
+        background: #fff;
+        color: var(--green);
+        border: 1px solid rgba(10, 17, 40, 0.15);
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: default;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+    .seo-tag:hover {
+        background: var(--green);
+        color: #fff;
+        border-color: var(--green);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(10, 17, 40, 0.1);
+    }
+    @media (max-width: 768px) {
+        .seo-tags-list {
+            gap: 8px;
+        }
+        .seo-tag {
+            padding: 6px 14px;
+            font-size: 0.72rem;
+        }
+    }
 
 </style>
 {% endblock %}
