@@ -45,11 +45,21 @@ def dated_url_for(endpoint, **values):
                 values['v'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
-# Explicitly set Cache-Control headers to cache static assets forever (1 year)
+# Set Cache-Control headers per asset type
 @app.after_request
 def add_header(response):
     if request.path.startswith('/static/'):
-        response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+        # CSS and JS change with deployments — URL versioning busts cache,
+        # but DON'T use 'immutable' so hard-refresh can recover stale states.
+        if request.path.endswith(('.css', '.js')):
+            response.headers['Cache-Control'] = 'public, max-age=31536000'
+        else:
+            # Images, fonts, favicons — truly static, safe to mark immutable
+            response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+    elif response.content_type and response.content_type.startswith('text/html'):
+        # HTML pages must always be fresh so browsers get the latest CSS/JS URLs
+        response.headers['Cache-Control'] = 'no-cache, must-revalidate'
+        response.headers['Pragma'] = 'no-cache'
     return response
 
 
