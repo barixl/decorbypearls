@@ -1823,7 +1823,7 @@ nav.scrolled {
   margin-top: 4px;
 }
 
-.venue-tag {
+.venue-info .venue-tag {
   display: inline-block;
   background: var(--gold);
   color: #fff;
@@ -1969,12 +1969,23 @@ nav.scrolled {
   max-width: var(--container-max-width);
   margin: 0 auto;
   position: relative;
+  padding: 0 65px;
 }
 
 .testimonials-swiper {
   padding-bottom: 50px !important;
-  padding-left: 10px;
-  padding-right: 10px;
+}
+
+/* Equal-height slides */
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.testimonials-swiper .swiper-slide {
+  height: auto !important;
+  display: flex;
+}
+.testimonials-swiper .swiper-slide .testi-card {
+  flex: 1;
 }
 
 .testi-nav-btn {
@@ -2004,19 +2015,20 @@ nav.scrolled {
 }
 
 .swiper-button-prev.testi-nav-btn {
-  left: -25px !important;
+  left: 5px !important;
 }
 
 .swiper-button-next.testi-nav-btn {
-  right: -25px !important;
+  right: 5px !important;
 }
 
-@media (max-width: 1200px) {
-  .swiper-button-prev.testi-nav-btn {
-    left: 10px !important;
+@media (max-width: 768px) {
+  .testimonials-container {
+    padding: 0 15px;
   }
+  .swiper-button-prev.testi-nav-btn,
   .swiper-button-next.testi-nav-btn {
-    right: 10px !important;
+    display: none !important;
   }
 }
 
@@ -2059,6 +2071,7 @@ nav.scrolled {
   margin-bottom: 28px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
+  flex-grow: 1;
 }
 
 .testi-author {
@@ -3714,5 +3727,352 @@ footer {
   border-color: var(--green);
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(10, 17, 40, 0.1);
+}
+
+/* ─── VENUE PAGES – SHARED NEW SECTIONS ───────────────────────── */
+
+/* Breadcrumb */
+.venue-breadcrumb {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.venue-breadcrumb .container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+.venue-breadcrumb a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.venue-breadcrumb a:hover { color: var(--gold); }
+.venue-breadcrumb .bc-sep { color: var(--gold); opacity: 0.6; }
+.venue-breadcrumb .bc-current { color: var(--gold); font-weight: 500; }
+
+/* Intro paragraph */
+.venue-intro-section {
+  background: #fff;
+  padding: 55px 0;
+  border-bottom: 1px solid var(--border);
+}
+.venue-intro-text {
+  max-width: 830px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 2;
+  color: var(--text);
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Venue tag pill under name */
+.venue-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.venue-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Stats bar */
+.venue-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 60px 0;
+}
+.venue-stats .stat-item {
+  background: #fff;
+  padding: 38px 20px;
+  text-align: center;
+}
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+/* Why These Venues */
+.why-venues { margin: 60px 0; }
+.why-venues-header { text-align: center; margin-bottom: 40px; }
+.why-venues-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.why-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 38px 30px;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s;
+}
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(10, 17, 40, 0.07);
+}
+.why-icon {
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: block;
+}
+.why-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.why-card p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* How It Works */
+.how-it-works {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 60px 50px;
+  margin: 60px 0;
+}
+.how-it-works-header { text-align: center; margin-bottom: 50px; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: calc(16.66% + 15px);
+  right: calc(16.66% + 15px);
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.25;
+}
+.step-item { text-align: center; }
+.step-number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+}
+.step-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.step-item p {
+  font-size: 0.87rem;
+  color: var(--text);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* Venue Testimonials */
+.venue-testimonials { margin: 60px 0; }
+.venue-testimonials-header { text-align: center; margin-bottom: 35px; }
+.venue-testi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+.venue-testi-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 38px;
+  position: relative;
+  transition: transform 0.3s;
+}
+.venue-testi-card:hover { transform: translateY(-5px); }
+.venue-testi-stars { color: var(--gold); letter-spacing: 3px; margin-bottom: 14px; font-size: 0.9rem; }
+.venue-testi-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.12;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
+.venue-testi-text {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--text);
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 22px;
+}
+.venue-testi-author { display: flex; align-items: center; gap: 14px; }
+.venue-testi-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.venue-testi-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+.venue-testi-event {
+  font-size: 0.7rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+/* CTA trust note */
+.venue-cta-note {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Explore Other Locations */
+.explore-locations {
+  padding: 90px var(--section-padding-x);
+  background: var(--cream);
+}
+.explore-locations-header { text-align: center; margin-bottom: 50px; }
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.explore-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 340px;
+  display: block;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(10, 17, 40, 0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.explore-card:hover { transform: translateY(-8px); }
+.explore-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.explore-card:hover img { transform: scale(1.07); }
+.explore-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.3) 55%, transparent 100%);
+  transition: background 0.3s;
+}
+.explore-card:hover .explore-overlay {
+  background: linear-gradient(to top, rgba(10, 17, 40, 0.95) 0%, rgba(10, 17, 40, 0.5) 60%, rgba(10, 17, 40, 0.1) 100%);
+}
+.explore-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+}
+.explore-label {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.explore-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 600;
+  transition: gap 0.3s;
+}
+.explore-card:hover .explore-link { gap: 12px; }
+
+/* Responsive – venue page new sections */
+@media (max-width: 1024px) {
+  .venue-stats { grid-template-columns: repeat(2, 1fr); }
+  .why-venues-grid { grid-template-columns: repeat(2, 1fr); }
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .venue-intro-text { font-size: 0.97rem; }
+  .venue-stats { grid-template-columns: repeat(2, 1fr); }
+  .why-venues-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .steps-grid::before { display: none; }
+  .venue-testi-grid { grid-template-columns: 1fr; }
+  .explore-grid { grid-template-columns: 1fr; }
+  .how-it-works { padding: 40px 25px; }
+  .explore-locations { padding: 60px var(--section-padding-x); }
 }
 

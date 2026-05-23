@@ -1,13 +1,61 @@
 {% extends 'base.html' %}
-
 {% block title %}Best Wedding Planner in Himachal | Luxury Venues – Decor By Pearls{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Looking for the best wedding planner in Himachal and Kasauli? Decor By Pearls offers luxury destination wedding planning, top 5-star resorts, and premium decoration services in Himachal." />
-<meta name="keywords" content="Best Wedding Planner Himachal, Himachal Destination Weddings, Luxury Wedding Planner Kasauli, Event Decorator Himachal, 5-Star Resorts Himachal" />
+<meta name="description" content="Looking for the best wedding planner in Himachal and Kasauli? Decor By Pearls offers luxury destination wedding planning, top 5-star resorts, and premium decoration services across Kasauli, Shimla & Chail." />
+<meta name="keywords" content="Best Wedding Planner Himachal, Himachal Destination Weddings, Luxury Wedding Planner Kasauli, Event Decorator Himachal, 5-Star Resorts Himachal, Destination Wedding Kasauli, Mountain Wedding India" />
+<meta property="og:title" content="Best Wedding Planner in Himachal | Destination Venues – Decor By Pearls" />
+<meta property="og:description" content="Dream mountain weddings in Himachal Pradesh. Top 5-star resorts across Kasauli, Shimla & Chail. End-to-end destination wedding planning & luxury décor." />
+<meta property="og:type" content="website" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decorbypearls.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://decorbypearls.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Himachal / Kasauli", "item": "https://decorbypearls.com/services/himachal" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which are the best wedding venues in Kasauli?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kasauli's top wedding venues include Ramada by Wyndham Kasauli, Glenview Resort Kasauli, and Suryavilas Luxury Resort & Spa. These hill properties offer breathtaking mountain views and premium facilities perfect for destination weddings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Decor By Pearls plan a destination wedding in Himachal Pradesh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, destination weddings in Himachal are our speciality. Decor By Pearls manages every aspect — from venue selection and décor to guest logistics and vendor coordination across Kasauli, Shimla, and Chail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best time for a wedding in Himachal / Kasauli?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best months for a Himachal wedding are March–June and September–November, when the weather is pleasant and skies are clear. We recommend avoiding the monsoon season (July–August) for outdoor ceremonies."
+      }
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}
+<!-- PAGE HEADER -->
 <section class="page-header himachal-header">
   <div class="container">
     <span class="section-label" style="color: var(--gold)">Locations</span>
@@ -17,11 +65,24 @@
   </div>
 </section>
 
+<!-- BREADCRUMB -->
+<div class="venue-breadcrumb">
+  <div class="container">
+    <a href="{{ url_for('home') }}">Home</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-text">Venues</span>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Himachal / Kasauli</span>
+  </div>
+</div>
+
+<!-- VENUES -->
 <section class="services page-section" id="venues">
   <div class="container">
+
     <div class="services-header reveal">
       <span class="section-label">Top Venues</span>
-      <h2 class="section-title">5 Star & Luxury <em>Venues</em></h2>
+      <h2 class="section-title">5 Star &amp; Luxury <em>Venues</em></h2>
       <div class="divider"></div>
     </div>
 
@@ -29,52 +90,69 @@
       {% set luxury_venues = [
         {
           "name": "Ramada by Wyndham Kasauli",
+          "tag": "5-Star · Kasauli",
+          "desc": "A beautiful mountain retreat in Kasauli with valley views, terrace banquets, and serene lawns.",
           "image": url_for('static', filename='images/gallery/services_sub/Ramada.jpg')
         },
         {
           "name": "Deventure Shimla Hills",
+          "tag": "Luxury Resort · Shimla",
+          "desc": "A luxury hill resort with premium amenities, a rotating restaurant, and panoramic mountain views.",
           "image": url_for('static', filename='images/gallery/services_sub/Deventure.jpg')
         },
         {
           "name": "ITC Hotels Welcomhotel Tavleen Chail",
+          "tag": "5-Star · Chail",
+          "desc": "Secluded mountain paradise set amidst oak forests with luxury cottages and lawn banquets.",
           "image": url_for('static', filename='images/gallery/services_sub/ITC.jpg')
         },
         {
           "name": "Fortune Select Forest Hill",
+          "tag": "5-Star · Shimla",
+          "desc": "A stunning nature resort in Solan featuring modern banquets, infinity pool, and pine forest views.",
           "image": url_for('static', filename='images/gallery/services_sub/Fortune.png')
         },
         {
           "name": "Storii By ITC Hotels The Kaba Retreat",
+          "tag": "Boutique Luxury · Himachal",
+          "desc": "A bespoke boutique retreat in Solan offering intimate luxury and magical mountain settings.",
           "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
         },
         {
           "name": "Suryavilas Luxury Resort & Spa",
+          "tag": "Luxury Resort · Kasauli",
+          "desc": "Kasauli's premier spa resort with beautiful infinity pool decks and grand mountain wedding lawns.",
           "image": url_for('static', filename='images/gallery/services_sub/Suryavilas.jpg')
         },
         {
           "name": "Glenview Resort Kasauli",
+          "tag": "Resort · Kasauli",
+          "desc": "Located in the pine forests, offering scenic outdoor decks and elegant indoor banquet spaces.",
           "image": url_for('static', filename='images/gallery/services_sub/Glenview.jpg')
         },
         {
           "name": "ITC Grand Bharat",
+          "tag": "5-Star · Himachal",
+          "desc": "Exquisite luxury and stellar hospitality set in majestic mountain environments.",
           "image": url_for('static', filename='images/gallery/services_sub/ITC_Grand_Bharat.jpg')
         },
         {
           "name": "WelcomHeritage Parv Vilas Resort & Spa",
+          "tag": "Heritage Resort · Himachal",
+          "desc": "A beautiful heritage-style wellness resort in Solan with traditional design and elegant spaces.",
           "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ba/41/21/hotel-facade.jpg?w=900&h=-1&s=1"
         }
       ] %}
       {% for venue in luxury_venues %}
       <div class="venue-card reveal">
-        <!-- Section 1: Image -->
         <div class="venue-card-image">
           <img src="{{ venue.image }}" alt="{{ venue.name }}" class="venue-img" loading="lazy">
         </div>
-        <!-- Section 2: Text -->
         <div class="venue-card-text">
           <h3 class="venue-name">{{ venue.name }}</h3>
+          <span class="venue-tag">{{ venue.tag }}</span>
+          <p class="venue-desc">{{ venue.desc }}</p>
         </div>
-        <!-- Section 3: Button -->
         <div class="venue-card-action">
           <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20{{ venue.name | urlencode }}%20in%20Himachal/Kasauli" class="venue-book-btn" target="_blank">Book Venue</a>
         </div>
@@ -92,24 +170,27 @@
       {% set four_star_venues = [
         {
           "name": "Royal Ark Resort",
+          "tag": "4-Star · Kasauli",
+          "desc": "A cozy and elegant premium resort in Kasauli perfect for boutique nature-themed weddings.",
           "image": url_for('static', filename='images/gallery/services_sub/Royal.jpg')
         },
         {
           "name": "Villasita",
+          "tag": "Boutique Villa · Himachal",
+          "desc": "A gorgeous boutique villa estate in Himachal offering intimate gatherings and bespoke setups.",
           "image": url_for('static', filename='images/gallery/services_sub/Villasita.jpg')
         }
       ] %}
       {% for venue in four_star_venues %}
       <div class="venue-card reveal">
-        <!-- Section 1: Image -->
         <div class="venue-card-image">
           <img src="{{ venue.image }}" alt="{{ venue.name }}" class="venue-img" loading="lazy">
         </div>
-        <!-- Section 2: Text -->
         <div class="venue-card-text">
           <h3 class="venue-name">{{ venue.name }}</h3>
+          <span class="venue-tag">{{ venue.tag }}</span>
+          <p class="venue-desc">{{ venue.desc }}</p>
         </div>
-        <!-- Section 3: Button -->
         <div class="venue-card-action">
           <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20{{ venue.name | urlencode }}%20in%20Himachal/Kasauli" class="venue-book-btn" target="_blank">Book Venue</a>
         </div>
@@ -117,37 +198,255 @@
       {% endfor %}
     </div>
 
+    <!-- INTRO -->
+    <div class="venue-intro-section" style="margin-top: 50px; margin-bottom: 40px; padding: 0 15px;">
+      <p class="venue-intro-text">
+        For couples dreaming of a fairytale wedding in the mountains, Himachal Pradesh offers unmatched natural beauty. Decor By Pearls specialises in destination weddings across <strong>Kasauli, Shimla, and Chail</strong> — working with the finest hill resorts and luxury properties to create breathtaking celebrations. Let us handle every detail while you soak in the beauty of the Himalayas on the most important day of your life.
+      </p>
+    </div>
+
+    <!-- STATS -->
+    <div class="venue-stats reveal">
+      <div class="stat-item">
+        <div class="stat-number">11</div>
+        <div class="stat-label">Curated Venues</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">250+</div>
+        <div class="stat-label">Weddings Planned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2hr</div>
+        <div class="stat-label">Response Time</div>
+      </div>
+    </div>
+
+    <!-- WHY THESE VENUES -->
+    <div class="why-venues reveal">
+      <div class="why-venues-header">
+        <span class="section-label">Our Promise</span>
+        <h2 class="section-title">Why These <em>Venues?</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="why-venues-grid">
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-shield-check-line"></i></span>
+          <h4>Personally Vetted</h4>
+          <p>Every venue on this list has been visited, evaluated, and approved by our team. We recommend only what we'd choose for our own family's celebrations.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-price-tag-3-line"></i></span>
+          <h4>Exclusive Rates</h4>
+          <p>As preferred partners with these properties, Decor By Pearls secures preferential pricing and packages that aren't available when booking directly.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-magic-line"></i></span>
+          <h4>End-to-End Décor</h4>
+          <p>Our in-house décor team transforms these mountain venues into breathtaking settings — florals, lighting, mandap design, and every detail in between.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works reveal">
+      <div class="how-it-works-header">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How It <em>Works</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h4>Browse Venues</h4>
+          <p>Explore our curated selection of Himachal's finest mountain resorts and destination wedding properties.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h4>WhatsApp Us</h4>
+          <p>Share your date, guest count, and budget. Our team responds within 2 hours with a tailored destination wedding plan.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h4>We Handle Everything</h4>
+          <p>From venue booking and décor to guest logistics and day-of coordination — we manage it all so you can simply enjoy the mountains.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials reveal" id="testimonials">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Love Notes</span>
+      <h2 class="section-title">What Couples <em>Say</em></h2>
+      <div class="divider"></div>
+    </div>
+      <div class="testimonials-container reveal">
+        <div class="swiper testimonials-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">A beautiful mountain destination wedding at Ramada Kasauli. The outdoor lawn mandap with valley views was mystical. Decor By Pearls handled the hill logistics perfectly!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">A</div>
+                  <div>
+                    <div class="testi-name">Aarav &amp; Kriti</div>
+                    <div class="testi-event">Ramada Kasauli Wedding</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">We had our dream wedding at Welcomhotel Tavleen Chail. The team created a magical woodland setup that blended seamlessly with the pine forests. Absolutely stellar!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">S</div>
+                  <div>
+                    <div class="testi-name">Shalini &amp; Rohit</div>
+                    <div class="testi-event">Welcomhotel Tavleen Wedding · Chail</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Deventure Shimla Hills looked stunning. The floral canopy and elegant lighting made our winter wedding feel warm and magical. Best decorators for hill weddings.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">M</div>
+                  <div>
+                    <div class="testi-name">Meghna &amp; Aditya</div>
+                    <div class="testi-event">Deventure Shimla Wedding</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Our intimate wedding at Suryavilas Kasauli was pure perfection. The infinity pool deck setups and sunset mandap were out of a movie scene. Thank you, Decor By Pearls!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">P</div>
+                  <div>
+                    <div class="testi-name">Pooja &amp; Sameer</div>
+                    <div class="testi-event">Suryavilas Kasauli Wedding</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial Navigation -->
+          <div class="swiper-button-prev testi-nav-btn">
+            <i class="ri-arrow-left-s-line"></i>
+          </div>
+          <div class="swiper-button-next testi-nav-btn">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <div class="swiper-pagination testi-pagination"></div>
+      </div>
+    </section>
+
+    <!-- CTA & FAQ -->
+    <section class="services page-section" style="padding-top: 0;">
+      <div class="container">
+        <!-- CTA -->
     <div class="venue-cta reveal">
       <div class="venue-cta-bg venue-cta-bg-1"></div>
       <div class="venue-cta-bg venue-cta-bg-2"></div>
-
       <p class="venue-cta-text">
-        Discover luxury wedding venues and premium resorts in Himachal/Kasauli
-        for unforgettable weddings, events, and celebrations.
+        Discover luxury wedding venues and premium resorts in Himachal / Kasauli for unforgettable destination weddings and mountain celebrations.
       </p>
-
-      <a
-        href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Himachal/Kasauli"
-        class="btn-primary venue-cta-btn"
-      >
+      <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Himachal/Kasauli" class="btn-primary venue-cta-btn">
         Book Himachal Venue
+      </a>
+      <p class="venue-cta-note">Typically responds within 2 hours · Free consultation</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="venue-faq reveal" style="margin-top: 60px;">
+      <div style="text-align:center; margin-bottom: 35px;">
+        <span class="section-label">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">Which are the best wedding venues in Kasauli?</h3>
+          <p class="faq-a">Kasauli's top wedding venues include Ramada by Wyndham Kasauli, Glenview Resort Kasauli, and Suryavilas Luxury Resort &amp; Spa. These hill properties offer breathtaking mountain views and premium facilities perfect for destination weddings.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Can Decor By Pearls plan a destination wedding in Himachal Pradesh?</h3>
+          <p class="faq-a">Yes, destination weddings in Himachal are our speciality. Decor By Pearls manages every aspect — from venue selection and décor to guest logistics and vendor coordination across Kasauli, Shimla, and Chail.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">What is the best time for a wedding in Himachal / Kasauli?</h3>
+          <p class="faq-a">The best months for a Himachal wedding are March–June and September–November, when the weather is pleasant and skies are clear. We recommend avoiding the monsoon season (July–August) for outdoor ceremonies.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPLORE OTHER LOCATIONS -->
+<section class="explore-locations">
+  <div class="container">
+    <div class="explore-locations-header reveal">
+      <span class="section-label">We Cover More</span>
+      <h2 class="section-title">Explore Other <em>Locations</em></h2>
+      <div class="divider"></div>
+      <p style="color: var(--text); font-weight: 300; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">We plan luxury weddings across North India. Discover our curated venues in other stunning locations.</p>
+    </div>
+    <div class="explore-grid">
+      <a href="{{ url_for('punjab') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub1/Taj_Swarna.jpg') }}" alt="Wedding venues in Punjab" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Punjab</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('chandigarh') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub3/JW_Marriott.jpg') }}" alt="Wedding venues in Chandigarh" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Chandigarh</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('haryana') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub2/ITC_Grand.png') }}" alt="Wedding venues in Haryana" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Haryana</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
       </a>
     </div>
   </div>
 </section>
+{% endblock %}
 
-{% endblock %} {% block extra_css %}
-
+{% block extra_css %}
 <style>
   .himachal-header {
-    background:
-      linear-gradient(
-        135deg,
-        rgba(10, 17, 40, 0.9) 0%,
-        rgba(10, 17, 40, 0.7) 100%
-      ),
-      url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}')
-        center/cover;
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%),
+                url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;
   }
 
   .venues-grid {
@@ -156,162 +455,99 @@
     gap: 30px;
     margin-top: 40px;
   }
-
-  .mb-60 {
-    margin-bottom: 60px;
-  }
-
+  .mb-60 { margin-bottom: 60px; }
   .venue-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
+    background: #fff; border-radius: 12px; overflow: hidden;
     box-shadow: 0 15px 35px rgba(10, 17, 40, 0.04);
     border: 1px solid var(--border);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    display: flex;
-    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex; flex-direction: column;
   }
-
-  .venue-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08);
-  }
-
-  .venue-card-image {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-  }
-
+  .venue-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08); }
+  .venue-card-image { position: relative; height: 240px; overflow: hidden; }
   .venue-card-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(10, 17, 40, 0) 65%, rgba(10, 17, 40, 0.15) 100%);
     pointer-events: none;
   }
-
   .venue-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    image-rendering: -webkit-optimize-contrast; /* Sharpness in Chrome/Safari */
-    image-rendering: crisp-edges;               /* Sharpness in Firefox/Edge */
   }
-
-  .venue-card:hover .venue-img {
-    transform: scale(1.08);
-  }
-
+  .venue-card:hover .venue-img { transform: scale(1.08); }
   .venue-card-text {
-    padding: 25px 25px 20px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    text-align: center;
+    padding: 25px 25px 20px 25px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; flex-grow: 1; text-align: center;
   }
-
   .venue-name {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.45rem;
-    color: var(--green);
-    margin: 0;
-    line-height: 1.3;
-    font-weight: 600;
-    transition: color 0.3s;
-    width: 100%;
+    font-family: "Cormorant Garamond", serif; font-size: 1.45rem; color: var(--green);
+    margin: 0; line-height: 1.3; font-weight: 600; transition: color 0.3s; width: 100%;
   }
-
-  .venue-card:hover .venue-name {
-    color: var(--gold);
-  }
-
-  .venue-card-action {
-    padding: 15px 25px 25px 25px;
-    border-top: 1px solid var(--border);
-    background: #fafafa;
-    width: 100%;
-  }
-
+  .venue-card:hover .venue-name { color: var(--gold); }
+  .venue-card-action { padding: 15px 25px 25px 25px; border-top: 1px solid var(--border); background: #fafafa; width: 100%; }
   .venue-book-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--gold);
-    color: #fff;
-    padding: 12px 0;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+    display: block; width: 100%; text-align: center; background: var(--gold); color: #fff;
+    padding: 12px 0; border-radius: 6px; font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600; text-decoration: none;
+    transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
   }
-
-  .venue-book-btn:hover {
-    background: var(--green);
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2);
-  }
+  .venue-book-btn:hover { background: var(--green); color: #fff; box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2); }
 
   .venue-cta {
-    margin-top: 80px;
-    text-align: center;
-    background: linear-gradient(
-      135deg,
-      var(--green-light) 0%,
-      var(--green) 100%
-    );
-    padding: 60px 40px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2);
-    position: relative;
-    overflow: hidden;
+    margin-top: 80px; text-align: center;
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+    padding: 60px 40px; border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2); position: relative; overflow: hidden;
   }
-
-  .venue-cta-bg {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: rgba(201, 168, 76, 0.1);
-    border-radius: 50%;
-  }
-
-  .venue-cta-bg-1 {
-    top: -50px;
-    right: -50px;
-  }
-
-  .venue-cta-bg-2 {
-    bottom: -50px;
-    left: -50px;
-  }
-
+  .venue-cta-bg { position: absolute; width: 150px; height: 150px; background: rgba(201, 168, 76, 0.1); border-radius: 50%; }
+  .venue-cta-bg-1 { top: -50px; right: -50px; }
+  .venue-cta-bg-2 { bottom: -50px; left: -50px; }
   .venue-cta-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "Jost", sans-serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 35px;
-    position: relative;
-    z-index: 2;
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9); font-family: "Jost", sans-serif;
+    font-size: 1.15rem; line-height: 1.8; max-width: 700px;
+    margin: 0 auto 35px; position: relative; z-index: 2; font-weight: 300;
   }
+  .venue-cta-btn { position: relative; z-index: 2; padding: 10px 30px; font-size: 0.85rem; border-radius: 5px; }
 
-  .venue-cta-btn {
-    position: relative;
-    z-index: 2;
-    padding: 10px 30px;
-    font-size: 0.85rem;
-    border-radius: 5px;
-  }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 25px 0; }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--dark); margin: 0 0 10px; font-weight: 600; }
+  .faq-a { font-size: 0.93rem; line-height: 1.8; color: var(--text); font-weight: 300; margin: 0; }
 </style>
+{% endblock %}
 
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsSwiper = new Swiper(".testimonials-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      pagination: {
+        el: ".testi-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".testi-nav-btn.swiper-button-next",
+        prevEl: ".testi-nav-btn.swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  });
+</script>
 {% endblock %}

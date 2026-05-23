@@ -2,11 +2,60 @@
 {% block title %}Best Wedding Planner in Chandigarh | Luxury Venues – Decor By Pearls{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Looking for the best wedding planner in Chandigarh? Decor By Pearls offers luxury wedding planning, top 5-star venues, and premium decoration services in Chandigarh." />
-<meta name="keywords" content="Best Wedding Planner Chandigarh, Chandigarh Weddings, Luxury Wedding Planner Chandigarh, Event Decorator Chandigarh, 5-Star Wedding Venues Chandigarh" />
+<meta name="description" content="Looking for the best wedding planner in Chandigarh? Decor By Pearls offers luxury wedding planning, top 5-star venues, and premium decoration services across Chandigarh, Mohali & Zirakpur." />
+<meta name="keywords" content="Best Wedding Planner Chandigarh, Chandigarh Weddings, Luxury Wedding Planner Chandigarh, Event Decorator Chandigarh, 5-Star Wedding Venues Chandigarh, Wedding Planner Mohali" />
+<meta property="og:title" content="Best Wedding Planner in Chandigarh | Luxury Venues – Decor By Pearls" />
+<meta property="og:description" content="Chandigarh's most trusted luxury wedding planner. 10 curated 5-star venues across Chandigarh, Mohali & Zirakpur. End-to-end planning, décor & vendor management." />
+<meta property="og:type" content="website" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decorbypearls.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://decorbypearls.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Chandigarh", "item": "https://decorbypearls.com/services/chandigarh" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the best 5-star wedding venues in Chandigarh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chandigarh offers world-class wedding venues including JW Marriott Hotel Chandigarh, Taj Chandigarh, The Lalit Chandigarh, Hyatt Centric Sector 17, and Hotel Mountview. Decor By Pearls has worked at all these venues and can help you select the best fit for your wedding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Decor By Pearls plan a wedding in Mohali or Zirakpur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We cover the entire Tricity area — Chandigarh, Mohali, and Zirakpur — and work with venues like Radisson RED Mohali, Holiday Inn Zirakpur, The Mohali Club, and Park Plaza Zirakpur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the cost of planning a 5-star wedding in Chandigarh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wedding costs vary based on the venue, guest count, décor preferences, and services required. Decor By Pearls offers customised packages for every budget. Contact us for a free consultation and personalised quote."
+      }
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}
+<!-- PAGE HEADER -->
 <section class="page-header chandigarh-header">
   <div class="container">
     <span class="section-label" style="color: var(--gold)">Locations</span>
@@ -16,6 +65,18 @@
   </div>
 </section>
 
+<!-- BREADCRUMB -->
+<div class="venue-breadcrumb">
+  <div class="container">
+    <a href="{{ url_for('home') }}">Home</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-text">Venues</span>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Chandigarh</span>
+  </div>
+</div>
+
+<!-- VENUES -->
 <section class="services page-section" id="venues">
   <div class="container">
     <div class="services-header reveal">
@@ -23,81 +84,325 @@
       <h2 class="section-title">5 Star <em>Venues</em></h2>
       <div class="divider"></div>
     </div>
-    
+
     <div class="venues-grid">
       {% set venues = [
         {
           "name": "Hotel Mountview",
+          "tag": "5-Star · Chandigarh",
+          "desc": "A legendary city landmark offering lush lawns, fine dining, and excellent banqueting in Sector 10.",
           "image": url_for('static', filename='images/gallery/services_sub3/Hotel_Mountview.jpg')
         },
         {
           "name": "The Lalit Chandigarh",
+          "tag": "5-Star · Chandigarh",
+          "desc": "Nestled in Rajiv Gandhi IT Park, with stunning forest-view suites and a grand ballroom.",
           "image": url_for('static', filename='images/gallery/services_sub3/The_Lalit.jpg')
         },
         {
           "name": "JW Marriott Hotel Chandigarh",
+          "tag": "5-Star · Chandigarh",
+          "desc": "Premium luxury with a majestic ballroom, sophisticated spaces, and world-class hospitality.",
           "image": url_for('static', filename='images/gallery/services_sub3/JW_Marriott.jpg')
         },
         {
           "name": "Taj Chandigarh",
+          "tag": "5-Star · Sector 17",
+          "desc": "Located in Sector 17, featuring a pillarless ballroom, legendary comfort, and luxurious settings.",
           "image": url_for('static', filename='images/gallery/services_sub3/Taj_Chandigarh.jpg')
         },
         {
           "name": "Hyatt Centric Sector 17 Chandigarh",
+          "tag": "5-Star · Sector 17",
+          "desc": "A contemporary hotel with vibrant chic interiors, outdoor lawns, and perfect party venues.",
           "image": url_for('static', filename='images/gallery/services_sub3/Hyatt_Centric.jpg')
         },
         {
           "name": "Radisson RED Chandigarh Mohali",
+          "tag": "4-Star · Mohali",
+          "desc": "A playful and creative 5-star venue with art-infused designs, a trendy bar, and grand banquets.",
           "image": url_for('static', filename='images/gallery/services_sub3/Radisson.jpg')
         },
         {
           "name": "Holiday Inn Chandigarh Zirakpur",
+          "tag": "4-Star · Zirakpur",
+          "desc": "Excellent choice for grand celebrations, featuring a massive ballroom and beautiful poolside lawns.",
           "image": url_for('static', filename='images/gallery/services_sub3/Holiday_Inn.jpg')
         },
         {
           "name": "The Mohali Club",
+          "tag": "Exclusive Club · Mohali",
+          "desc": "A premium private club with sophisticated halls, premium amenities, and intimate party lawns.",
           "image": "https://lh3.googleusercontent.com/p/AF1QipN0p9g7dqpf3y5DPKE6rY3kX7VoNg05eYMRqVCG=s1360-w1360-h1020-rw"
         },
         {
           "name": "Novotel Chandigarh Tribune Chowk",
+          "tag": "5-Star · Chandigarh",
+          "desc": "A modern hotel with superb banquet halls, excellent catering, and accessible location.",
           "image": "https://www.ahstatic.com/photos/b7i3_ho_01_p_1024x768.jpg"
         },
         {
           "name": "Park Plaza Chandigarh Zirakpur",
+          "tag": "5-Star · Zirakpur",
+          "desc": "Offers a classic grand ballroom and a large manicured lawn perfect for royal open-air weddings.",
           "image": url_for('static', filename='images/gallery/services_sub3/Park.png')
         }
       ] %}
       {% for venue in venues %}
       <div class="venue-card reveal">
-        <!-- Section 1: Image -->
         <div class="venue-card-image">
           <img src="{{ venue.image }}" alt="{{ venue.name }}" class="venue-img" loading="lazy">
         </div>
-        <!-- Section 2: Text -->
         <div class="venue-card-text">
           <h3 class="venue-name">{{ venue.name }}</h3>
+          <span class="venue-tag">{{ venue.tag }}</span>
+          <p class="venue-desc">{{ venue.desc }}</p>
         </div>
-        <!-- Section 3: Button -->
         <div class="venue-card-action">
           <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20{{ venue.name | urlencode }}%20in%20Chandigarh" class="venue-book-btn" target="_blank">Book Venue</a>
         </div>
       </div>
       {% endfor %}
     </div>
-    
+
+    <!-- INTRO -->
+    <div class="venue-intro-section" style="margin-top: 50px; margin-bottom: 40px; padding: 0 15px;">
+      <p class="venue-intro-text">
+        Chandigarh, India's most beautifully planned city, offers a unique blend of modern luxury and green serenity — the perfect backdrop for an elegant wedding. Decor By Pearls works closely with Chandigarh and Mohali's top 5-star hotels, from <strong>JW Marriott</strong> to the iconic <strong>Taj Chandigarh</strong>. With our end-to-end wedding planning and premium décor services, your celebration in the City Beautiful will be nothing short of extraordinary.
+      </p>
+    </div>
+
+    <!-- STATS -->
+    <div class="venue-stats reveal">
+      <div class="stat-item">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Curated Venues</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">250+</div>
+        <div class="stat-label">Weddings Planned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2hr</div>
+        <div class="stat-label">Response Time</div>
+      </div>
+    </div>
+
+    <!-- WHY THESE VENUES -->
+    <div class="why-venues reveal">
+      <div class="why-venues-header">
+        <span class="section-label">Our Promise</span>
+        <h2 class="section-title">Why These <em>Venues?</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="why-venues-grid">
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-shield-check-line"></i></span>
+          <h4>Personally Vetted</h4>
+          <p>Every venue on this list has been visited, evaluated, and approved by our team. We recommend only what we'd choose for our own family's celebrations.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-price-tag-3-line"></i></span>
+          <h4>Exclusive Rates</h4>
+          <p>As preferred partners with these properties, Decor By Pearls secures preferential pricing and packages that aren't available when booking directly.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-magic-line"></i></span>
+          <h4>End-to-End Décor</h4>
+          <p>Our in-house décor team transforms these venues into breathtaking settings — florals, lighting, mandap design, and every detail in between.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works reveal">
+      <div class="how-it-works-header">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How It <em>Works</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h4>Browse Venues</h4>
+          <p>Explore our curated selection of Chandigarh's finest 5-star wedding properties and shortlist your favourites.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h4>WhatsApp Us</h4>
+          <p>Share your date, guest count, and budget. Our team responds within 2 hours with a tailored recommendation.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h4>We Handle Everything</h4>
+          <p>From venue booking and décor to vendors and day-of coordination — we manage it all so you can simply enjoy.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials reveal" id="testimonials">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Love Notes</span>
+      <h2 class="section-title">What Couples <em>Say</em></h2>
+      <div class="divider"></div>
+    </div>
+      <div class="testimonials-container reveal">
+        <div class="swiper testimonials-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">We had our dream wedding at JW Marriott Chandigarh and Decor By Pearls exceeded every expectation. The team was meticulous, creative, and genuinely passionate about making our day absolutely perfect.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">P</div>
+                  <div>
+                    <div class="testi-name">Priya &amp; Sahil</div>
+                    <div class="testi-event">JW Marriott Wedding · Chandigarh</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Choosing Decor By Pearls for our Taj Chandigarh wedding was the best decision we made. The décor, florals, and coordination were absolutely stunning. Our guests couldn't stop complimenting everything.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">N</div>
+                  <div>
+                    <div class="testi-name">Neha &amp; Vikas</div>
+                    <div class="testi-event">Taj Chandigarh Wedding</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">The Lalit Chandigarh was transformed into a fairy tale. The forest-inspired canopy, the entrance floral installations, and the flawless execution by the Decor By Pearls team were just out of this world.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">A</div>
+                  <div>
+                    <div class="testi-name">Armaan &amp; Riya</div>
+                    <div class="testi-event">The Lalit Wedding · Chandigarh</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Decor By Pearls planned our wedding at Hyatt Centric Sector 17. Their execution, custom details, and responsiveness are unmatched. The best wedding decorators in Chandigarh!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">T</div>
+                  <div>
+                    <div class="testi-name">Tanya &amp; Kabir</div>
+                    <div class="testi-event">Hyatt Centric Wedding · Chandigarh</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial Navigation -->
+          <div class="swiper-button-prev testi-nav-btn">
+            <i class="ri-arrow-left-s-line"></i>
+          </div>
+          <div class="swiper-button-next testi-nav-btn">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <div class="swiper-pagination testi-pagination"></div>
+      </div>
+    </section>
+
+    <!-- CTA & FAQ -->
+    <section class="services page-section" style="padding-top: 0;">
+      <div class="container">
+        <!-- CTA -->
     <div class="venue-cta reveal">
       <div class="venue-cta-bg venue-cta-bg-1"></div>
       <div class="venue-cta-bg venue-cta-bg-2"></div>
-
       <p class="venue-cta-text">
-        Find premium hotels and luxury venues in Chandigarh for weddings, corporate events, and memorable celebrations.
+        Find premium hotels and luxury venues in Chandigarh for weddings, corporate events, and memorable celebrations. Let's create something extraordinary together.
       </p>
-
-      <a
-        href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Chandigarh"
-        class="btn-primary venue-cta-btn"
-      >
+      <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Chandigarh" class="btn-primary venue-cta-btn">
         Book Chandigarh Venue
+      </a>
+      <p class="venue-cta-note">Typically responds within 2 hours · Free consultation</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="venue-faq reveal" style="margin-top: 60px;">
+      <div style="text-align:center; margin-bottom: 35px;">
+        <span class="section-label">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">What are the best 5-star wedding venues in Chandigarh?</h3>
+          <p class="faq-a">Chandigarh offers world-class wedding venues including JW Marriott Hotel Chandigarh, Taj Chandigarh, The Lalit Chandigarh, Hyatt Centric Sector 17, and Hotel Mountview. Decor By Pearls has worked at all these venues and can help you select the best fit.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Can Decor By Pearls plan a wedding in Mohali or Zirakpur?</h3>
+          <p class="faq-a">Absolutely. We cover the entire Tricity area — Chandigarh, Mohali, and Zirakpur — and work with venues like Radisson RED Mohali, Holiday Inn Zirakpur, The Mohali Club, and Park Plaza Zirakpur.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">What is the cost of planning a 5-star wedding in Chandigarh?</h3>
+          <p class="faq-a">Wedding costs vary based on the venue, guest count, décor preferences, and services required. Decor By Pearls offers customised packages for every budget. Contact us for a free consultation and personalised quote.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPLORE OTHER LOCATIONS -->
+<section class="explore-locations">
+  <div class="container">
+    <div class="explore-locations-header reveal">
+      <span class="section-label">We Cover More</span>
+      <h2 class="section-title">Explore Other <em>Locations</em></h2>
+      <div class="divider"></div>
+      <p style="color: var(--text); font-weight: 300; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">We plan luxury weddings across North India. Discover our curated venues in other stunning locations.</p>
+    </div>
+    <div class="explore-grid">
+      <a href="{{ url_for('punjab') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub1/Taj_Swarna.jpg') }}" alt="Wedding venues in Punjab" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Punjab</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('haryana') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub2/ITC_Grand.png') }}" alt="Wedding venues in Haryana" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Haryana</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('himachal') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub/Ramada.jpg') }}" alt="Destination wedding venues in Himachal" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Himachal / Kasauli</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
       </a>
     </div>
   </div>
@@ -107,7 +412,7 @@
 {% block extra_css %}
 <style>
   .chandigarh-header {
-    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), 
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%),
                 url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;
   }
 
@@ -117,157 +422,98 @@
     gap: 30px;
     margin-top: 40px;
   }
-
   .venue-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
+    background: #fff; border-radius: 12px; overflow: hidden;
     box-shadow: 0 15px 35px rgba(10, 17, 40, 0.04);
     border: 1px solid var(--border);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    display: flex;
-    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex; flex-direction: column;
   }
-
-  .venue-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08);
-  }
-
-  .venue-card-image {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-  }
-
+  .venue-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08); }
+  .venue-card-image { position: relative; height: 240px; overflow: hidden; }
   .venue-card-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(10, 17, 40, 0) 65%, rgba(10, 17, 40, 0.15) 100%);
     pointer-events: none;
   }
-
   .venue-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    image-rendering: -webkit-optimize-contrast; /* Sharpness in Chrome/Safari */
-    image-rendering: crisp-edges;               /* Sharpness in Firefox/Edge */
   }
-
-  .venue-card:hover .venue-img {
-    transform: scale(1.08);
-  }
-
+  .venue-card:hover .venue-img { transform: scale(1.08); }
   .venue-card-text {
-    padding: 25px 25px 20px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    text-align: center;
+    padding: 25px 25px 20px 25px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; flex-grow: 1; text-align: center;
   }
-
   .venue-name {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.45rem;
-    color: var(--green);
-    margin: 0;
-    line-height: 1.3;
-    font-weight: 600;
-    transition: color 0.3s;
-    width: 100%;
+    font-family: "Cormorant Garamond", serif; font-size: 1.45rem; color: var(--green);
+    margin: 0; line-height: 1.3; font-weight: 600; transition: color 0.3s; width: 100%;
   }
-
-  .venue-card:hover .venue-name {
-    color: var(--gold);
-  }
-
-  .venue-card-action {
-    padding: 15px 25px 25px 25px;
-    border-top: 1px solid var(--border);
-    background: #fafafa;
-    width: 100%;
-  }
-
+  .venue-card:hover .venue-name { color: var(--gold); }
+  .venue-card-action { padding: 15px 25px 25px 25px; border-top: 1px solid var(--border); background: #fafafa; width: 100%; }
   .venue-book-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--gold);
-    color: #fff;
-    padding: 12px 0;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+    display: block; width: 100%; text-align: center; background: var(--gold); color: #fff;
+    padding: 12px 0; border-radius: 6px; font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600; text-decoration: none;
+    transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
   }
-
-  .venue-book-btn:hover {
-    background: var(--green);
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2);
-  }
+  .venue-book-btn:hover { background: var(--green); color: #fff; box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2); }
 
   .venue-cta {
-    margin-top: 80px;
-    text-align: center;
-    background: linear-gradient(
-      135deg,
-      var(--green-light) 0%,
-      var(--green) 100%
-    );
-    padding: 60px 40px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2);
-    position: relative;
-    overflow: hidden;
+    margin-top: 80px; text-align: center;
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+    padding: 60px 40px; border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2); position: relative; overflow: hidden;
   }
-
-  .venue-cta-bg {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: rgba(201, 168, 76, 0.1);
-    border-radius: 50%;
-  }
-
-  .venue-cta-bg-1 {
-    top: -50px;
-    right: -50px;
-  }
-
-  .venue-cta-bg-2 {
-    bottom: -50px;
-    left: -50px;
-  }
-
+  .venue-cta-bg { position: absolute; width: 150px; height: 150px; background: rgba(201, 168, 76, 0.1); border-radius: 50%; }
+  .venue-cta-bg-1 { top: -50px; right: -50px; }
+  .venue-cta-bg-2 { bottom: -50px; left: -50px; }
   .venue-cta-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "Jost", sans-serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 35px;
-    position: relative;
-    z-index: 2;
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9); font-family: "Jost", sans-serif;
+    font-size: 1.15rem; line-height: 1.8; max-width: 700px;
+    margin: 0 auto 35px; position: relative; z-index: 2; font-weight: 300;
   }
+  .venue-cta-btn { position: relative; z-index: 2; padding: 10px 30px; font-size: 0.85rem; border-radius: 5px; }
 
-  .venue-cta-btn {
-    position: relative;
-    z-index: 2;
-    padding: 10px 30px;
-    font-size: 0.85rem;
-    border-radius: 5px;
-  }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 25px 0; }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--dark); margin: 0 0 10px; font-weight: 600; }
+  .faq-a { font-size: 0.93rem; line-height: 1.8; color: var(--text); font-weight: 300; margin: 0; }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsSwiper = new Swiper(".testimonials-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      pagination: {
+        el: ".testi-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".testi-nav-btn.swiper-button-next",
+        prevEl: ".testi-nav-btn.swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  });
+</script>
 {% endblock %}

@@ -2,11 +2,60 @@
 {% block title %}Best Wedding Planner in Punjab | Luxury Venues – Decor By Pearls{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Looking for the best wedding planner in Punjab? Decor By Pearls offers luxury wedding planning, top 5-star venues, and premium decoration services in Punjab." />
-<meta name="keywords" content="Best Wedding Planner Punjab, Punjab Weddings, Luxury Wedding Planner Punjab, Event Decorator Punjab, Luxury Wedding Venues Punjab" />
+<meta name="description" content="Looking for the best wedding planner in Punjab? Decor By Pearls offers luxury wedding planning, top 5-star venues, and premium decoration services across Ludhiana and Amritsar." />
+<meta name="keywords" content="Best Wedding Planner Punjab, Punjab Weddings, Luxury Wedding Planner Punjab, Event Decorator Punjab, Luxury Wedding Venues Punjab, Wedding Planner Ludhiana, Wedding Planner Amritsar" />
+<meta property="og:title" content="Best Wedding Planner in Punjab | Luxury Venues – Decor By Pearls" />
+<meta property="og:description" content="Punjab's most trusted luxury wedding planner. Top 5-star venues across Ludhiana & Amritsar. End-to-end planning, décor & vendor management." />
+<meta property="og:type" content="website" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decorbypearls.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://decorbypearls.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Punjab", "item": "https://decorbypearls.com/services/punjab" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the best wedding venues in Punjab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Punjab's top luxury wedding venues include Hyatt Regency Ludhiana, Taj Swarna Amritsar, Radisson Blu Hotel MBD Ludhiana, The Cabbana Resort & Spa, and Ranjit's SVAASA. Decor By Pearls has worked at all these properties and can help you select and book the perfect venue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Decor By Pearls plan weddings in Ludhiana and Amritsar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Decor By Pearls offers full-service wedding planning across Punjab including Ludhiana, Amritsar, and Jalandhar. We handle everything — venue selection, décor, vendor management, and on-day coordination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book a wedding venue in Punjab through Decor By Pearls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simply WhatsApp us at +91 73550 51840 with your preferred date, guest count, and venue preference. Our team typically responds within 2 hours with a personalised recommendation and quote."
+      }
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}
+<!-- PAGE HEADER -->
 <section class="page-header punjab-header">
   <div class="container">
     <span class="section-label" style="color: var(--gold)">Locations</span>
@@ -16,6 +65,18 @@
   </div>
 </section>
 
+<!-- BREADCRUMB -->
+<div class="venue-breadcrumb">
+  <div class="container">
+    <a href="{{ url_for('home') }}">Home</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-text">Venues</span>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Punjab</span>
+  </div>
+</div>
+
+<!-- VENUES -->
 <section class="services page-section" id="venues">
   <div class="container">
     <div class="services-header reveal">
@@ -23,61 +84,295 @@
       <h2 class="section-title">Top 5 Luxury Wedding <em>Venues</em></h2>
       <div class="divider"></div>
     </div>
-    
+
     <div class="venues-grid">
       {% set venues = [
         {
           "name": "Hyatt Regency Ludhiana",
+          "tag": "5-Star · Ludhiana",
+          "desc": "Ludhiana's premier 5-star destination featuring sophisticated halls, upscale style, and world-class dining.",
           "image": url_for('static', filename='images/gallery/services_sub1/Hyatt_Regency.jpg')
         },
         {
           "name": "Radisson Blu Hotel MBD Ludhiana",
+          "tag": "5-Star · Ludhiana",
+          "desc": "Exquisite luxury offering stylish, expansive ballroom spaces, fine dining, and excellent hospitality.",
           "image": url_for('static', filename='images/gallery/services_sub1/Radisson_Blu.jpg')
         },
         {
           "name": "Taj Swarna",
+          "tag": "5-Star · Amritsar",
+          "desc": "Amritsar's premium hallmark of luxury, boasting a grand pillarless hall, manicured lawn, and exquisite suites.",
           "image": url_for('static', filename='images/gallery/services_sub1/Taj_Swarna.jpg')
         },
         {
           "name": "The Cabbana Resort & Spa",
+          "tag": "Resort & Spa · Ludhiana",
+          "desc": "A massive, stunning nature resort perfect for grand destination weddings and large outdoor celebrations.",
           "image": url_for('static', filename='images/gallery/services_sub1/The_Cabbana.jpg')
         },
         {
-          "name": "Ranjit’s SVAASA",
+          "name": "Ranjit's SVAASA",
+          "tag": "Heritage Boutique · Amritsar",
+          "desc": "A historic heritage boutique haveli in Amritsar offering royal settings and traditional Punjabi charm.",
           "image": url_for('static', filename='images/gallery/services_sub1/Ranjits.jpg')
         }
       ] %}
       {% for venue in venues %}
       <div class="venue-card reveal">
-        <!-- Section 1: Image -->
         <div class="venue-card-image">
           <img src="{{ venue.image }}" alt="{{ venue.name }}" class="venue-img" loading="lazy">
         </div>
-        <!-- Section 2: Text -->
         <div class="venue-card-text">
           <h3 class="venue-name">{{ venue.name }}</h3>
+          <span class="venue-tag">{{ venue.tag }}</span>
+          <p class="venue-desc">{{ venue.desc }}</p>
         </div>
-        <!-- Section 3: Button -->
         <div class="venue-card-action">
           <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20{{ venue.name | urlencode }}%20in%20Punjab" class="venue-book-btn" target="_blank">Book Venue</a>
         </div>
       </div>
       {% endfor %}
     </div>
-    
+
+    <!-- INTRO -->
+    <div class="venue-intro-section" style="margin-top: 50px; margin-bottom: 40px; padding: 0 15px;">
+      <p class="venue-intro-text">
+        Punjab's weddings are legendary — vibrant, grand, and filled with warmth. At Decor By Pearls, we've partnered with Punjab's finest 5-star hotels and resorts in Ludhiana and Amritsar to bring you a seamless, end-to-end wedding planning experience. From the palatial <strong>Taj Swarna</strong> to the world-class <strong>Hyatt Regency</strong>, our team personally oversees every detail — décor, vendors, and logistics — so you and your family can simply celebrate.
+      </p>
+    </div>
+
+    <!-- STATS -->
+    <div class="venue-stats reveal">
+      <div class="stat-item">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Luxury Venues</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">250+</div>
+        <div class="stat-label">Weddings Planned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2hr</div>
+        <div class="stat-label">Response Time</div>
+      </div>
+    </div>
+
+    <!-- WHY THESE VENUES -->
+    <div class="why-venues reveal">
+      <div class="why-venues-header">
+        <span class="section-label">Our Promise</span>
+        <h2 class="section-title">Why These <em>Venues?</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="why-venues-grid">
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-shield-check-line"></i></span>
+          <h4>Personally Vetted</h4>
+          <p>Every venue on this list has been visited, evaluated, and approved by our team. We recommend only what we'd choose for our own family's celebrations.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-price-tag-3-line"></i></span>
+          <h4>Exclusive Rates</h4>
+          <p>As preferred partners with these properties, Decor By Pearls secures preferential pricing and packages that aren't available when booking directly.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-magic-line"></i></span>
+          <h4>End-to-End Décor</h4>
+          <p>Our in-house décor team transforms these venues into breathtaking settings — florals, lighting, mandap design, and every detail in between.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works reveal">
+      <div class="how-it-works-header">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How It <em>Works</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h4>Browse Venues</h4>
+          <p>Explore our curated selection of Punjab's finest 5-star wedding properties and shortlist your favourites.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h4>WhatsApp Us</h4>
+          <p>Share your date, guest count, and budget. Our team responds within 2 hours with a tailored recommendation.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h4>We Handle Everything</h4>
+          <p>From venue booking and décor to vendors and day-of coordination — we manage it all so you can simply enjoy.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials reveal" id="testimonials">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Love Notes</span>
+      <h2 class="section-title">What Couples <em>Say</em></h2>
+      <div class="divider"></div>
+    </div>
+      <div class="testimonials-container reveal">
+        <div class="swiper testimonials-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Decor By Pearls created a royal masterpiece for our wedding at Hyatt Regency Ludhiana. The Anand Karaj setup was divine, and the reception decor left everyone in awe.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">J</div>
+                  <div>
+                    <div class="testi-name">Jaspreet &amp; Harpreet</div>
+                    <div class="testi-event">Hyatt Regency Wedding · Ludhiana</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Our wedding at Taj Swarna Amritsar was absolutely flawless. The team managed the massive guest list and spectacular floral setups with complete grace. Highly recommended!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">G</div>
+                  <div>
+                    <div class="testi-name">Gurpreet &amp; Simran</div>
+                    <div class="testi-event">Taj Swarna Wedding · Amritsar</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">The Cabbana Resort was styled beautifully. The grand stage, the spectacular crystal chandeliers, and the gorgeous floral dome for our wedding were simply breathtaking.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">N</div>
+                  <div>
+                    <div class="testi-name">Navjot &amp; Preet</div>
+                    <div class="testi-event">The Cabbana Resort Wedding</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">We hired them for our destination wedding at Ranjit's SVAASA. They preserved the heritage aesthetic while adding modern luxury elements. Flawless planning and coordination!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">A</div>
+                  <div>
+                    <div class="testi-name">Aman &amp; Kiran</div>
+                    <div class="testi-event">Ranjit's SVAASA Wedding · Amritsar</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial Navigation -->
+          <div class="swiper-button-prev testi-nav-btn">
+            <i class="ri-arrow-left-s-line"></i>
+          </div>
+          <div class="swiper-button-next testi-nav-btn">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <div class="swiper-pagination testi-pagination"></div>
+      </div>
+    </section>
+
+    <!-- CTA & FAQ -->
+    <section class="services page-section" style="padding-top: 0;">
+      <div class="container">
+        <!-- CTA -->
     <div class="venue-cta reveal">
       <div class="venue-cta-bg venue-cta-bg-1"></div>
       <div class="venue-cta-bg venue-cta-bg-2"></div>
-
       <p class="venue-cta-text">
-        Explore top luxury wedding and event venues across Punjab, perfect for grand weddings and special celebrations.
+        Explore top luxury wedding and event venues across Punjab, perfect for grand weddings and unforgettable celebrations. Let's start planning your dream day together.
       </p>
-
-      <a
-        href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Punjab"
-        class="btn-primary venue-cta-btn"
-      >
+      <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Punjab" class="btn-primary venue-cta-btn">
         Book Punjab Venue
+      </a>
+      <p class="venue-cta-note">Typically responds within 2 hours · Free consultation</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="venue-faq reveal" style="margin-top: 60px;">
+      <div style="text-align:center; margin-bottom: 35px;">
+        <span class="section-label">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">What are the best wedding venues in Punjab?</h3>
+          <p class="faq-a">Punjab's top luxury wedding venues include Hyatt Regency Ludhiana, Taj Swarna Amritsar, Radisson Blu Hotel MBD Ludhiana, The Cabbana Resort &amp; Spa, and Ranjit's SVAASA. Decor By Pearls has worked at all these properties and can help you select and book the perfect venue.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Does Decor By Pearls plan weddings in Ludhiana and Amritsar?</h3>
+          <p class="faq-a">Yes, we offer full-service wedding planning across Punjab including Ludhiana, Amritsar, and Jalandhar. We handle everything — venue selection, décor, vendor management, and on-day coordination.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">How do I book a wedding venue in Punjab through Decor By Pearls?</h3>
+          <p class="faq-a">Simply WhatsApp us at +91 73550 51840 with your preferred date, guest count, and venue preference. Our team typically responds within 2 hours with a personalised recommendation and quote.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPLORE OTHER LOCATIONS -->
+<section class="explore-locations">
+  <div class="container">
+    <div class="explore-locations-header reveal">
+      <span class="section-label">We Cover More</span>
+      <h2 class="section-title">Explore Other <em>Locations</em></h2>
+      <div class="divider"></div>
+      <p style="color: var(--text); font-weight: 300; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">We plan luxury weddings across North India. Discover our curated venues in other stunning locations.</p>
+    </div>
+    <div class="explore-grid">
+      <a href="{{ url_for('chandigarh') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub3/JW_Marriott.jpg') }}" alt="Wedding venues in Chandigarh" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Chandigarh</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('haryana') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub2/ITC_Grand.png') }}" alt="Wedding venues in Haryana" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Haryana</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('himachal') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub/Ramada.jpg') }}" alt="Destination wedding venues in Himachal" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Himachal / Kasauli</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
       </a>
     </div>
   </div>
@@ -87,7 +382,7 @@
 {% block extra_css %}
 <style>
   .punjab-header {
-    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), 
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%),
                 url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;
   }
 
@@ -97,30 +392,18 @@
     gap: 30px;
     margin-top: 40px;
   }
-
   .venue-card {
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(10, 17, 40, 0.04);
     border: 1px solid var(--border);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     display: flex;
     flex-direction: column;
   }
-
-  .venue-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08);
-  }
-
-  .venue-card-image {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-  }
-
+  .venue-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08); }
+  .venue-card-image { position: relative; height: 240px; overflow: hidden; }
   .venue-card-image::after {
     content: '';
     position: absolute;
@@ -128,126 +411,106 @@
     background: linear-gradient(to bottom, rgba(10, 17, 40, 0) 65%, rgba(10, 17, 40, 0.15) 100%);
     pointer-events: none;
   }
-
   .venue-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    image-rendering: -webkit-optimize-contrast; /* Sharpness in Chrome/Safari */
-    image-rendering: crisp-edges;               /* Sharpness in Firefox/Edge */
   }
-
-  .venue-card:hover .venue-img {
-    transform: scale(1.08);
-  }
-
+  .venue-card:hover .venue-img { transform: scale(1.08); }
   .venue-card-text {
     padding: 25px 25px 20px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    text-align: center;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    flex-grow: 1; text-align: center;
   }
-
   .venue-name {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.45rem;
-    color: var(--green);
-    margin: 0;
-    line-height: 1.3;
-    font-weight: 600;
-    transition: color 0.3s;
-    width: 100%;
+    font-size: 1.45rem; color: var(--green);
+    margin: 0; line-height: 1.3; font-weight: 600;
+    transition: color 0.3s; width: 100%;
   }
-
-  .venue-card:hover .venue-name {
-    color: var(--gold);
-  }
-
+  .venue-card:hover .venue-name { color: var(--gold); }
   .venue-card-action {
     padding: 15px 25px 25px 25px;
     border-top: 1px solid var(--border);
-    background: #fafafa;
-    width: 100%;
+    background: #fafafa; width: 100%;
   }
-
   .venue-book-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--gold);
-    color: #fff;
-    padding: 12px 0;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-decoration: none;
+    display: block; width: 100%; text-align: center;
+    background: var(--gold); color: #fff; padding: 12px 0;
+    border-radius: 6px; font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600; text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
   }
-
-  .venue-book-btn:hover {
-    background: var(--green);
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2);
-  }
+  .venue-book-btn:hover { background: var(--green); color: #fff; box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2); }
 
   .venue-cta {
-    margin-top: 80px;
-    text-align: center;
-    background: linear-gradient(
-      135deg,
-      var(--green-light) 0%,
-      var(--green) 100%
-    );
-    padding: 60px 40px;
-    border-radius: 12px;
+    margin-top: 80px; text-align: center;
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+    padding: 60px 40px; border-radius: 12px;
     box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-
-  .venue-cta-bg {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: rgba(201, 168, 76, 0.1);
-    border-radius: 50%;
-  }
-
-  .venue-cta-bg-1 {
-    top: -50px;
-    right: -50px;
-  }
-
-  .venue-cta-bg-2 {
-    bottom: -50px;
-    left: -50px;
-  }
-
+  .venue-cta-bg { position: absolute; width: 150px; height: 150px; background: rgba(201, 168, 76, 0.1); border-radius: 50%; }
+  .venue-cta-bg-1 { top: -50px; right: -50px; }
+  .venue-cta-bg-2 { bottom: -50px; left: -50px; }
   .venue-cta-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "Jost", sans-serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 35px;
-    position: relative;
-    z-index: 2;
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9); font-family: "Jost", sans-serif;
+    font-size: 1.15rem; line-height: 1.8; max-width: 700px;
+    margin: 0 auto 35px; position: relative; z-index: 2; font-weight: 300;
   }
+  .venue-cta-btn { position: relative; z-index: 2; padding: 10px 30px; font-size: 0.85rem; border-radius: 5px; }
 
-  .venue-cta-btn {
-    position: relative;
-    z-index: 2;
-    padding: 10px 30px;
-    font-size: 0.85rem;
-    border-radius: 5px;
+  /* FAQ */
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 25px 0;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; color: var(--dark); margin: 0 0 10px;
+    font-weight: 600;
+  }
+  .faq-a {
+    font-size: 0.93rem; line-height: 1.8;
+    color: var(--text); font-weight: 300; margin: 0;
   }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsSwiper = new Swiper(".testimonials-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      pagination: {
+        el: ".testi-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".testi-nav-btn.swiper-button-next",
+        prevEl: ".testi-nav-btn.swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  });
+</script>
 {% endblock %}

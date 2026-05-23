@@ -2,11 +2,60 @@
 {% block title %}Best Wedding Planner in Haryana | Luxury Venues – Decor By Pearls{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Looking for the best wedding planner in Haryana? Decor By Pearls offers luxury wedding planning, top 5-star venues, and premium decoration services in Haryana." />
-<meta name="keywords" content="Best Wedding Planner Haryana, Haryana Weddings, Luxury Wedding Planner Haryana, Event Decorator Haryana, Luxury Wedding Venues Haryana" />
+<meta name="description" content="Looking for the best wedding planner in Haryana? Decor By Pearls offers luxury wedding planning, top 5-star venues, and premium decoration services across Gurugram, Karnal & Manesar." />
+<meta name="keywords" content="Best Wedding Planner Haryana, Haryana Weddings, Luxury Wedding Planner Haryana, Event Decorator Haryana, Luxury Wedding Venues Haryana, Wedding Planner Gurugram, ITC Grand Bharat Wedding" />
+<meta property="og:title" content="Best Wedding Planner in Haryana | Luxury Venues – Decor By Pearls" />
+<meta property="og:description" content="Haryana's most trusted luxury wedding planner. Curated 5-star venues across Gurugram, Manesar & Karnal. End-to-end planning, décor & vendor management." />
+<meta property="og:type" content="website" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://decorbypearls.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://decorbypearls.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Haryana", "item": "https://decorbypearls.com/services/haryana" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which is the best luxury wedding venue in Gurugram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gurugram offers exceptional luxury wedding venues including ITC Grand Bharat, The Oberoi Gurgaon, The Leela Ambience Gurugram, and Taj City Centre Gurugram. Each offers world-class banquet facilities, fine dining, and impeccable service perfect for grand weddings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Decor By Pearls do destination weddings in Manesar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we specialise in destination weddings at Heritage Village Resort & Spa Manesar — one of Haryana's most scenic and grand wedding properties. Our team handles full décor, vendor coordination, and planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact Decor By Pearls for a Haryana wedding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can reach us instantly via WhatsApp at +91 73550 51840. Share your event date, preferred venue, and guest count — we'll get back to you within 2 hours with a personalised plan and quote."
+      }
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}
+<!-- PAGE HEADER -->
 <section class="page-header haryana-header">
   <div class="container">
     <span class="section-label" style="color: var(--gold)">Locations</span>
@@ -16,6 +65,18 @@
   </div>
 </section>
 
+<!-- BREADCRUMB -->
+<div class="venue-breadcrumb">
+  <div class="container">
+    <a href="{{ url_for('home') }}">Home</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-text">Venues</span>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">Haryana</span>
+  </div>
+</div>
+
+<!-- VENUES -->
 <section class="services page-section" id="venues">
   <div class="container">
     <div class="services-header reveal">
@@ -23,65 +84,301 @@
       <h2 class="section-title">Top Luxury Wedding <em>Venues</em></h2>
       <div class="divider"></div>
     </div>
-    
+
     <div class="venues-grid">
       {% set venues = [
         {
           "name": "ITC Grand Bharat",
+          "tag": "5-Star · Gurugram",
+          "desc": "A retreat of absolute royalty in Gurugram featuring majestic architecture, lawns, and elite luxury suites.",
           "image": url_for('static', filename='images/gallery/services_sub2/ITC_Grand.png')
         },
         {
           "name": "The Oberoi Gurgaon",
+          "tag": "5-Star · Gurugram",
+          "desc": "Stunning contemporary resort with floating pavilions, reflecting pools, and premium banquet areas.",
           "image": "https://gos3.ibcdn.com/74e7453e97fc11e4bc2c36cfdd80c293.jfif"
         },
         {
           "name": "The Leela Ambience Gurugram Hotel & Residences",
+          "tag": "5-Star · Gurugram",
+          "desc": "Gurugram's finest premium destination with upscale banquets and high-end services.",
           "image": url_for('static', filename='images/gallery/services_sub2/The_Leela.jpg')
         },
         {
           "name": "Taj City Centre Gurugram",
+          "tag": "5-Star · Gurugram",
+          "desc": "Incredible modern hotel with exquisite terraces, grand hall, and top-tier hospitality.",
           "image": url_for('static', filename='images/gallery/services_sub2/Taj_City.png')
         },
         {
           "name": "Heritage Village Resort & Spa Manesar",
+          "tag": "Heritage Resort · Manesar",
+          "desc": "A Rajasthani-style heritage resort with beautiful courtyards, pool, and lush wedding lawns.",
           "image": url_for('static', filename='images/gallery/services_sub2/Heritage_Village.jpg')
         },
         {
           "name": "The Vivaan Hotel & Resorts, Karnal",
+          "tag": "Luxury Hotel · Karnal",
+          "desc": "A premium highway resort in Karnal with extensive lawns and a royal banqueting setup.",
           "image": url_for('static', filename='images/gallery/services_sub2/The_Vivaan.jpg')
         }
       ] %}
       {% for venue in venues %}
       <div class="venue-card reveal">
-        <!-- Section 1: Image -->
         <div class="venue-card-image">
           <img src="{{ venue.image }}" alt="{{ venue.name }}" class="venue-img" loading="lazy">
         </div>
-        <!-- Section 2: Text -->
         <div class="venue-card-text">
           <h3 class="venue-name">{{ venue.name }}</h3>
+          <span class="venue-tag">{{ venue.tag }}</span>
+          <p class="venue-desc">{{ venue.desc }}</p>
         </div>
-        <!-- Section 3: Button -->
         <div class="venue-card-action">
           <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20{{ venue.name | urlencode }}%20in%20Haryana" class="venue-book-btn" target="_blank">Book Venue</a>
         </div>
       </div>
       {% endfor %}
     </div>
-    
+
+    <!-- INTRO -->
+    <div class="venue-intro-section" style="margin-top: 50px; margin-bottom: 40px; padding: 0 15px;">
+      <p class="venue-intro-text">
+        Haryana's proximity to Delhi makes it one of North India's most sought-after destinations for grand weddings. Decor By Pearls has curated a collection of Haryana's most prestigious venues — from the award-winning <strong>ITC Grand Bharat</strong> to the ultra-luxurious <strong>Oberoi Gurgaon</strong> — pairing them with our full-service wedding planning, design, and décor to create truly unforgettable celebrations in Gurugram, Manesar, and Karnal.
+      </p>
+    </div>
+
+    <!-- STATS -->
+    <div class="venue-stats reveal">
+      <div class="stat-item">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Luxury Venues</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">250+</div>
+        <div class="stat-label">Weddings Planned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2hr</div>
+        <div class="stat-label">Response Time</div>
+      </div>
+    </div>
+
+    <!-- WHY THESE VENUES -->
+    <div class="why-venues reveal">
+      <div class="why-venues-header">
+        <span class="section-label">Our Promise</span>
+        <h2 class="section-title">Why These <em>Venues?</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="why-venues-grid">
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-shield-check-line"></i></span>
+          <h4>Personally Vetted</h4>
+          <p>Every venue on this list has been visited, evaluated, and approved by our team. We recommend only what we'd choose for our own family's celebrations.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-price-tag-3-line"></i></span>
+          <h4>Exclusive Rates</h4>
+          <p>As preferred partners with these properties, Decor By Pearls secures preferential pricing and packages that aren't available when booking directly.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon"><i class="ri-magic-line"></i></span>
+          <h4>End-to-End Décor</h4>
+          <p>Our in-house décor team transforms these venues into breathtaking settings — florals, lighting, mandap design, and every detail in between.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works reveal">
+      <div class="how-it-works-header">
+        <span class="section-label">Simple Process</span>
+        <h2 class="section-title">How It <em>Works</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h4>Browse Venues</h4>
+          <p>Explore our curated selection of Haryana's finest luxury wedding properties and shortlist your favourites.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h4>WhatsApp Us</h4>
+          <p>Share your date, guest count, and budget. Our team responds within 2 hours with a tailored recommendation.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h4>We Handle Everything</h4>
+          <p>From venue booking and décor to vendors and day-of coordination — we manage it all so you can simply enjoy.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials reveal" id="testimonials">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Love Notes</span>
+      <h2 class="section-title">What Couples <em>Say</em></h2>
+      <div class="divider"></div>
+    </div>
+      <div class="testimonials-container reveal">
+        <div class="swiper testimonials-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">ITC Grand Bharat is already majestic, but Decor By Pearls took it to another level. The mandap looked like a palace in itself, and the coordination was incredibly smooth.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">R</div>
+                  <div>
+                    <div class="testi-name">Rohan &amp; Simran</div>
+                    <div class="testi-event">ITC Grand Bharat Wedding · Gurugram</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">A spectacular modern wedding at The Oberoi Gurgaon. Floating floral centerpieces and high-tech lighting created a futuristic yet elegant vibe. Absolute design experts!</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">R</div>
+                  <div>
+                    <div class="testi-name">Ritika &amp; Varun</div>
+                    <div class="testi-event">The Oberoi Wedding · Gurugram</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">Our Leela Ambience Gurugram wedding was extremely luxurious. Every single detail, from personalized welcome signs to the grand entrance path, was beautifully curated.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">S</div>
+                  <div>
+                    <div class="testi-name">Shweta &amp; Amit</div>
+                    <div class="testi-event">Leela Ambience Wedding · Gurugram</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <span class="testi-quote">"</span>
+                <p class="testi-text">We hosted our wedding at Heritage Village Resort Manesar. The traditional Rajasthani decor elements, vibrant marigolds, and lovely lighting by Decor By Pearls were perfect.</p>
+                <div class="testi-author">
+                  <div class="testi-avatar-placeholder" style="width: 50px; height: 50px; border-radius: 50%; background: var(--gold); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1.2rem; flex-shrink: 0;">D</div>
+                  <div>
+                    <div class="testi-name">Divya &amp; Gaurav</div>
+                    <div class="testi-event">Heritage Village Wedding · Manesar</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial Navigation -->
+          <div class="swiper-button-prev testi-nav-btn">
+            <i class="ri-arrow-left-s-line"></i>
+          </div>
+          <div class="swiper-button-next testi-nav-btn">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <div class="swiper-pagination testi-pagination"></div>
+      </div>
+    </section>
+
+    <!-- CTA & FAQ -->
+    <section class="services page-section" style="padding-top: 0;">
+      <div class="container">
+        <!-- CTA -->
     <div class="venue-cta reveal">
       <div class="venue-cta-bg venue-cta-bg-1"></div>
       <div class="venue-cta-bg venue-cta-bg-2"></div>
-
       <p class="venue-cta-text">
-        Discover luxury hotels and premium venues in Haryana for destination weddings, events, and elegant celebrations.
+        Discover luxury hotels and premium venues in Haryana for destination weddings, events, and elegant celebrations. Let us craft your perfect day.
       </p>
-
-      <a
-        href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Haryana"
-        class="btn-primary venue-cta-btn"
-      >
+      <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20booking%20a%20venue%20in%20Haryana" class="btn-primary venue-cta-btn">
         Book Haryana Venue
+      </a>
+      <p class="venue-cta-note">Typically responds within 2 hours · Free consultation</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="venue-faq reveal" style="margin-top: 60px;">
+      <div style="text-align:center; margin-bottom: 35px;">
+        <span class="section-label">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">Which is the best luxury wedding venue in Gurugram?</h3>
+          <p class="faq-a">Gurugram offers exceptional luxury wedding venues including ITC Grand Bharat, The Oberoi Gurgaon, The Leela Ambience Gurugram, and Taj City Centre Gurugram. Each offers world-class banquet facilities and impeccable service perfect for grand weddings.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Does Decor By Pearls do destination weddings in Manesar?</h3>
+          <p class="faq-a">Yes, we specialise in destination weddings at Heritage Village Resort &amp; Spa Manesar — one of Haryana's most scenic and grand wedding properties. Our team handles full décor, vendor coordination, and planning.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">How do I contact Decor By Pearls for a Haryana wedding?</h3>
+          <p class="faq-a">You can reach us via WhatsApp at +91 73550 51840. Share your event date, preferred venue, and guest count — we'll get back to you within 2 hours with a personalised plan and quote.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPLORE OTHER LOCATIONS -->
+<section class="explore-locations">
+  <div class="container">
+    <div class="explore-locations-header reveal">
+      <span class="section-label">We Cover More</span>
+      <h2 class="section-title">Explore Other <em>Locations</em></h2>
+      <div class="divider"></div>
+      <p style="color: var(--text); font-weight: 300; margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">We plan luxury weddings across North India. Discover our curated venues in other stunning locations.</p>
+    </div>
+    <div class="explore-grid">
+      <a href="{{ url_for('punjab') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub1/Taj_Swarna.jpg') }}" alt="Wedding venues in Punjab" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Punjab</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('chandigarh') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub3/JW_Marriott.jpg') }}" alt="Wedding venues in Chandigarh" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Chandigarh</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
+      </a>
+      <a href="{{ url_for('himachal') }}" class="explore-card reveal">
+        <img src="{{ url_for('static', filename='images/gallery/services_sub/Ramada.jpg') }}" alt="Destination wedding venues in Himachal" loading="lazy">
+        <div class="explore-overlay"></div>
+        <div class="explore-content">
+          <span class="explore-label">Location</span>
+          <div class="explore-title">Himachal / Kasauli</div>
+          <span class="explore-link">Explore Venues <i class="ri-arrow-right-line"></i></span>
+        </div>
       </a>
     </div>
   </div>
@@ -91,7 +388,7 @@
 {% block extra_css %}
 <style>
   .haryana-header {
-    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), 
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%),
                 url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;
   }
 
@@ -101,157 +398,98 @@
     gap: 30px;
     margin-top: 40px;
   }
-
   .venue-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
+    background: #fff; border-radius: 12px; overflow: hidden;
     box-shadow: 0 15px 35px rgba(10, 17, 40, 0.04);
     border: 1px solid var(--border);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    display: flex;
-    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex; flex-direction: column;
   }
-
-  .venue-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08);
-  }
-
-  .venue-card-image {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-  }
-
+  .venue-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(10, 17, 40, 0.08); }
+  .venue-card-image { position: relative; height: 240px; overflow: hidden; }
   .venue-card-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(10, 17, 40, 0) 65%, rgba(10, 17, 40, 0.15) 100%);
     pointer-events: none;
   }
-
   .venue-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    image-rendering: -webkit-optimize-contrast; /* Sharpness in Chrome/Safari */
-    image-rendering: crisp-edges;               /* Sharpness in Firefox/Edge */
   }
-
-  .venue-card:hover .venue-img {
-    transform: scale(1.08);
-  }
-
+  .venue-card:hover .venue-img { transform: scale(1.08); }
   .venue-card-text {
-    padding: 25px 25px 20px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    text-align: center;
+    padding: 25px 25px 20px 25px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; flex-grow: 1; text-align: center;
   }
-
   .venue-name {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.45rem;
-    color: var(--green);
-    margin: 0;
-    line-height: 1.3;
-    font-weight: 600;
-    transition: color 0.3s;
-    width: 100%;
+    font-family: "Cormorant Garamond", serif; font-size: 1.45rem; color: var(--green);
+    margin: 0; line-height: 1.3; font-weight: 600; transition: color 0.3s; width: 100%;
   }
-
-  .venue-card:hover .venue-name {
-    color: var(--gold);
-  }
-
-  .venue-card-action {
-    padding: 15px 25px 25px 25px;
-    border-top: 1px solid var(--border);
-    background: #fafafa;
-    width: 100%;
-  }
-
+  .venue-card:hover .venue-name { color: var(--gold); }
+  .venue-card-action { padding: 15px 25px 25px 25px; border-top: 1px solid var(--border); background: #fafafa; width: 100%; }
   .venue-book-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: var(--gold);
-    color: #fff;
-    padding: 12px 0;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+    display: block; width: 100%; text-align: center; background: var(--gold); color: #fff;
+    padding: 12px 0; border-radius: 6px; font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600; text-decoration: none;
+    transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
   }
-
-  .venue-book-btn:hover {
-    background: var(--green);
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2);
-  }
+  .venue-book-btn:hover { background: var(--green); color: #fff; box-shadow: 0 6px 20px rgba(10, 17, 40, 0.2); }
 
   .venue-cta {
-    margin-top: 80px;
-    text-align: center;
-    background: linear-gradient(
-      135deg,
-      var(--green-light) 0%,
-      var(--green) 100%
-    );
-    padding: 60px 40px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2);
-    position: relative;
-    overflow: hidden;
+    margin-top: 80px; text-align: center;
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--green) 100%);
+    padding: 60px 40px; border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(10, 17, 40, 0.2); position: relative; overflow: hidden;
   }
-
-  .venue-cta-bg {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: rgba(201, 168, 76, 0.1);
-    border-radius: 50%;
-  }
-
-  .venue-cta-bg-1 {
-    top: -50px;
-    right: -50px;
-  }
-
-  .venue-cta-bg-2 {
-    bottom: -50px;
-    left: -50px;
-  }
-
+  .venue-cta-bg { position: absolute; width: 150px; height: 150px; background: rgba(201, 168, 76, 0.1); border-radius: 50%; }
+  .venue-cta-bg-1 { top: -50px; right: -50px; }
+  .venue-cta-bg-2 { bottom: -50px; left: -50px; }
   .venue-cta-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "Jost", sans-serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 35px;
-    position: relative;
-    z-index: 2;
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9); font-family: "Jost", sans-serif;
+    font-size: 1.15rem; line-height: 1.8; max-width: 700px;
+    margin: 0 auto 35px; position: relative; z-index: 2; font-weight: 300;
   }
+  .venue-cta-btn { position: relative; z-index: 2; padding: 10px 30px; font-size: 0.85rem; border-radius: 5px; }
 
-  .venue-cta-btn {
-    position: relative;
-    z-index: 2;
-    padding: 10px 30px;
-    font-size: 0.85rem;
-    border-radius: 5px;
-  }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 25px 0; }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--dark); margin: 0 0 10px; font-weight: 600; }
+  .faq-a { font-size: 0.93rem; line-height: 1.8; color: var(--text); font-weight: 300; margin: 0; }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsSwiper = new Swiper(".testimonials-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      pagination: {
+        el: ".testi-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".testi-nav-btn.swiper-button-next",
+        prevEl: ".testi-nav-btn.swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  });
+</script>
 {% endblock %}
