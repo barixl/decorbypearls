@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response
 from flask_compress import Compress
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -266,6 +266,54 @@ def testimonials():
 @app.route('/contact')
 def contact():
     return render_template('pages/contact.html')
+
+
+@app.route('/robots.txt')
+def robots_txt():
+    robots_content = f"""User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login
+Disallow: /logout
+
+Sitemap: {url_for('sitemap_xml', _external=True)}
+"""
+    return Response(robots_content, mimetype='text/plain')
+
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    urls = [
+        url_for('home', _external=True),
+        url_for('about', _external=True),
+        url_for('services', _external=True),
+        url_for('chandigarh', _external=True),
+        url_for('punjab', _external=True),
+        url_for('haryana', _external=True),
+        url_for('himachal', _external=True),
+        url_for('gallery', _external=True),
+        url_for('testimonials', _external=True),
+        url_for('contact', _external=True),
+        url_for('blog', _external=True),
+    ]
+
+    blog_posts = Blog.query.order_by(Blog.created_at.desc()).all()
+    blog_urls = [url_for('blog_single', slug=post.slug, _external=True) for post in blog_posts]
+
+    today = datetime.utcnow().date().isoformat()
+    sitemap_entries = []
+    for page_url in urls + blog_urls:
+        sitemap_entries.append(
+            f"  <url><loc>{page_url}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>"
+        )
+
+    sitemap_content = """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
+{entries}
+</urlset>
+""".format(entries="\n".join(sitemap_entries))
+
+    return Response(sitemap_content, mimetype='application/xml')
 
 @app.route('/submit-testimonial', methods=['POST'])
 def submit_testimonial():

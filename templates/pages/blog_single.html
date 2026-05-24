@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}Blog Post – Decor By Pearls{% endblock %}
+{% block title %}{{ post.title }} – Decor By Pearls{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{{ post.excerpt if post.excerpt else post.title }}" />
+<meta name="keywords" content="Wedding blog, {{ post.title }}, Decor By Pearls, wedding planning tips, event inspiration" />
+<meta property="og:title" content="{{ post.title }} – Decor By Pearls" />
+<meta property="og:description" content="{{ post.excerpt if post.excerpt else post.title }}" />
+<meta property="og:type" content="article" />
+{% if post.image_url %}<meta property="og:image" content="{{ post.image_url }}" />{% endif %}
+{% endblock %}
 
 {% block content %}
 <!-- PAGE HEADER -->

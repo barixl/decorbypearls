@@ -2,6 +2,14 @@
 
 {% block title %}Our Services – Decor By Pearls{% endblock %}
 
+{% block meta %}
+<meta name="description" content="Explore luxury wedding planning services by Decor By Pearls, including venue selection, décor, vendor management, catering styling, bridal styling, logistics, invitations, gifting, and complete destination wedding planning." />
+<meta name="keywords" content="Wedding Planning Services, Luxury Wedding Planner, Destination Wedding Planning, Wedding Venue Selection, Wedding Décor Services, Vendor Management, Event Planning Services, Bridal Styling, Wedding Logistics, Wedding Invitations, Wedding Gifting, Hospitality Management, Decor By Pearls" />
+<meta property="og:title" content="Wedding Planning Services | Decor By Pearls" />
+<meta property="og:description" content="Complete wedding planning and décor services including venue selection, vendor coordination, luxury styling, logistics, hospitality, and destination wedding execution." />
+<meta property="og:type" content="website" />
+{% endblock %}
+
 {% block content %}
 <!-- PAGE HEADER -->
 <section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;">
@@ -16,7 +24,7 @@
   <!-- Header removed to prevent repetition with the banner -->
   <div class="services-swiper swiper">
     <div class="services-grid swiper-wrapper">
-      <div class="service-card swiper-slide reveal">
+      <div class="service-card swiper-slide reveal" data-service="consulting-planning">
         <img
           src="{{ url_for('static', filename='images/gallery/slider/Consulting_Planning.webp') }}"
           alt="Consulting"
@@ -29,7 +37,7 @@
           <p>Expert guidance at every stage of your celebration journey.</p>
         </div>
       </div>
-      <div class="service-card swiper-slide reveal reveal-delay-1">
+      <div class="service-card swiper-slide reveal reveal-delay-1" data-service="destination-venue-selection">
         <img
          src="{{ url_for('static', filename='images/gallery/slider/slider_01.webp') }}"
           alt="Destination"
@@ -42,7 +50,7 @@
           <p>Curated venues across India's most breathtaking locations.</p>
         </div>
       </div>
-      <div class="service-card swiper-slide reveal reveal-delay-2">
+      <div class="service-card swiper-slide reveal reveal-delay-2" data-service="vendor-sourcing-management">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Vendor_Sourcing.webp') }}"
           alt="Food"
@@ -55,7 +63,7 @@
           <p>Trusted network of premium vendors for every need.</p>
         </div>
       </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-3">
+      <div class="service-card swiper-slide reveal reveal-delay-3" data-service="design-decor-management">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}"
           alt="Design"
@@ -68,7 +76,7 @@
           <p>Transforming spaces into magical atmospheres.</p>
         </div>
       </div>
-      <div class="service-card swiper-slide reveal">
+      <div class="service-card swiper-slide reveal" data-service="food-beverage-management">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/food_beverage.webp') }}"
           alt="Food Beverage"
@@ -80,7 +88,7 @@
           <p>Exquisite culinary experiences tailored to your taste.</p>
         </div>
       </div>
-      <div class="service-card swiper-slide reveal reveal-delay-1">
+      <div class="service-card swiper-slide reveal reveal-delay-1" data-service="budget-management">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Budget_Management.webp') }}"
           alt="Budget"
@@ -92,7 +100,7 @@
           <p>Smart financial planning for your perfect day.</p>
         </div>
       </div>
-      <div class="service-card swiper-slide reveal reveal-delay-2">
+      <div class="service-card swiper-slide reveal reveal-delay-2" data-service="guest-rsvp-hospitality">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Guest_RSVP_Hospitality.webp') }}"
           alt="Guest"
@@ -104,7 +112,7 @@
           <p>Ensuring every guest feels warmly welcomed.</p>
         </div>
       </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-3">
+      <div class="service-card swiper-slide reveal reveal-delay-3" data-service="wedding-favors-gifting">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Favors_&_Gifting.webp') }}"
           alt="Favors"
@@ -117,7 +125,7 @@
           <p>Personalised tokens of love for your guests.</p>
         </div>
       </div> 
-      <div class="service-card swiper-slide reveal">
+      <div class="service-card swiper-slide reveal" data-service="bridal-wardrobe-styling">
         <img 
           src="{{ url_for('static', filename='images/gallery/services_img/Bridal.webp') }}"
           alt="Bridal"
@@ -129,7 +137,7 @@
           <p>Look stunning for every moment of your celebration.</p>
         </div>
       </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-1">
+      <div class="service-card swiper-slide reveal reveal-delay-1" data-service="logistics-management">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Logistics_Management.webp') }}"
           alt="Logistics"
@@ -141,7 +149,7 @@
           <p>Seamless coordination so nothing is left to chance.</p>
         </div>
       </div>
-      <div class="service-card swiper-slide reveal reveal-delay-2">
+      <div class="service-card swiper-slide reveal reveal-delay-2" data-service="stationery-invitations">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Stationery_Invitation.webp') }}"
           alt="Stationery"
@@ -153,7 +161,7 @@
           <p>Bespoke designs that set the tone for your event.</p>
         </div>
       </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-3">
+      <div class="service-card swiper-slide reveal reveal-delay-3" data-service="wed-sites">
         <img
           src="{{ url_for('static', filename='images/gallery/services_img/Wed-Sites.webp') }}"
           alt="Wed-sites"
@@ -463,6 +471,30 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let servicesSwiper;
+    const serviceParam = new URLSearchParams(window.location.search).get("service");
+    const serviceCards = Array.from(document.querySelectorAll(".service-card[data-service]"));
+
+    function focusServiceCard() {
+      if (!serviceParam) {
+        return;
+      }
+
+      const targetCard = document.querySelector(`.service-card[data-service="${serviceParam}"]`);
+      if (!targetCard) {
+        return;
+      }
+
+      if (window.innerWidth <= 992 && servicesSwiper) {
+        const targetIndex = serviceCards.findIndex((card) => card.dataset.service === serviceParam);
+        if (targetIndex >= 0) {
+          servicesSwiper.slideToLoop(targetIndex, 0);
+        }
+        return;
+      }
+
+      targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
         function initServicesSwiper() {
             if (window.innerWidth <= 992) {
                 if (!servicesSwiper) {
@@ -482,11 +514,13 @@
                         autoplay: { delay: 3000, disableOnInteraction: false }
                     });
                 }
+                    focusServiceCard();
             } else {
                 if (servicesSwiper) { 
                     servicesSwiper.destroy(true, true); 
                     servicesSwiper = undefined; 
                 }
+                    focusServiceCard();
             }
         }
         initServicesSwiper();

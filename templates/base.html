@@ -7,6 +7,52 @@
     <title>
       {% block title %}Decor By Pearls – Weddings With Elegance{% endblock %}
     </title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#1e1610" />
+    <link rel="canonical" href="{{ request.base_url }}" />
+    <meta property="og:site_name" content="Decor By Pearls" />
+    <meta property="og:url" content="{{ request.base_url }}" />
+    <meta property="og:image" content="{{ url_for('static', filename='images/gallery/slider/slider_01.webp', _external=True) }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/gallery/slider/slider_01.webp', _external=True) }}" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Decor By Pearls",
+          "url": "{{ url_for('home', _external=True) }}",
+          "logo": "{{ url_for('static', filename='images/logo_decorbypearls.png', _external=True) }}",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61578885675391",
+            "https://www.instagram.com/decor_bypearls?igsh=MWMxZXMxOXJtMmQzeQ==",
+            "https://wa.me/917355051840",
+            "https://pin.it/5KsKYR2QE"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91-7355051840",
+              "contactType": "customer service",
+              "areaServed": ["IN"],
+              "availableLanguage": ["en", "hi"]
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "Decor By Pearls",
+          "url": "{{ url_for('home', _external=True) }}",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{{ url_for('blog', _external=True) }}?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicons/apple-touch-icon.png') }}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicons/favicon-32x32.png') }}" />

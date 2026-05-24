@@ -1048,7 +1048,7 @@ nav.scrolled {
 }
 
 .service-info p {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.95);
   line-height: 1.6;
   margin-bottom: 0;
@@ -1818,7 +1818,7 @@ nav.scrolled {
 }
 
 .venue-info p {
-  font-size: 0.78rem;
+  font-size: 1.06rem;
   color: rgba(255, 255, 255, 0.7);
   margin-top: 4px;
 }
@@ -2064,7 +2064,7 @@ nav.scrolled {
 }
 
 .testi-text {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text);
   font-style: italic;
@@ -3062,14 +3062,14 @@ footer {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 0.8fr 1.2fr;
+  grid-template-columns: 1.5fr 1fr 1.15fr 1fr 1.2fr;
   gap: 40px;
   padding: 80px 30px 60px;
   max-width: 1440px;
   margin: 0 auto;
 }
 
-/* Removed .footer-links-group as we now use direct 4-column grid */
+/* Removed .footer-links-group as we now use direct 5-column grid */
 
 /* Brand column */
 .footer-brand {
@@ -3318,7 +3318,7 @@ footer {
 /* ── Footer Responsive ─────────────────────────── */
 @media (max-width: 1200px) {
   .footer-top {
-    grid-template-columns: 1.2fr 1fr 0.8fr 1.2fr;
+    grid-template-columns: 1.2fr 0.95fr 1.05fr 1fr 1.1fr;
     gap: 40px;
     padding: 70px 40px 50px;
   }
@@ -3329,6 +3329,9 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 50px 40px;
     padding: 60px 40px 50px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
   }
   .footer-bottom {
     padding: 20px 40px;
@@ -3762,7 +3765,7 @@ footer {
 .venue-intro-text {
   max-width: 830px;
   margin: 0 auto;
-  font-size: 1.08rem;
+  font-size: 1.22rem;
   line-height: 2;
   color: var(--text);
   text-align: center;
@@ -3781,7 +3784,7 @@ footer {
 }
 
 .venue-desc {
-  font-size: 0.85rem;
+  font-size: 1.08rem;
   line-height: 1.5;
   color: var(--text-light);
   margin-top: 10px;
@@ -3931,7 +3934,7 @@ footer {
   font-weight: 600;
 }
 .faq-a {
-  font-size: 0.93rem;
+  font-size: 1.08rem;
   line-height: 1.8;
   color: var(--text);
   font-weight: 300;
@@ -4003,7 +4006,7 @@ footer {
   margin-bottom: 12px;
 }
 .why-card p {
-  font-size: 0.88rem;
+  font-size: 1.02rem;
   line-height: 1.75;
   color: var(--text);
   font-weight: 300;
@@ -4055,7 +4058,7 @@ footer {
   margin-bottom: 10px;
 }
 .step-item p {
-  font-size: 0.87rem;
+  font-size: 1.02rem;
   color: var(--text);
   line-height: 1.75;
   font-weight: 300;
@@ -4090,7 +4093,7 @@ footer {
   right: 25px;
 }
 .venue-testi-text {
-  font-size: 0.97rem;
+  font-size: 1.08rem;
   line-height: 1.85;
   color: var(--text);
   font-style: italic;
@@ -4208,21 +4211,116 @@ footer {
 }
 .explore-card:hover .explore-link { gap: 12px; }
 
+/* Venue Intro Section */
+.venue-intro-block { padding-bottom: 0 !important; }
+.venue-intro-content { max-width: 860px; margin: 0 auto 40px; text-align: center; }
+.venue-intro-subheading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.intro-services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.intro-service-tag {
+  display: inline-block;
+  padding: 7px 18px;
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--dark);
+  background: rgba(var(--gold-rgb, 176, 141, 87), 0.05);
+  transition: background 0.25s, color 0.25s;
+}
+.intro-service-tag:hover { background: var(--gold); color: #fff; }
+
+/* Destination Wedding Section */
+.destination-section { margin: 60px 0; }
+.destination-header { text-align: center; margin-bottom: 40px; }
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.destination-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 38px 30px;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s;
+}
+.destination-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(10, 17, 40, 0.07);
+}
+.destination-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: block;
+}
+.destination-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.destination-card p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* Why Choose Us – 4 column grid */
+.why-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* CTA heading inside venue-cta box */
+.venue-cta-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+  line-height: 1.25;
+}
+
+/* FAQ visible (no accordion) */
+.faq-item .faq-a { display: block; }
+
 /* Responsive – venue page new sections */
 @media (max-width: 1024px) {
   .venue-stats { grid-template-columns: repeat(2, 1fr); }
   .why-venues-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .destination-grid { grid-template-columns: repeat(2, 1fr); }
   .explore-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .venue-intro-text { font-size: 0.97rem; }
+  .venue-intro-text { font-size: 1.02rem; }
   .venue-stats { grid-template-columns: repeat(2, 1fr); }
   .why-venues-grid { grid-template-columns: 1fr; }
+  .why-grid-4 { grid-template-columns: 1fr; }
+  .destination-grid { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
   .steps-grid::before { display: none; }
   .venue-testi-grid { grid-template-columns: 1fr; }
   .explore-grid { grid-template-columns: 1fr; }
   .how-it-works { padding: 40px 25px; }
   .explore-locations { padding: 60px var(--section-padding-x); }
+  .venue-cta-heading { font-size: 1.5rem; }
 }
 
