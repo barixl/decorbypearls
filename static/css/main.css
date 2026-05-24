@@ -4137,6 +4137,42 @@ footer {
   z-index: 2;
 }
 
+/* Venue page label and heading readability */
+.venue-intro-block .services-header .section-label,
+#venues .services-header .section-label,
+.destination-header .section-label,
+.why-venues-header .section-label,
+.how-it-works-header .section-label,
+.explore-locations-header .section-label,
+.venue-faq .section-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.testimonials-header .section-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.venue-intro-block .services-header .section-title,
+#venues .services-header .section-title,
+.destination-header .section-title,
+.why-venues-header .section-title,
+.how-it-works-header .section-title,
+.explore-locations-header .section-title,
+.venue-faq .section-title {
+  line-height: 1.05;
+}
+
+.venue-faq {
+  margin-top: 90px;
+  padding-top: 10px;
+}
+
 /* Explore Other Locations */
 .explore-locations {
   padding: 90px var(--section-padding-x);
@@ -4216,9 +4252,9 @@ footer {
 .venue-intro-content { max-width: 860px; margin: 0 auto 40px; text-align: center; }
 .venue-intro-subheading {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: var(--gold);
-  font-weight: 400;
+  font-weight: 600;
   font-style: italic;
   margin-bottom: 20px;
 }
