@@ -210,6 +210,26 @@ def services():
 def gallery():
     return render_template('pages/gallery.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('pages/contact.html')
+
+@app.route('/venues/chandigarh')
+def chandigarh():
+    return render_template('pages/chandigarh.html')
+
+@app.route('/venues/punjab')
+def punjab():
+    return render_template('pages/punjab.html')
+
+@app.route('/venues/haryana')
+def haryana():
+    return render_template('pages/haryana.html')
+
+@app.route('/venues/himachal')
+def himachal():
+    return render_template('pages/himachal.html')
+
 @app.route('/testimonials')
 def testimonials():
     approved_testimonials = Testimonial.query.filter_by(status='approved').order_by(Testimonial.created_at.desc()).all()
