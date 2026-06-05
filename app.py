@@ -198,8 +198,8 @@ with app.app_context():
         
     seed_db()
     # Create or update default admin
-    admin_email = 'ashishr730246@gmail.com'
-    admin_pass = 'Decorbypearls@0302'
+    admin_email = os.environ.get('ADMIN_USERNAME', 'ashishr730246@gmail.com')
+    admin_pass = os.environ.get('ADMIN_PASSWORD', 'Decorbypearls@0302')
     user = User.query.filter_by(username=admin_email).first()
     if not user:
         hashed_pw = generate_password_hash(admin_pass)
@@ -294,35 +294,41 @@ Sitemap: {url_for('sitemap_xml', _external=True)}
 
 @app.route('/sitemap.xml')
 def sitemap_xml():
-    urls = [
-        url_for('home', _external=True),
-        url_for('about', _external=True),
-        url_for('services', _external=True),
-        url_for('chandigarh', _external=True),
-        url_for('punjab', _external=True),
-        url_for('haryana', _external=True),
-        url_for('himachal', _external=True),
-        url_for('gallery', _external=True),
-        url_for('testimonials', _external=True),
-        url_for('contact', _external=True),
-        url_for('blog', _external=True),
+    today = datetime.utcnow().date().isoformat()
+
+    static_pages = [
+        (url_for('home', _external=True),         '1.0', 'daily'),
+        (url_for('services', _external=True),     '0.9', 'weekly'),
+        (url_for('chandigarh', _external=True),   '0.9', 'weekly'),
+        (url_for('punjab', _external=True),       '0.9', 'weekly'),
+        (url_for('haryana', _external=True),      '0.9', 'weekly'),
+        (url_for('himachal', _external=True),     '0.9', 'weekly'),
+        (url_for('gallery', _external=True),      '0.8', 'weekly'),
+        (url_for('blog', _external=True),         '0.8', 'daily'),
+        (url_for('about', _external=True),        '0.7', 'monthly'),
+        (url_for('testimonials', _external=True), '0.7', 'weekly'),
+        (url_for('contact', _external=True),      '0.7', 'monthly'),
     ]
 
     blog_posts = Blog.query.order_by(Blog.created_at.desc()).all()
-    blog_urls = [url_for('blog_single', slug=post.slug, _external=True) for post in blog_posts]
+    blog_entries = [
+        (url_for('blog_single', slug=post.slug, _external=True),
+         post.created_at.date().isoformat() if post.created_at else today,
+         '0.8', 'monthly')
+        for post in blog_posts
+    ]
 
-    today = datetime.utcnow().date().isoformat()
-    sitemap_entries = []
-    for page_url in urls + blog_urls:
-        sitemap_entries.append(
-            f"  <url><loc>{page_url}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>"
-        )
+    entries = []
+    for url, priority, changefreq in static_pages:
+        entries.append(f"  <url><loc>{url}</loc><lastmod>{today}</lastmod><changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>")
+    for url, lastmod, priority, changefreq in blog_entries:
+        entries.append(f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>")
 
     sitemap_content = """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
 {entries}
 </urlset>
-""".format(entries="\n".join(sitemap_entries))
+""".format(entries="\n".join(entries))
 
     return Response(sitemap_content, mimetype='application/xml')
 

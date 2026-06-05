@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
+{% block title %}Decor By Pearls – Luxury Wedding Planner in Chandigarh & North India{% endblock %}
+
 {% block meta %}
 <meta name="description" content="Decor By Pearls is a luxury wedding planner creating elegant celebrations, premium décor, venue styling, and destination wedding experiences across Chandigarh, Punjab, Haryana, Himachal, and beyond." />
 <meta name="keywords" content="Decor By Pearls, luxury wedding planner, wedding planning services, wedding décor, venue styling, destination wedding planner, wedding planner Chandigarh, wedding planner Punjab, wedding planner Haryana, wedding planner Himachal" />
 <meta property="og:title" content="Decor By Pearls – Weddings With Elegance" />
 <meta property="og:description" content="Luxury wedding planning, elegant décor, premium venue styling, and destination wedding experiences across North India." />
 <meta property="og:type" content="website" />
+<link rel="preload" as="image" href="{{ url_for('static', filename='images/gallery/slider/slider_01.webp') }}" fetchpriority="high">
 {% endblock %}
 
 {% block content %}
@@ -685,8 +688,9 @@
     </div>
     <div class="video-card reveal reveal-delay-2">
       <img
-        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
+        src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding_Films01.webp') }}"
         alt="Film 5"
+        loading="lazy"
       />
       <div class="video-play">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -867,15 +871,16 @@
         <span class="rw-tag">Palace Wedding</span>
       </div>
       <div class="rw-meta">
-        <h3 class="rw-couple">mariaranaaa</h3>
+        <h3 class="rw-couple">Ankush &amp; Riti</h3>
         <p class="rw-detail">📍 Udaipur, Rajasthan · March 2024</p>
       </div>
     </div>
     <div class="rw-card reveal reveal-delay-1">
       <div class="rw-img-wrap">
         <img
-          src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=700&q=80"
+          src="{{ url_for('static', filename='images/gallery/gallery_sec/Wedding_Films02.webp') }}"
           alt="Wedding 2"
+          loading="lazy"
         />
         <span class="rw-tag">Beach Wedding</span>
       </div>
@@ -893,7 +898,7 @@
         <span class="rw-tag">Garden Wedding</span>
       </div>
       <div class="rw-meta">
-        <h3 class="rw-couple">taimoorsheikh</h3>
+        <h3 class="rw-couple">Rohit &amp; Anjali</h3>
         <p class="rw-detail">📍 Chandigarh, Punjab · Nov 2023</p>
       </div>
     </div>

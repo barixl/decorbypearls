@@ -42,7 +42,7 @@
 
 {% block content %}
 <!-- PAGE HEADER -->
-<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('{{ post.image_url if post.image_url else "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=80" }}') center/cover;">
+<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('{{ post.image_url if post.image_url else url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;">
     <div class="container">
         <span class="section-label" style="color: var(--gold);">{{ post.cat.name if post.cat else 'Wedding Insights' }}</span>
         <h1 class="section-title" style="color: #fff;">{{ post.title }}</h1>
@@ -63,7 +63,7 @@
             </div>
             
             {% if post.image_url %}
-            <img src="{{ post.image_url }}" alt="{{ post.title }}" class="featured-image">
+            <img src="{{ post.image_url }}" alt="{{ post.image_alt if post.image_alt else post.title }}" class="featured-image" loading="lazy">
             {% endif %}
             
             <div class="blog-text">
@@ -79,7 +79,7 @@
                 <h3>Recent Posts</h3>
                 {% for recent in recent_posts %}
                 <div class="recent-post">
-                    <img src="{{ recent.image_url if recent.image_url else 'https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80' }}" alt="{{ recent.title }}">
+                    <img src="{{ recent.image_url if recent.image_url else url_for('static', filename='images/gallery/gallery_sec/gallery_img01.webp') }}" alt="{{ recent.title }}" loading="lazy">
                     <div class="recent-info">
                         <a href="{{ url_for('blog_single', slug=recent.slug) }}">{{ recent.title }}</a>
                         <span>{{ recent.created_at.strftime('%b %d, %Y') }}</span>
@@ -89,7 +89,7 @@
             </div>
             
             <div class="sidebar-widget banner-widget">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Banner">
+                <img src="{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}" alt="Plan your dream wedding with Decor By Pearls" loading="lazy">
                 <div class="banner-content">
                     <h4>Plan Your Dream Day</h4>
                     <a href="{{ url_for('services') }}" class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem;">Contact Us</a>
@@ -107,7 +107,7 @@
                 {% for recent in recent_posts %}
                 <article class="blog-card">
                     <div class="blog-img">
-                        <img src="{{ recent.image_url if recent.image_url else 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80' }}" alt="{{ recent.title }}">
+                        <img src="{{ recent.image_url if recent.image_url else url_for('static', filename='images/gallery/gallery_sec/gallery_img01.webp') }}" alt="{{ recent.title }}" loading="lazy">
                         <span class="blog-date">{{ recent.created_at.strftime('%B %d, %Y') }}</span>
                     </div>
                     <div class="blog-content">

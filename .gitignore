@@ -9,3 +9,6 @@ instance/
 .env
 .pytest_cache/
 .vercel
+~$*.docx
+~$*.xlsx
+*.tmp
