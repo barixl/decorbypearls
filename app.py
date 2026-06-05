@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_compress import Compress
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -20,48 +20,12 @@ app = Flask(__name__)
 Compress(app)
 
 # Configuration
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'decorbypearls-dev-secret-key'
-# Using Supabase (Postgres) with a local SQLite fallback
-db_url = os.environ.get('DATABASE_URL')
-if db_url and db_url.startswith("postgres://"):
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///site.db'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+# Using Supabase (Postgres)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# Caching settings: 1 year cache for static files
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-
-# Dynamic cache-busting: override url_for for static files to append file mtime
-@app.context_processor
-def override_url_for():
-    return dict(url_for=dated_url_for)
-
-def dated_url_for(endpoint, **values):
-    if endpoint == 'static':
-        filename = values.get('filename', None)
-        if filename:
-            file_path = os.path.join(app.static_folder, filename)
-            if os.path.exists(file_path):
-                values['v'] = int(os.stat(file_path).st_mtime)
-    return url_for(endpoint, **values)
-
-# Set Cache-Control headers per asset type
-@app.after_request
-def add_header(response):
-    if request.path.startswith('/static/'):
-        # CSS and JS change with deployments — URL versioning busts cache,
-        # but DON'T use 'immutable' so hard-refresh can recover stale states.
-        if request.path.endswith(('.css', '.js')):
-            response.headers['Cache-Control'] = 'public, max-age=31536000'
-        else:
-            # Images, fonts, favicons — truly static, safe to mark immutable
-            response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
-    elif response.content_type and response.content_type.startswith('text/html'):
-        # HTML pages must always be fresh so browsers get the latest CSS/JS URLs
-        response.headers['Cache-Control'] = 'no-cache, must-revalidate'
-        response.headers['Pragma'] = 'no-cache'
-    return response
-
 
 # Cloudinary Configuration
 cloudinary.config( 
@@ -106,9 +70,15 @@ class Blog(db.Model):
     content = db.Column(db.Text, nullable=False)
     excerpt = db.Column(db.String(500))
     image_url = db.Column(db.String(500))
-    tags = db.Column(db.String(200)) # Comma separated tags
+    image_alt = db.Column(db.String(200))
+    tags = db.Column(db.String(200))
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    # SEO fields
+    meta_title = db.Column(db.String(100))
+    meta_description = db.Column(db.String(320))
+    focus_keyword = db.Column(db.String(100))
+    canonical_url = db.Column(db.String(500))
 
 class Testimonial(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -160,30 +130,28 @@ def seed_db():
 from sqlalchemy import text
 with app.app_context():
     db.create_all()
-    # Check if we are using SQLite or PostgreSQL
-    db_uri = app.config.get('SQLALCHEMY_DATABASE_URI', '')
-    is_sqlite = db_uri.startswith('sqlite:')
-
     # Migration: Add category_id and tags if they don't exist (Supabase/Postgres)
-    # We skip these on SQLite because db.create_all() creates the correct schema from scratch,
-    # and SQLite doesn't support this PostgreSQL syntax.
-    if not is_sqlite:
-        def run_migration(sql):
-            try:
-                db.session.execute(text(sql))
-                db.session.commit()
-            except Exception as e:
-                db.session.rollback()
-                # We don't print everything to keep logs clean, but we know it might fail if already exists
-                if "already exists" not in str(e).lower():
-                    print(f"Migration notice for '{sql[:30]}...': {e}")
+    def run_migration(sql):
+        try:
+            db.session.execute(text(sql))
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            # We don't print everything to keep logs clean, but we know it might fail if already exists
+            if "already exists" not in str(e).lower():
+                print(f"Migration notice for '{sql[:30]}...': {e}")
 
-        run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS category_id INTEGER REFERENCES category(id)")
-        run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS tags VARCHAR(200)")
-        run_migration("ALTER TABLE blog DROP COLUMN IF EXISTS category")
-        run_migration('ALTER TABLE IF EXISTS "user" RENAME TO site_user')
-        run_migration('ALTER TABLE site_user ALTER COLUMN password TYPE VARCHAR(255)')
-        run_migration('ALTER TABLE site_user ALTER COLUMN username TYPE VARCHAR(100)')
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS category_id INTEGER REFERENCES category(id)")
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS tags VARCHAR(200)")
+    run_migration("ALTER TABLE blog DROP COLUMN IF EXISTS category")
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS image_alt VARCHAR(200)")
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS meta_title VARCHAR(100)")
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS meta_description VARCHAR(320)")
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS focus_keyword VARCHAR(100)")
+    run_migration("ALTER TABLE blog ADD COLUMN IF NOT EXISTS canonical_url VARCHAR(500)")
+    run_migration('ALTER TABLE IF EXISTS "user" RENAME TO site_user')
+    run_migration('ALTER TABLE site_user ALTER COLUMN password TYPE VARCHAR(255)')
+    run_migration('ALTER TABLE site_user ALTER COLUMN username TYPE VARCHAR(100)')
         
     seed_db()
     # Create or update default admin
@@ -238,22 +206,6 @@ def about():
 def services():
     return render_template('pages/services.html')
 
-@app.route('/services/chandigarh')
-def chandigarh():
-    return render_template('pages/chandigarh.html')
-
-@app.route('/services/punjab')
-def punjab():
-    return render_template('pages/punjab.html')
-
-@app.route('/services/haryana')
-def haryana():
-    return render_template('pages/haryana.html')
-
-@app.route('/services/himachal')
-def himachal():
-    return render_template('pages/himachal.html')
-
 @app.route('/gallery')
 def gallery():
     return render_template('pages/gallery.html')
@@ -262,58 +214,6 @@ def gallery():
 def testimonials():
     approved_testimonials = Testimonial.query.filter_by(status='approved').order_by(Testimonial.created_at.desc()).all()
     return render_template('pages/testimonials.html', testimonials=approved_testimonials)
-
-@app.route('/contact')
-def contact():
-    return render_template('pages/contact.html')
-
-
-@app.route('/robots.txt')
-def robots_txt():
-    robots_content = f"""User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /login
-Disallow: /logout
-
-Sitemap: {url_for('sitemap_xml', _external=True)}
-"""
-    return Response(robots_content, mimetype='text/plain')
-
-
-@app.route('/sitemap.xml')
-def sitemap_xml():
-    urls = [
-        url_for('home', _external=True),
-        url_for('about', _external=True),
-        url_for('services', _external=True),
-        url_for('chandigarh', _external=True),
-        url_for('punjab', _external=True),
-        url_for('haryana', _external=True),
-        url_for('himachal', _external=True),
-        url_for('gallery', _external=True),
-        url_for('testimonials', _external=True),
-        url_for('contact', _external=True),
-        url_for('blog', _external=True),
-    ]
-
-    blog_posts = Blog.query.order_by(Blog.created_at.desc()).all()
-    blog_urls = [url_for('blog_single', slug=post.slug, _external=True) for post in blog_posts]
-
-    today = datetime.utcnow().date().isoformat()
-    sitemap_entries = []
-    for page_url in urls + blog_urls:
-        sitemap_entries.append(
-            f"  <url><loc>{page_url}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>"
-        )
-
-    sitemap_content = """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
-{entries}
-</urlset>
-""".format(entries="\n".join(sitemap_entries))
-
-    return Response(sitemap_content, mimetype='application/xml')
 
 @app.route('/submit-testimonial', methods=['POST'])
 def submit_testimonial():
@@ -394,13 +294,18 @@ def new_blog():
         slug = slugify(title)
         
         new_post = Blog(
-            title=title, 
-            slug=slug, 
-            content=content, 
-            excerpt=excerpt, 
-            image_url=image_url, 
+            title=title,
+            slug=slug,
+            content=content,
+            excerpt=excerpt,
+            image_url=image_url,
+            image_alt=request.form.get('image_alt', ''),
             tags=request.form.get('tags', ''),
-            category_id=category_id
+            category_id=category_id,
+            meta_title=request.form.get('meta_title', ''),
+            meta_description=request.form.get('meta_description', ''),
+            focus_keyword=request.form.get('focus_keyword', ''),
+            canonical_url=request.form.get('canonical_url', '')
         )
         db.session.add(new_post)
         db.session.commit()
@@ -421,6 +326,11 @@ def edit_blog(id):
         post.tags = request.form.get('tags', '')
         post.category_id = request.form.get('category_id')
         post.slug = slugify(post.title)
+        post.image_alt = request.form.get('image_alt', '')
+        post.meta_title = request.form.get('meta_title', '')
+        post.meta_description = request.form.get('meta_description', '')
+        post.focus_keyword = request.form.get('focus_keyword', '')
+        post.canonical_url = request.form.get('canonical_url', '')
         
         # Handle Cloudinary Upload
         if 'featured_image' in request.files:

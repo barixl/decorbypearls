@@ -1,342 +1,170 @@
 {% extends 'base.html' %}
 
-{% block title %}Our Services – Decor By Pearls{% endblock %}
+{% block title %}Wedding Planning & Decoration Services – Decor By Pearls{% endblock %}
 
-{% block meta %}
-<meta name="description" content="Explore luxury wedding planning services by Decor By Pearls, including venue selection, décor, vendor management, catering styling, bridal styling, logistics, invitations, gifting, and complete destination wedding planning." />
-<meta name="keywords" content="Wedding Planning Services, Luxury Wedding Planner, Destination Wedding Planning, Wedding Venue Selection, Wedding Décor Services, Vendor Management, Event Planning Services, Bridal Styling, Wedding Logistics, Wedding Invitations, Wedding Gifting, Hospitality Management, Decor By Pearls" />
-<meta property="og:title" content="Wedding Planning Services | Decor By Pearls" />
-<meta property="og:description" content="Complete wedding planning and décor services including venue selection, vendor coordination, luxury styling, logistics, hospitality, and destination wedding execution." />
-<meta property="og:type" content="website" />
+{% block seo %}
+<meta name="description" content="From full-service wedding planning to bridal styling, vendor management, and décor — explore all 12 services offered by Decor By Pearls across India.">
+<meta name="keywords" content="wedding consulting and planning India, destination wedding venue selection, wedding vendor management India, wedding decor and design management, bridal wardrobe styling India, wedding budget planning service, wedding stationery and invitations India, wedding website design India">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://decorbypearls.com/services">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wedding Planning & Decoration Services – Decor By Pearls">
+<meta property="og:description" content="From full-service wedding planning to bridal styling, vendor management, and décor — explore all 12 wedding services by Decor By Pearls across India.">
+<meta property="og:url" content="https://decorbypearls.com/services">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80">
+<meta property="og:site_name" content="Decor By Pearls">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wedding Planning & Decoration Services – Decor By Pearls">
+<meta name="twitter:description" content="Explore 12 wedding services — planning, décor, styling, vendor management and more across India.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Wedding Planning & Decoration Services",
+  "provider": { "@type": "Organization", "name": "Decor By Pearls", "url": "https://decorbypearls.com" },
+  "description": "Full-service wedding planning, decoration, bridal styling, vendor management, logistics, stationery, food & beverage management, and more across India.",
+  "areaServed": "India",
+  "url": "https://decorbypearls.com/services"
+}
+</script>
 {% endblock %}
 
 {% block content %}
 <!-- PAGE HEADER -->
-<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}') center/cover;">
+<section class="page-header" style="background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(10, 17, 40, 0.7) 100%), url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&q=80') center/cover;">
     <div class="container">
         <span class="section-label" style="color: var(--gold);">What We Do</span>
-        <h1 class="section-title" style="color: #fff;">Services We <em>Provide</em></h1>
+        <h1 class="section-title" style="color: #fff;">Wedding Planning & Decoration <em>Services</em> India</h1>
     </div>
 </section>
 
 <!-- SERVICES SECTION -->
 <section class="services" id="services">
-  <!-- Header removed to prevent repetition with the banner -->
-  <div class="services-swiper swiper">
-    <div class="services-grid swiper-wrapper">
-      <div class="service-card swiper-slide reveal" data-service="consulting-planning">
-        <img
-          src="{{ url_for('static', filename='images/gallery/slider/Consulting_Planning.webp') }}"
-          alt="Consulting"
-          loading="lazy"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Consulting &amp; Planning</h3>
-          <p>Expert guidance at every stage of your celebration journey.</p>
-        </div>
-      </div>
-      <div class="service-card swiper-slide reveal reveal-delay-1" data-service="destination-venue-selection">
-        <img
-         src="{{ url_for('static', filename='images/gallery/slider/slider_01.webp') }}"
-          alt="Destination"
-          loading="lazy"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Destination &amp; Venue Selection</h3>
-          <p>Curated venues across India's most breathtaking locations.</p>
-        </div>
-      </div>
-      <div class="service-card swiper-slide reveal reveal-delay-2" data-service="vendor-sourcing-management">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Vendor_Sourcing.webp') }}"
-          alt="Food"
-          loading="lazy"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Vendor Sourcing &amp; Management</h3>
-          <p>Trusted network of premium vendors for every need.</p>
-        </div>
-      </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-3" data-service="design-decor-management">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/bg.webp') }}"
-          alt="Design"
-          loading="lazy"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Design &amp; Décor Management</h3>
-          <p>Transforming spaces into magical atmospheres.</p>
-        </div>
-      </div>
-      <div class="service-card swiper-slide reveal" data-service="food-beverage-management">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/food_beverage.webp') }}"
-          alt="Food Beverage"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Food &amp; Beverage Management</h3>
-          <p>Exquisite culinary experiences tailored to your taste.</p>
-        </div>
-      </div>
-      <div class="service-card swiper-slide reveal reveal-delay-1" data-service="budget-management">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Budget_Management.webp') }}"
-          alt="Budget"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Budget Management</h3>
-          <p>Smart financial planning for your perfect day.</p>
-        </div>
-      </div>
-      <div class="service-card swiper-slide reveal reveal-delay-2" data-service="guest-rsvp-hospitality">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Guest_RSVP_Hospitality.webp') }}"
-          alt="Guest"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Guest RSVP &amp; Hospitality</h3>
-          <p>Ensuring every guest feels warmly welcomed.</p>
-        </div>
-      </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-3" data-service="wedding-favors-gifting">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Favors_&_Gifting.webp') }}"
-          alt="Favors"
-          loading="lazy"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Wedding Favors &amp; Gifting</h3>
-          <p>Personalised tokens of love for your guests.</p>
-        </div>
-      </div> 
-      <div class="service-card swiper-slide reveal" data-service="bridal-wardrobe-styling">
-        <img 
-          src="{{ url_for('static', filename='images/gallery/services_img/Bridal.webp') }}"
-          alt="Bridal"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Bridal &amp; Wardrobe Styling</h3>
-          <p>Look stunning for every moment of your celebration.</p>
-        </div>
-      </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-1" data-service="logistics-management">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Logistics_Management.webp') }}"
-          alt="Logistics"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Logistics Management</h3>
-          <p>Seamless coordination so nothing is left to chance.</p>
-        </div>
-      </div>
-      <div class="service-card swiper-slide reveal reveal-delay-2" data-service="stationery-invitations">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Stationery_Invitation.webp') }}"
-          alt="Stationery"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Stationery &amp; Invitations</h3>
-          <p>Bespoke designs that set the tone for your event.</p>
-        </div>
-      </div> 
-      <div class="service-card swiper-slide reveal reveal-delay-3" data-service="wed-sites">
-        <img
-          src="{{ url_for('static', filename='images/gallery/services_img/Wed-Sites.webp') }}"
-          alt="Wed-sites"
-        />
-        <div class="service-overlay"></div>
-        <div class="service-icon">✦</div>
-        <div class="service-info">
-          <h3>Wed-Sites</h3>
-          <p>Beautiful digital experiences to share your love story.</p>
-        </div>
-      </div>
+    <div class="services-header reveal">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Services We <em>Provide</em></h2>
+        <div class="divider"></div>
     </div>
-    <div class="swiper-pagination services-pagination"></div>
-    <div class="swiper-button-prev services-nav-btn"></div>
-    <div class="swiper-button-next services-nav-btn"></div>
-  </div>
-</section>
-
-<!-- WEDDING CATEGORIES -->
-<section class="categories" id="categories">
-  <div class="categories-header reveal">
-    <span class="section-label">Find Your Style</span>
-    <h2 class="section-title">Wedding <em>Categories</em></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card-new reveal">
-      <div class="cat-img-bg">
-        <img
-          src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Beach_Wedding.webp') }}"
-          alt="Beach Wedding"
-          loading="lazy"
-        />
-      </div>
-      <div class="cat-content-new">
-        <span class="cat-number">01.</span>
-        <div class="cat-info-wrap">
-          <h3>Beach Wedding</h3>
-          <p>
-            Beautiful off shores, blue skies, all you desire to tie your knot
-            amidst beachy waves
-          </p>
+    
+    <div class="services-swiper swiper">
+        <div class="services-grid swiper-wrapper">
+            <div class="service-card swiper-slide reveal">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Consulting" loading="lazy">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Consulting &amp; Planning</h3>
+                    <p>Expert guidance at every stage of your celebration journey.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Destination" loading="lazy">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Destination &amp; Venue Selection</h3>
+                    <p>Curated venues across India's most breathtaking locations.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80" alt="Food" loading="lazy">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Vendor Sourcing &amp; Management</h3>
+                    <p>Trusted network of premium vendors for every need.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal">
+                <img src="https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80" alt="Design">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Design &amp; Décor Management</h3>
+                    <p>Transforming spaces into magical atmospheres.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Food Beverage">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Food &amp; Beverage Management</h3>
+                    <p>Exquisite culinary experiences tailored to your taste.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Budget">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Budget Management</h3>
+                    <p>Smart financial planning for your perfect day.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal">
+                <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80" alt="Guest">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Guest RSVP &amp; Hospitality</h3>
+                    <p>Ensuring every guest feels warmly welcomed.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-1">
+                <img src="https://media.istockphoto.com/id/2188370785/photo/wedding-favors-decorated-with-ribbons-and-flowers-waiting-for-guests.jpg?s=612x612&w=0&k=20&c=qDB6Q1lgGZjF4mHhx8E7Qe4671Vdye06IFtUVpwUAo0=" alt="Favors">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Wedding Favors &amp; Gifting</h3>
+                    <p>Personalised tokens of love for your guests.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80" alt="Bridal">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Bridal &amp; Wardrobe Styling</h3>
+                    <p>Look stunning for every moment of your celebration.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal">
+                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Logistics">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Logistics Management</h3>
+                    <p>Seamless coordination so nothing is left to chance.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80" alt="Stationery">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Stationery &amp; Invitations</h3>
+                    <p>Bespoke designs that set the tone for your event.</p>
+                </div>
+            </div>
+            <div class="service-card swiper-slide reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Wed-sites" loading="lazy">
+                <div class="service-overlay"></div>
+                <div class="service-icon">✦</div>
+                <div class="service-info">
+                    <h3>Wed-Sites</h3>
+                    <p>Beautiful digital experiences to share your love story.</p>
+                </div>
+            </div>
         </div>
-        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Beach%20Wedding" class="cat-circle-btn"
-          ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
-        ></a>
-      </div>
+        <div class="swiper-pagination services-pagination"></div>
+        <div class="swiper-button-prev services-nav-btn"></div>
+        <div class="swiper-button-next services-nav-btn"></div>
     </div>
-    <div class="cat-card-new reveal reveal-delay-1">
-      <div class="cat-img-bg">
-        <img
-          src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Cruise_Wedding.webp') }}"
-          alt="Cruise Wedding"
-        />
-      </div>
-      <div class="cat-content-new">
-        <span class="cat-number">02.</span>
-        <div class="cat-info-wrap">
-          <h3>Cruise Wedding</h3>
-          <p>
-            Celebrate your love amidst the ocean on a grand cruise with luxury
-            amenities
-          </p>
-        </div>
-        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Cruise%20Wedding" class="cat-circle-btn"
-          ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
-        ></a>
-      </div>
-    </div>
-    <div class="cat-card-new reveal reveal-delay-2">
-      <div class="cat-img-bg">
-        <img
-          src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Vineyard_Weddings.webp') }}"
-          alt="Vineyard Wedding"
-        />
-      </div>
-      <div class="cat-content-new">
-        <span class="cat-number">03.</span>
-        <div class="cat-info-wrap">
-          <h3>Vineyard Weddings</h3>
-          <p>
-            Lush green wineries with a clique vibe for your soul mate in
-            romantic settings
-          </p>
-        </div>
-        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Vineyard%20Weddings" class="cat-circle-btn"
-          ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
-        ></a>
-      </div>
-    </div>
-    <div class="cat-card-new reveal">
-      <div class="cat-img-bg">
-        <img
-          src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Fort_Weddings.webp') }}"
-          alt="Fort Wedding"
-        />
-      </div>
-      <div class="cat-content-new">
-        <span class="cat-number">04.</span>
-        <div class="cat-info-wrap">
-          <h3>Fort Weddings</h3>
-          <p>
-            Royalty &amp; aesthetic grandeur to make your wedding historic and
-            unforgettable
-          </p>
-        </div>
-        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Fort%20Weddings" class="cat-circle-btn"
-          ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
-        ></a>
-      </div>
-    </div>
-    <div class="cat-card-new reveal reveal-delay-1">
-      <div class="cat-img-bg">
-        <img
-          src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Mountain_Wedding.webp') }}"
-          alt="Mountain Wedding"
-        />
-      </div>
-      <div class="cat-content-new">
-        <span class="cat-number">05.</span>
-        <div class="cat-info-wrap">
-          <h3>Mountain Weddings</h3>
-          <p>
-            High hilltop, chilly weather &amp; stunning vistas for your
-            adventurous special day
-          </p>
-        </div>
-        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Mountain%20Weddings" class="cat-circle-btn"
-          ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
-        ></a>
-      </div>
-    </div>
-    <div class="cat-card-new reveal reveal-delay-2">
-      <div class="cat-img-bg">
-        <img
-          src="{{ url_for('static', filename='images/gallery/Wedding_Categories/Intimate_Wedding.webp') }}"
-          alt="Intimate Wedding"
-        />
-      </div>
-      <div class="cat-content-new">
-        <span class="cat-number">06.</span>
-        <div class="cat-info-wrap">
-          <h3>Intimate Weddings</h3>
-          <p>
-            Tie the knot with your love of life in a cozy, meaningful setting
-            with family
-          </p>
-        </div>
-        <a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Intimate%20Weddings" class="cat-circle-btn"
-          ><span>Book Now</span><i class="ri-arrow-right-up-line"></i
-        ></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SEO TAGS -->
-<section class="seo-tags" style="padding: 60px 20px; text-align: center; background: var(--cream);">
-  <div class="container reveal">
-    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 25px; color: var(--green);">Our Services &amp; Specialities</h3>
-    <div class="seo-tags-list">
-      <span class="seo-tag">Luxury Wedding Planning</span>
-      <span class="seo-tag">5-Star Venue Selection</span>
-      <span class="seo-tag">Wedding Vendor Sourcing</span>
-      <span class="seo-tag">Event Décor &amp; Design</span>
-      <span class="seo-tag">Gourmet Catering Styling</span>
-      <span class="seo-tag">Wedding Budget Management</span>
-      <span class="seo-tag">Guest RSVP &amp; Hospitality</span>
-      <span class="seo-tag">Bespoke Wedding Gifting</span>
-      <span class="seo-tag">Bridal Styling &amp; Wardrobe</span>
-      <span class="seo-tag">Seamless Event Logistics</span>
-      <span class="seo-tag">Bespoke Wedding Invitations</span>
-      <span class="seo-tag">Custom Wedding Websites</span>
-    </div>
-  </div>
 </section>
 
 <!-- PROCESS -->
@@ -375,15 +203,88 @@
     </div>
 </section>
 
+<!-- WEDDING CATEGORIES -->
+<section class="categories" id="categories">
+    <div class="categories-header reveal">
+        <span class="section-label">Find Your Style</span>
+        <h2 class="section-title">Wedding <em>Categories</em></h2>
+        <div class="divider"></div>
+    </div>
+    <div class="container">
+        <div class="cat-grid">
+            <div class="cat-card-new reveal">
+                <div class="cat-img-bg"><img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800&q=80" alt="Beach Wedding"></div>
+                <div class="cat-content-new">
+                    <span class="cat-number">01.</span>
+                    <div class="cat-info-wrap">
+                        <h3>Beach Wedding</h3>
+                        <p>Beautiful off shores, blue skies, all you desire to tie your knot amidst beachy waves</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card-new reveal reveal-delay-1">
+                <div class="cat-img-bg"><img src="https://images.unsplash.com/photo-1561489396-888724a1543d?w=800&q=80" alt="Cruise Wedding"></div>
+                <div class="cat-content-new">
+                    <span class="cat-number">02.</span>
+                    <div class="cat-info-wrap">
+                        <h3>Cruise Wedding</h3>
+                        <p>Celebrate your love amidst the ocean on a grand cruise with luxury amenities</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card-new reveal reveal-delay-2">
+                <div class="cat-img-bg"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80" alt="Vineyard Wedding"></div>
+                <div class="cat-content-new">
+                    <span class="cat-number">03.</span>
+                    <div class="cat-info-wrap">
+                        <h3>Vineyard Weddings</h3>
+                        <p>Lush green wineries with a clique vibe for your soul mate in romantic settings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card-new reveal">
+                <div class="cat-img-bg"><img src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=800&q=80" alt="Fort Wedding"></div>
+                <div class="cat-content-new">
+                    <span class="cat-number">04.</span>
+                    <div class="cat-info-wrap">
+                        <h3>Fort Weddings</h3>
+                        <p>Royalty &amp; aesthetic grandeur to make your wedding historic and unforgettable</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card-new reveal reveal-delay-1">
+                <div class="cat-img-bg"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80" alt="Mountain Wedding"></div>
+                <div class="cat-content-new">
+                    <span class="cat-number">05.</span>
+                    <div class="cat-info-wrap">
+                        <h3>Mountain Weddings</h3>
+                        <p>High hilltop, chilly weather &amp; stunning vistas for your adventurous special day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-card-new reveal reveal-delay-2">
+                <div class="cat-img-bg"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80" alt="Intimate Wedding"></div>
+                <div class="cat-content-new">
+                    <span class="cat-number">06.</span>
+                    <div class="cat-info-wrap">
+                        <h3>Intimate Weddings</h3>
+                        <p>Tie the knot with your love of life in a cozy, meaningful setting with family</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA BANNER -->
 <section class="cta-banner">
     <div class="cta-banner-inner reveal">
         <h2>Begin Your <em>Love Story</em></h2>
         <p>Let us craft an event that mirrors the depth of your love. Get in touch for a complimentary consultation.</p>
-        <form class="cta-form" action="https://formsubmit.co/info@decorbypearls.com" method="POST">
-            <input type="email" name="email" placeholder="Enter your email address" required />
+        <div class="cta-form">
+            <input type="email" placeholder="Enter your email address">
             <button>Get In Touch</button>
-        </form>
+        </div>
     </div>
 </section>
 {% endblock %}
@@ -424,45 +325,7 @@
         }
     }
     
-    /* SEO Tags Styling */
-    .seo-tags-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    .seo-tag {
-        display: inline-block;
-        background: #fff;
-        color: var(--green);
-        border: 1px solid rgba(10, 17, 40, 0.15);
-        padding: 8px 18px;
-        border-radius: 30px;
-        font-size: 0.8rem;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-        cursor: default;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-    }
-    .seo-tag:hover {
-        background: var(--green);
-        color: #fff;
-        border-color: var(--green);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(10, 17, 40, 0.1);
-    }
-    @media (max-width: 768px) {
-        .seo-tags-list {
-            gap: 8px;
-        }
-        .seo-tag {
-            padding: 6px 14px;
-            font-size: 0.72rem;
-        }
-    }
+    /* Ensure cards look correct */
 
 </style>
 {% endblock %}
@@ -471,30 +334,6 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let servicesSwiper;
-    const serviceParam = new URLSearchParams(window.location.search).get("service");
-    const serviceCards = Array.from(document.querySelectorAll(".service-card[data-service]"));
-
-    function focusServiceCard() {
-      if (!serviceParam) {
-        return;
-      }
-
-      const targetCard = document.querySelector(`.service-card[data-service="${serviceParam}"]`);
-      if (!targetCard) {
-        return;
-      }
-
-      if (window.innerWidth <= 992 && servicesSwiper) {
-        const targetIndex = serviceCards.findIndex((card) => card.dataset.service === serviceParam);
-        if (targetIndex >= 0) {
-          servicesSwiper.slideToLoop(targetIndex, 0);
-        }
-        return;
-      }
-
-      targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-
         function initServicesSwiper() {
             if (window.innerWidth <= 992) {
                 if (!servicesSwiper) {
@@ -514,13 +353,11 @@
                         autoplay: { delay: 3000, disableOnInteraction: false }
                     });
                 }
-                    focusServiceCard();
             } else {
                 if (servicesSwiper) { 
                     servicesSwiper.destroy(true, true); 
                     servicesSwiper = undefined; 
                 }
-                    focusServiceCard();
             }
         }
         initServicesSwiper();

@@ -53,6 +53,70 @@
             </div>
         </div>
 
+        <!-- SEO SETTINGS -->
+        <div style="margin-top: 40px; border: 1px solid #e8e0d0; border-radius: 10px; overflow: hidden;">
+            <button type="button" id="seo-toggle" onclick="toggleSeo()" style="width: 100%; background: #faf7f2; border: none; padding: 18px 24px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit;">
+                <span style="font-size: 1rem; font-weight: 600; color: #1a1a2e; display: flex; align-items: center; gap: 10px;">
+                    <i class="ri-search-eye-line" style="color: #c8a96e; font-size: 1.2rem;"></i>
+                    SEO Settings <span style="font-size: 0.75rem; font-weight: 400; color: #888; margin-left: 6px;">(not visible to users)</span>
+                </span>
+                <i class="ri-arrow-down-s-line" id="seo-arrow" style="font-size: 1.3rem; color: #888; transition: transform 0.3s;"></i>
+            </button>
+            <div id="seo-panel" style="display: none; padding: 30px; border-top: 1px solid #e8e0d0; background: #fff;">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Meta Title <span style="font-size:0.75rem; color:#888; font-weight:400;">— shown in Google search results (max 60 chars)</span></label>
+                        <input type="text" name="meta_title" class="form-control" maxlength="100"
+                            placeholder="e.g. Top 10 Wedding Decor Tips | Decor By Pearls"
+                            value="{{ post.meta_title if post else '' }}"
+                            oninput="updateCounter(this, 'meta-title-count', 60)">
+                        <small id="meta-title-count" style="color:#888;">0 / 60 characters</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Focus Keyword <span style="font-size:0.75rem; color:#888; font-weight:400;">— primary keyword for this post</span></label>
+                        <input type="text" name="focus_keyword" class="form-control"
+                            placeholder="e.g. wedding decor Rajasthan"
+                            value="{{ post.focus_keyword if post else '' }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Meta Description <span style="font-size:0.75rem; color:#888; font-weight:400;">— shown under the title in search results (max 160 chars)</span></label>
+                    <textarea name="meta_description" class="form-control" rows="3" maxlength="320"
+                        placeholder="Write a compelling summary that makes people want to click..."
+                        oninput="updateCounter(this, 'meta-desc-count', 160)">{{ post.meta_description if post else '' }}</textarea>
+                    <small id="meta-desc-count" style="color:#888;">0 / 160 characters</small>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Featured Image Alt Text <span style="font-size:0.75rem; color:#888; font-weight:400;">— describes the image for Google & screen readers</span></label>
+                        <input type="text" name="image_alt" class="form-control"
+                            placeholder="e.g. Luxury wedding floral arch in Udaipur palace"
+                            value="{{ post.image_alt if post else '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Canonical URL <span style="font-size:0.75rem; color:#888; font-weight:400;">— leave blank unless this is a duplicate page</span></label>
+                        <input type="url" name="canonical_url" class="form-control"
+                            placeholder="https://decorbypearls.com/blog/..."
+                            value="{{ post.canonical_url if post else '' }}">
+                    </div>
+                </div>
+
+                <!-- Google Preview -->
+                <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 12px;">Google Search Preview</p>
+                    <div style="max-width: 600px;">
+                        <div id="preview-url" style="font-size: 0.8rem; color: #202124; margin-bottom: 2px;">decorbypearls.com › blog</div>
+                        <div id="preview-title" style="font-size: 1.1rem; color: #1a0dab; font-weight: 400; margin-bottom: 4px; cursor: pointer;">Your meta title will appear here</div>
+                        <div id="preview-desc" style="font-size: 0.85rem; color: #4d5156; line-height: 1.5;">Your meta description will appear here — write something compelling to improve click-through rate.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div style="margin-top: 30px;">
             <button type="submit" class="btn btn-primary" style="padding: 15px 40px;">Save Blog Post</button>
         </div>
@@ -79,10 +143,54 @@
     // Handle form submission
     var form = document.getElementById('blog-form');
     form.onsubmit = function() {
-        // Populate hidden input with HTML from Quill
         var content = document.querySelector('input[name=content]');
         content.value = quill.root.innerHTML;
         return true;
     };
+
+    // SEO panel toggle
+    function toggleSeo() {
+        var panel = document.getElementById('seo-panel');
+        var arrow = document.getElementById('seo-arrow');
+        var open = panel.style.display === 'block';
+        panel.style.display = open ? 'none' : 'block';
+        arrow.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+
+    // Character counter + live Google preview
+    function updateCounter(el, counterId, limit) {
+        var len = el.value.length;
+        var counter = document.getElementById(counterId);
+        counter.textContent = len + ' / ' + limit + ' characters';
+        counter.style.color = len > limit ? '#e74c3c' : (len > limit * 0.85 ? '#e67e22' : '#888');
+        updatePreview();
+    }
+
+    function updatePreview() {
+        var metaTitle = document.querySelector('input[name=meta_title]').value;
+        var metaDesc = document.querySelector('textarea[name=meta_description]').value;
+        var pageTitle = document.querySelector('input[name=title]').value;
+
+        document.getElementById('preview-title').textContent =
+            metaTitle || pageTitle || 'Your meta title will appear here';
+        document.getElementById('preview-desc').textContent =
+            metaDesc || 'Your meta description will appear here — write something compelling to improve click-through rate.';
+    }
+
+    // Wire title field to preview too
+    document.querySelector('input[name=title]').addEventListener('input', updatePreview);
+    document.querySelector('input[name=meta_title]').addEventListener('input', updatePreview);
+    document.querySelector('textarea[name=meta_description]').addEventListener('input', updatePreview);
+
+    // Init counters on edit
+    (function() {
+        var mt = document.querySelector('input[name=meta_title]');
+        var md = document.querySelector('textarea[name=meta_description]');
+        if (mt.value) updateCounter(mt, 'meta-title-count', 60);
+        if (md.value) updateCounter(md, 'meta-desc-count', 160);
+        updatePreview();
+        // Auto-open SEO panel if fields already have values (edit mode)
+        if (mt.value || md.value) toggleSeo();
+    })();
 </script>
 {% endblock %}
