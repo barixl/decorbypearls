@@ -81,6 +81,16 @@
       href="{{ url_for('static', filename='css/main.css') }}"
     />
     {% block extra_css %}{% endblock %}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FK449WTQT1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FK449WTQT1');
+    </script>
   </head>
 
   <body>
