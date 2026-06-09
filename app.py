@@ -249,19 +249,19 @@ def about():
 def services():
     return render_template('pages/services.html')
 
-@app.route('/services/chandigarh')
+@app.route('/venues/chandigarh')
 def chandigarh():
     return render_template('pages/chandigarh.html')
 
-@app.route('/services/punjab')
+@app.route('/venues/punjab')
 def punjab():
     return render_template('pages/punjab.html')
 
-@app.route('/services/haryana')
+@app.route('/venues/haryana')
 def haryana():
     return render_template('pages/haryana.html')
 
-@app.route('/services/himachal')
+@app.route('/venues/himachal')
 def himachal():
     return render_template('pages/himachal.html')
 
